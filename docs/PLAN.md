@@ -19,8 +19,8 @@ Report 3 has only about three weeks including the holidays, so the aggregated ou
 | S-03 | W0 (21–25 Oct) | Berke | Add our project choice to the Teams group file | todo |
 | R1-01 | W1 (26 Oct–1 Nov) | Alican | Shared helpers: `session.py`, `paths.py`, `timing.py` | todo |
 | R1-02 | W1 (26 Oct–1 Nov) | Berke | `docs/environment.md` with setup steps and screenshots; pinned `requirements.txt` | todo |
-| R1-03 | W1 (26 Oct–1 Nov) | Both | Compare dataset candidates; choose the dataset and the analytical problem | todo |
-| R1-04 | W2 (2–8 Nov) | Alican | `scripts/download_data.py`; convert raw data to Parquet | todo |
+| R1-03 | W1 (26 Oct–1 Nov) | Both | Choose the dataset and the analytical problem (dataset: NYC yellow taxi trips, Jan–Mar 2025; problem still open) | doing |
+| R1-04 | W2 (2–8 Nov) | Alican | `scripts/download_data.py` for the monthly Parquet files and the zone lookup table | done |
 | R1-05 | W2 (2–8 Nov) | Alican | Cleaning: missing values and type conversions | todo |
 | R1-06 | W2 (2–8 Nov) | Berke | Load the data into Spark; document the schema in `data-dictionary.md` | todo |
 | R1-07 | W2 (2–8 Nov) | Berke | Cleaning: duplicates and invalid rows | todo |
