@@ -1,0 +1,3 @@
+# Python 3.12 and Java 17, see docs/environment.md
+pyspark==4.2.0
+py4j==0.10.9.9
