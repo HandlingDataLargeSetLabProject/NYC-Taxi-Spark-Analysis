@@ -34,7 +34,7 @@ Descriptions follow the official data dictionary. Types and missing-value counts
 | `improvement_surcharge` | | Improvement surcharge charged at the flag drop (since 2015) | |
 | `total_amount` | | Total charged to the passenger, without cash tips | |
 | `congestion_surcharge` | | New York State congestion surcharge for the trip | |
-| `airport_fee` | | Fee for pickups at LaGuardia and JFK airports only | |
+| `Airport_fee` | | Fee for pickups at LaGuardia and JFK airports only (written `airport_fee` in the official dictionary) | |
 | `cbd_congestion_fee` | | Per-trip charge for the MTA Congestion Relief Zone, from 5 January 2025 | |
 
 ## Taxi zone lookup table

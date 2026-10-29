@@ -11,6 +11,8 @@ One line per finished task. Each report's contribution section is built from thi
 | Alican Kaya | Drafted the analytical problem, objectives, queries and optimizations | `docs/analysis-plan.md` |
 | Berke Arda Türk | Set up the local environment (Git, Python, Java 17, PySpark), cloned the repository and reviewed the dataset pull request | — |
 | Berke Arda Türk | Wrote the environment setup guide with screenshots and pinned the Python packages | `docs/environment.md`, `requirements.txt`, `reports/screenshots/` |
+| Alican Kaya | Set up Spark on his own laptop and added it to the environment guide | `docs/environment.md` |
+| Alican Kaya | Wrote the shared helpers for paths, the Spark session and timing, with tests | `src/hlds/`, `tests/` |
 
 ## Report 2
 | Member | Work | Files |

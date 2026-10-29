@@ -17,7 +17,7 @@ Report 3 has only about three weeks including the holidays, so the aggregated ou
 | S-01 | W0 (21–25 Oct) | Alican | Repository skeleton and project documents | done |
 | S-02 | W0 (21–25 Oct) | Berke | Local setup: Git, Python, Java, PySpark; clone and switch to `berke` | done |
 | S-03 | W0 (21–25 Oct) | Alican | Add our project choice to the Teams group file | done |
-| R1-01 | W1 (26 Oct–1 Nov) | Alican | Shared helpers: `session.py`, `paths.py`, `timing.py` | todo |
+| R1-01 | W1 (26 Oct–1 Nov) | Alican | Shared helpers: `session.py`, `paths.py`, `timing.py` | done |
 | R1-02 | W1 (26 Oct–1 Nov) | Berke | `docs/environment.md` with setup steps and screenshots; pinned `requirements.txt` | done |
 | R1-03 | W1 (26 Oct–1 Nov) | Both | Choose the dataset and the analytical problem (dataset: NYC yellow taxi trips, Jan–Mar 2025; problem draft in `docs/analysis-plan.md`) | review |
 | R1-04 | W2 (2–8 Nov) | Alican | `scripts/download_data.py` for the monthly Parquet files and the zone lookup table | done |
