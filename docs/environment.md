@@ -97,7 +97,7 @@ Row counts we got:
 | CPU | Intel Core i7-13650HX, 14 cores, 20 threads |
 | RAM | 16 GB |
 | OS | Windows 11 Pro |
-| Spark | 4.2.0, local mode `local[*]`, default settings |
+| Spark | 4.2.0, local mode `local[*]`, driver memory 4g (`get_spark`), other settings default |
 | Java | Temurin 17.0.20.1 |
 
 All of Berke's timings in Report 2 come from this machine.
@@ -109,7 +109,7 @@ All of Berke's timings in Report 2 come from this machine.
 | RAM | 32 GB |
 | OS | Windows 11 Pro |
 | Python | 3.14.7 |
-| Spark | 4.2.0, local mode `local[*]`, default settings |
+| Spark | 4.2.0, local mode `local[*]`, driver memory 4g (`get_spark`), other settings default |
 | Java | Microsoft OpenJDK 21.0.12.1 |
 
 All of Alican's timings in Report 2 come from this machine. It already had Java 21, so we used it instead of installing Java 17, and Python 3.14 instead of 3.12. The check from step 6 passed with both: 3,475,226 rows for January, the Python UDF returned 1, 2, 3, and the write and read back of 1,000 rows worked with winutils.
