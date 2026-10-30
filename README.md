@@ -4,7 +4,7 @@ Laboratory project for the *Handling Large Data Sets* course (Project 2, Apache 
 
 We build one analytical workflow over the semester: environment setup, data preparation, distributed processing with PySpark and Spark SQL, performance optimization, and visualization. The same dataset and topic are used in all three reports.
 
-> The dataset and the analytical problem are not chosen yet. The repository name will change once the topic is fixed.
+> Dataset: NYC yellow taxi trips, January to March of 2024 and 2025. The analytical problem is in [docs/analysis-plan.md](docs/analysis-plan.md). The repository keeps its temporary name for now.
 
 ## Team
 | Member | Branch |
@@ -30,4 +30,4 @@ data/        local data files (not tracked)
 ```
 
 ## Getting started
-Environment setup (Python, Java, PySpark) is described in `docs/environment.md` once it is written. Work rules are in [CONTRIBUTING.md](CONTRIBUTING.md) and the task list is in [docs/PLAN.md](docs/PLAN.md).
+Environment setup (Python, Java, PySpark) is described in [docs/environment.md](docs/environment.md). Work rules are in [CONTRIBUTING.md](CONTRIBUTING.md) and the task list is in [docs/PLAN.md](docs/PLAN.md).
