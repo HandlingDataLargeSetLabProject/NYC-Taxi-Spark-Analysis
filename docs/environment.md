@@ -49,7 +49,7 @@ We used the Hadoop 3.3.6 build from the `cdarlint/winutils` repository on GitHub
 ```
 python scripts/download_data.py
 ```
-This downloads January to March 2025 and the zone lookup table into `data/raw/` (about 190 MB, under a minute for us). The `data/` folder is never committed.
+This downloads January to March of 2024 and 2025 and the zone lookup table into `data/raw/` (about 350 MB). The `data/` folder is never committed.
 
 ### 6. Check
 Start Python in the virtual environment and run:
@@ -77,17 +77,22 @@ Expected: `4.2.0`, `3475226` rows for January, the schema with 20 columns, `1000
 Row counts we got:
 | File | Rows | Columns |
 |---|---|---|
+| `yellow_tripdata_2024-01.parquet` | 2,964,624 | 19 |
+| `yellow_tripdata_2024-02.parquet` | 3,007,526 | 19 |
+| `yellow_tripdata_2024-03.parquet` | 3,582,628 | 19 |
 | `yellow_tripdata_2025-01.parquet` | 3,475,226 | 20 |
 | `yellow_tripdata_2025-02.parquet` | 3,577,543 | 20 |
 | `yellow_tripdata_2025-03.parquet` | 4,145,257 | 20 |
 | `taxi_zone_lookup.csv` | 265 | 4 |
+
+The six trip files have 20,752,804 rows together. The 2024 files have no `cbd_congestion_fee` column; all other columns and types are the same.
 
 ## Problems we met
 | Problem | Cause | Fix |
 |---|---|---|
 | `df.write.parquet(...)` fails, log says `Did not find winutils.exe` | Hadoop needs native helpers on Windows | step 4 |
 | Session does not start: `UnsupportedClassVersionError ... class file version 61.0`, then Python waits forever | `JAVA_HOME` was not set, so Spark used the old Java 8 on `PATH` | install Java 17 and set `JAVA_HOME` (step 2) |
-| Python UDFs fail with `Python was not found`, while `count()` works | Spark workers look for `python3`, which Windows sends to the Microsoft Store shortcut | set `PYSPARK_PYTHON` to `sys.executable` before creating the session; we suggest doing this in `src/hlds/session.py` |
+| Python UDFs fail with `Python was not found`, while `count()` works | Spark workers look for `python3`, which Windows sends to the Microsoft Store shortcut | set `PYSPARK_PYTHON` to `sys.executable` before creating the session; `get_spark` in `src/hlds/session.py` does this |
 | Warning `'Large' is not recognized as an internal or external command` at start | the project path contained spaces (`Handling Large Data Sets`) and PySpark's Windows start script does not quote it | harmless, but we moved the project to a path without spaces (`Desktop\HLDS`) and the warning is gone |
 | Warning that Arrow optimization failed because PyArrow or Pandas is not installed | we only install PySpark for now | harmless; Spark falls back to normal UDFs |
 
@@ -117,6 +122,6 @@ All of Alican's timings in Report 2 come from this machine. It already had Java 
 ## Screenshots
 Screenshots for Report 1 are in `reports/screenshots/`:
 - `env-versions.png`: `python --version`, `java -version` with `JAVA_HOME` and `pip show pyspark`
-- `env-check.png`: the check from step 6 in the Python shell: Spark version, row count, schema, and the write and read back
+- `env-check.png`: the check from step 6 in the Python shell: Spark version, row count, schema, the write and read back, and the Python UDF
 - `env-spark-ui.png`: the Spark UI at http://localhost:4040 while the check runs
 - `env-data.png`: `data/raw/` with the downloaded files
