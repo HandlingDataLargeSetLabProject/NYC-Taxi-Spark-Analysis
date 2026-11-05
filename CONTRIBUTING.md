@@ -20,7 +20,7 @@ How the two of us work in this repository.
 
 ## Code
 - Python 3 with PySpark and Spark SQL.
-- Use the shared helpers in `src/hlds/` (`session.py`, `paths.py`, `timing.py`) so that all scripts create Spark and measure time the same way.
+- Use the shared helpers in `src/hlds/` (`session.py`, `paths.py`, `timing.py`, `loading.py`, `cleaning.py`) so that all scripts create Spark, load and clean the data, and measure time the same way.
 - Keep functions short and names clear. Add a comment when the reason for a step is not obvious.
 - New packages go into `requirements.txt` with a fixed version, after both of us agree.
 - Run the tests from the repository root with `python -m unittest discover -s tests -t .` (the Spark session tests take about a minute).
