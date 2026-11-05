@@ -22,7 +22,7 @@ Report 3 has only about three weeks including the holidays, so the aggregated ou
 | R1-03 | W1 (26 Oct–1 Nov) | Both | Choose the dataset and the analytical problem (dataset: NYC yellow taxi trips, Jan–Mar 2024 and Jan–Mar 2025; problem in `docs/analysis-plan.md`) | done |
 | R1-04 | W2 (2–8 Nov) | Alican | `scripts/download_data.py` for the monthly Parquet files and the zone lookup table | done |
 | R1-05 | W2 (2–8 Nov) | Alican | Cleaning: missing values and type conversions | todo |
-| R1-06 | W2 (2–8 Nov) | Berke | Load the data into Spark; document the schema in `data-dictionary.md` | todo |
+| R1-06 | W2 (2–8 Nov) | Berke | Load the data into Spark; document the schema in `data-dictionary.md` | done |
 | R1-07 | W2 (2–8 Nov) | Berke | Cleaning: duplicates and invalid rows | todo |
 | R1-08 | W3 (9–15 Nov) | Alican | Analytical objectives for Reports 2 and 3 | todo |
 | R1-09 | W3 (9–15 Nov) | Berke | Descriptive statistics and the summary table | todo |
