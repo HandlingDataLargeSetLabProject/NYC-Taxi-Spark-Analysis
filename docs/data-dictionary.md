@@ -78,8 +78,9 @@ Filled in by the cleaning tasks (R1-05, R1-07).
 | Distance of 0 or below | 215,764 | 294,386 |
 | Distance over 100 miles | 252 | 548 |
 | Negative `total_amount` | 115,895 | 186,902 |
-| Rows dropped by any rule | 327,281 (3.43%) | 499,504 (4.46%) |
+| `total_amount` over 2,000 dollars | 7 | 6 |
+| Rows dropped by any rule | 327,281 (3.43%) | 499,506 (4.46%) |
 | Exact duplicates dropped after that | 1 | 0 |
-| Rows in the cleaned table | 9,227,496 | 10,698,522 |
+| Rows in the cleaned table | 9,227,496 | 10,698,520 |
 
-The cleaned table has 19,926,018 rows. Flex fare rows lose more than the others: 13.52% in 2024 and 8.01% in 2025, against 2.56% and 3.56%, mostly because of distances of 0. When a negative total is dropped, the trip it reverses stays; `docs/analysis-plan.md` describes how much this is under "Limitations".
+The cleaned table has 19,926,016 rows. Flex fare rows lose more than the others: 13.52% in 2024 and 8.01% in 2025, against 2.56% and 3.56%, mostly because of distances of 0. When a negative total is dropped, the trip it reverses stays; `docs/analysis-plan.md` describes how much this is under "Limitations".
