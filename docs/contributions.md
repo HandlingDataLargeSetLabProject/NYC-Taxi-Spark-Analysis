@@ -16,6 +16,7 @@ One line per finished task. Each report's contribution section is built from thi
 | Alican Kaya, Berke Arda Türk | Decided to add January to March 2024 for a before and after comparison; Berke checked the 2024 files, Alican updated the plan, the data dictionary and the default months | `docs/analysis-plan.md`, `docs/data-dictionary.md`, `src/hlds/paths.py`, `scripts/download_data.py` |
 | Berke Arda Türk | Loaded the six months into Spark and documented the schema, types and missing values | `src/hlds/loading.py`, `scripts/profile_raw_data.py`, `tests/test_loading.py`, `docs/data-dictionary.md` |
 | Alican Kaya | Cleaned missing values and converted types, keeping every row and marking flex fare trips and the zone charge period, with tests | `src/hlds/cleaning.py`, `tests/test_cleaning.py`, `docs/data-dictionary.md`, `docs/analysis-plan.md` |
+| Berke Arda Türk | Dropped invalid and duplicate rows, marked trips with a negative price part and measured each rule, with tests; Alican checked the numbers on his laptop | `src/hlds/cleaning.py`, `tests/test_invalid_rows.py`, `scripts/profile_cleaning.py`, `docs/data-dictionary.md`, `docs/analysis-plan.md` |
 
 ## Report 2
 | Member | Work | Files |
