@@ -25,7 +25,8 @@ def convert_types(trips):
 
 
 def mark_unknown_values_as_missing(trips):
-    # 0 passengers and the rate code 99 ("unknown") both mean that the value was not recorded.
+    # The rate code 99 means "unknown". We also read 0 passengers as a count that was not entered; this is our
+    # decision, the field description only says that the driver reports the number.
     known_passengers = F.when(F.col("passenger_count") != 0, F.col("passenger_count"))
     known_rate_code = F.when(F.col("RatecodeID") != UNKNOWN_RATE_CODE, F.col("RatecodeID"))
     return trips.withColumn("passenger_count", known_passengers).withColumn("RatecodeID", known_rate_code)
