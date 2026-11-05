@@ -35,6 +35,19 @@ class GetSparkTest(unittest.TestCase):
     def test_driver_memory_is_fixed(self):
         self.assertEqual(self.spark.conf.get("spark.driver.memory"), "4g")
 
+    def test_session_time_zone_is_utc(self):
+        self.assertEqual(self.spark.conf.get("spark.sql.session.timeZone"), "UTC")
+
+    def test_duration_does_not_depend_on_the_laptop_time_zone(self):
+        from pyspark.sql import functions as F
+
+        # 02:00 to 03:00 did not exist in Poland on this night (summer time), but the taxi times are New York times.
+        trip = self.spark.sql(
+            "SELECT TIMESTAMP_NTZ'2024-03-31 02:30:00' AS pickup, TIMESTAMP_NTZ'2024-03-31 03:10:00' AS dropoff"
+        )
+        seconds = trip.select(F.timestamp_diff("SECOND", "pickup", "dropoff")).first()[0]
+        self.assertEqual(seconds, 40 * 60)
+
     def test_extra_settings_are_applied(self):
         spark = get_spark("hlds-test", extra_conf={"spark.sql.shuffle.partitions": "8"})
         self.assertEqual(spark.conf.get("spark.sql.shuffle.partitions"), "8")
