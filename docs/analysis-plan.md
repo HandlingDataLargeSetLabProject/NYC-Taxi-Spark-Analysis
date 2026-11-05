@@ -3,18 +3,18 @@
 Draft for task R1-03 and R1-08. Both of us agree on it before Report 1; after that it stays the same for all three reports.
 
 ## Analytical problem
-**How do demand, prices and tipping of NYC yellow taxi trips change by time and place in the first quarter of 2025, and how much of this traffic is affected by the new Manhattan congestion relief zone charge?**
+**How do demand, prices and tipping of NYC yellow taxi trips change by time and place in the first quarter of 2025 compared with the first quarter of 2024, and how much of this traffic is affected by the new Manhattan congestion relief zone charge?**
 
 Why this problem:
 - The data covers time (pickup and drop-off timestamps), place (pickup and drop-off zones) and money (fare, tip, surcharges), so filtering, grouping, aggregation and a join all come up naturally.
 - The zone lookup table is small (265 zones) while the trip table has millions of rows, which is the typical case for a broadcast join.
-- The congestion relief zone charge (`cbd_congestion_fee`) started on 5 January 2025, so this quarter is the first one with it in the data.
+- The congestion relief zone charge (`cbd_congestion_fee`) started on 5 January 2025, so this quarter is the first one with it in the data. The first quarter of 2024 is the same season one year earlier, without the charge.
 
 ## Objectives
 1. **O1, demand over time:** when do people take taxis (hour of day, day of week) and how does daily demand move from January to March?
 2. **O2, prices and tips:** how fare per mile, trip speed and tip percentage change by hour and by payment type.
 3. **O3, places:** which zones and boroughs have the most pickups and drop-offs, and which zone-to-zone or airport routes are the busiest.
-4. **O4, congestion relief zone:** what share of trips pays the zone charge, where and when these trips happen, and how their total price compares with trips that do not pay it.
+4. **O4, congestion relief zone, before and after:** how demand and prices changed from before the charge (first quarter of 2024) to after it (first quarter of 2025), what share of trips pays the charge, where and when these trips happen, and how their total price compares with trips that do not pay it. We mark the period before the charge by date, not by a missing value: the column does not exist in the 2024 files, but 1 to 4 January 2025 has it, mostly as 0. We compare daily averages because the two quarters have 91 and 90 days.
 
 ## Queries for Report 2
 | Query | Objective | Owner | Main operations |
@@ -22,7 +22,7 @@ Why this problem:
 | Q1 | O1 | Alican | filter valid trips, derive hour and weekday, group and count, sort; daily trend |
 | Q2 | O2 | Alican | derived columns (duration, speed, fare per mile, tip %), group by hour and payment type, averages and percentiles |
 | Q3 | O3 | Berke | join with the zone table for pickup and drop-off, group by borough and zone pair, top-N, airport trips |
-| Q4 | O4 | Berke | filter trips with `cbd_congestion_fee > 0`, join with zones, share by zone and hour, compare total price with other trips |
+| Q4 | O4 | Berke | filter trips with `cbd_congestion_fee > 0`, join with zones, share by zone and hour, compare total price with other trips; compare 2024 and 2025 by daily averages |
 
 Each query is written with the DataFrame API and, where it reads better, also as Spark SQL.
 
@@ -37,8 +37,9 @@ Before/after runs use the same data, the same Spark settings and the same comput
 
 ## Cleaning rules (Report 1)
 To be confirmed after the first look at the data:
-- keep trips whose pickup time is between 1 January and 31 March 2025;
-- drop trips with drop-off before pickup, duration over 5 hours, distance of 0 or below, or negative amounts;
+- keep trips whose pickup time is between 1 January and 31 March, in 2024 and 2025 (each file has 15 to 33 rows outside its own month);
+- drop trips with drop-off before pickup, duration over 5 hours, distance of 0 or below, or negative amounts (`cbd_congestion_fee` alone is negative in 90,956 rows of 2025, so we report the count before dropping);
+- never read a missing `cbd_congestion_fee` in the 2024 rows as 0;
 - keep `passenger_count` missing values but count them, since they are reported by the driver;
 - drop exact duplicate rows.
 
@@ -53,6 +54,8 @@ To be confirmed after the first look at the data:
 ## Optional extension
 Spark MLlib, decided in W8: predict tip percentage for card payments (regression), or group zones by their hourly demand profile (clustering).
 
+## Decisions
+- We add January to March 2024 instead of December 2024 (30 October 2026). December has Christmas and New Year, which would mix with the effect of the charge, while the same season one year earlier gives a fairer comparison. The larger data should also make the effect of the optimizations easier to see.
+
 ## Open questions
-- Is one quarter enough, or do we also add December 2024 so that O4 can compare trips before and after the zone charge started?
 - Which tool do we use for the dashboard in Report 3?

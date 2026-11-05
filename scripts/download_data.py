@@ -2,11 +2,16 @@
 
 import argparse
 import re
+import sys
 import urllib.request
 from pathlib import Path
 
+# Make the hlds package in src/ importable when this file is run as a script.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
+
+from hlds.paths import DEFAULT_MONTHS
+
 BASE_URL = "https://d37ci6vzurychx.cloudfront.net"
-DEFAULT_MONTHS = ["2025-01", "2025-02", "2025-03"]
 RAW_DIR = Path(__file__).resolve().parents[1] / "data" / "raw"
 MONTH_PATTERN = re.compile(r"^\d{4}-(0[1-9]|1[0-2])$")
 

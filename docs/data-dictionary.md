@@ -6,8 +6,8 @@
 - Page: https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page
 - Official field descriptions: Yellow Trips Data Dictionary (TLC, 18 March 2025), linked from the page above
 - Files: one Parquet file per month, `yellow_tripdata_YYYY-MM.parquet`, plus the Taxi Zone Lookup Table (`taxi_zone_lookup.csv`)
-- Months used: January to March 2025 (default of `scripts/download_data.py`)
-- File size: about 59 MB (Jan), 60 MB (Feb) and 70 MB (Mar) as reported by the download server on 21 Oct 2026; the zone lookup table is about 12 KB
+- Months used: January to March 2024 and January to March 2025 (default of `scripts/download_data.py`)
+- File size: 2024 about 50 MB (Jan), 50 MB (Feb) and 60 MB (Mar), measured after download on 30 Oct 2026; 2025 about 59 MB (Jan), 60 MB (Feb) and 70 MB (Mar) as reported by the download server on 21 Oct 2026; the zone lookup table is about 12 KB
 - Number of records: filled in after loading (task R1-06)
 - Notes from the publisher: the trip data was collected by technology providers, not created by the TLC, and the TLC makes no claims about its accuracy. Data is published monthly with about a two-month delay. From 2025 the files have a new `cbd_congestion_fee` column.
 
@@ -35,7 +35,7 @@ Descriptions follow the official data dictionary. Types and missing-value counts
 | `total_amount` | | Total charged to the passenger, without cash tips | |
 | `congestion_surcharge` | | New York State congestion surcharge for the trip | |
 | `Airport_fee` | | Fee for pickups at LaGuardia and JFK airports only (written `airport_fee` in the official dictionary) | |
-| `cbd_congestion_fee` | | Per-trip charge for the MTA Congestion Relief Zone, from 5 January 2025 | |
+| `cbd_congestion_fee` | | Per-trip charge for the MTA Congestion Relief Zone, from 5 January 2025. Not present in 2024 files, so it is null when the two years are combined. In 2025 the days before the start are 0 rather than null, except 401 rows on the evening of 4 January | |
 
 ## Taxi zone lookup table
 | Column | Type | Description |

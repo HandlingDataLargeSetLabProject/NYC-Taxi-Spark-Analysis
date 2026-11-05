@@ -24,8 +24,9 @@ class TripFileTest(unittest.TestCase):
                 with self.assertRaises(ValueError):
                     paths.trip_file(month)
 
-    def test_default_months_are_first_quarter_2025(self):
-        self.assertEqual(paths.DEFAULT_MONTHS, ["2025-01", "2025-02", "2025-03"])
+    def test_default_months_are_first_quarters_of_2024_and_2025(self):
+        self.assertEqual(paths.DEFAULT_MONTHS,
+                         ["2024-01", "2024-02", "2024-03", "2025-01", "2025-02", "2025-03"])
 
     def test_trip_files_returns_one_path_per_month(self):
         files = paths.trip_files(["2025-01", "2025-03"])
