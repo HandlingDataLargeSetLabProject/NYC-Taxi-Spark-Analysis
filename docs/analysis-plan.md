@@ -36,9 +36,10 @@ Each query is written with the DataFrame API and, where it reads better, also as
 Before/after runs use the same data, the same Spark settings and the same computer, measured with `src/hlds/timing.py`.
 
 ## Cleaning rules (Report 1)
-To be confirmed after the first look at the data:
+Checked on all six months; the count for each rule is in the "Cleaned table" part of `data-dictionary.md`:
 - keep trips whose pickup time is between 1 January and 31 March, in 2024 and 2025 (each file has 15 to 33 rows outside its own month);
-- drop trips with drop-off before pickup, duration over 5 hours, distance of 0 or below, or negative amounts (`cbd_congestion_fee` is negative in 90,956 rows of 2025, but `total_amount` is negative in all of them too, so this column drops no extra rows);
+- drop trips with drop-off at or before pickup, duration over 5 hours, distance of 0 or below, distance over 100 miles, or a negative `total_amount`;
+- keep trips with a negative amount but a `total_amount` that is not negative, and mark them with `has_negative_part`. Almost all of them are flex fare trips with a negative `fare_amount`. They stay in the demand counts (Q1, Q3) and are left out of the price queries (Q2, Q4);
 - never read a missing `cbd_congestion_fee` in the 2024 rows as 0;
 - keep the flex fare trips (`payment_type` 0), where `passenger_count`, `RatecodeID`, `store_and_fwd_flag`, `congestion_surcharge` and `Airport_fee` are all missing, and mark them with `details_missing`;
 - treat 0 passengers and the rate code 99 (unknown) as missing values;
@@ -57,6 +58,11 @@ Spark MLlib, decided in W8: predict tip percentage for card payments (regression
 
 ## Decisions
 - We add January to March 2024 instead of December 2024 (30 October 2026). December has Christmas and New Year, which would mix with the effect of the charge, while the same season one year earlier gives a fairer comparison. The larger data should also make the effect of the optimizations easier to see.
+
+- We drop only negative totals, not every row with a negative amount (5 November 2026). `cbd_congestion_fee` is negative in 90,956 rows of 2025, and `total_amount` is negative in all of them, so these are reversals and they are dropped. But 20,862 rows in 2024 and 315,192 in 2025 have a negative part and a total that is not negative. Our first draft of the rules dropped those too and removed 7.03% of 2025 against 3.64% of 2024, which would lower the 2025 demand only because of the data. The rules we use now, which also drop trips of 0 seconds, remove 4.46% and 3.43%.
+
+## Limitations
+- When a negative total is dropped, the trip it reverses stays in the data. We call a kept trip reversed when a dropped row has the same `VendorID`, pickup and drop-off time, `PULocationID` and `DOLocationID`, and the opposite `total_amount`. This matches 90,868 kept trips in 2024 (0.98% of the rows, 0.93% of `total_amount`) and 148,495 in 2025 (1.39% and 1.46%).
 
 ## Open questions
 - Which tool do we use for the dashboard in Report 3?
