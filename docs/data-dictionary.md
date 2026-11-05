@@ -56,7 +56,7 @@ Filled in by the cleaning tasks (R1-05, R1-07).
 
 | Column | Type | Change from raw | Notes |
 |---|---|---|---|
-| `passenger_count` | int | long to int; 0 becomes missing | 0 passengers means the count was not entered. Missing: 2024 857,893 (751,962 flex fare rows and 105,931 zeros); 2025 2,332,871 (2,263,749 and 69,122) |
+| `passenger_count` | int | long to int; 0 becomes missing | We treat 0 passengers as a count that was not entered. This is our decision, the field description only says that the driver reports the number. Missing: 2024 857,893 (751,962 flex fare rows and 105,931 zeros); 2025 2,332,871 (2,263,749 and 69,122) |
 | `RatecodeID` | int | long to int; 99 (unknown) becomes missing | Missing: 2024 848,661 (751,962 flex fare rows and 96,699 with 99); 2025 2,388,832 (2,263,749 and 125,083) |
 | `payment_type` | int | long to int | No missing values. Code 0 (flex fare) is found on exactly the rows where `details_missing` is true |
 | `store_and_fwd_flag` | boolean | text `Y` / `N` to true / false | Still missing on the flex fare rows |
@@ -64,3 +64,22 @@ Filled in by the cleaning tasks (R1-05, R1-07).
 | `cbd_congestion_fee` | double | none | Still missing for every 2024 row, never read as 0 |
 | `details_missing` | boolean | new | True where the five sparse columns are missing: 2024 751,962, 2025 2,263,749 rows |
 | `charge_in_force` | boolean | new | True for pickups from 5 January 2025, 00:00: 0 rows in 2024, 10,833,929 in 2025 |
+| `has_negative_part` | boolean | new | True where an amount is negative but `total_amount` is not: 2024 20,862 rows (20,848 flex fare), 2025 315,192 (315,191 flex fare). These trips stay in the demand counts (Q1, Q3) and are left out of the price queries (Q2, Q4) |
+
+`clean_trips` runs the step above, then `drop_invalid_rows` and `drop_duplicate_rows` (R1-07). The counts below come from `scripts/profile_cleaning.py`, run on all six months. A row can match more than one rule, so the rules add up to more than the last line. Years are the years of the files.
+
+| Rule | 2024 | 2025 |
+|---|---|---|
+| Raw rows | 9,554,778 | 11,198,026 |
+| Pickup outside January to March of 2024 and 2025 | 21 | 25 |
+| Drop-off before pickup | 180 | 298 |
+| Drop-off at the same second as pickup | 2,621 | 29,197 |
+| Duration over 5 hours | 5,561 | 3,811 |
+| Distance of 0 or below | 215,764 | 294,386 |
+| Distance over 100 miles | 252 | 548 |
+| Negative `total_amount` | 115,895 | 186,902 |
+| Rows dropped by any rule | 327,281 (3.43%) | 499,504 (4.46%) |
+| Exact duplicates dropped after that | 1 | 0 |
+| Rows in the cleaned table | 9,227,496 | 10,698,522 |
+
+The cleaned table has 19,926,018 rows. Flex fare rows lose more than the others: 13.52% in 2024 and 8.01% in 2025, against 2.56% and 3.56%, mostly because of distances of 0. When a negative total is dropped, the trip it reverses stays; `docs/analysis-plan.md` describes how much this is under "Limitations".
