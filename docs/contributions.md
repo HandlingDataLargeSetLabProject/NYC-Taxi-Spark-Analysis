@@ -14,6 +14,7 @@ One line per finished task. Each report's contribution section is built from thi
 | Alican Kaya | Set up Spark on his own laptop and added it to the environment guide | `docs/environment.md` |
 | Alican Kaya | Wrote the shared helpers for paths, the Spark session and timing, with tests | `src/hlds/`, `tests/` |
 | Alican Kaya, Berke Arda Türk | Decided to add January to March 2024 for a before and after comparison; Berke checked the 2024 files, Alican updated the plan, the data dictionary and the default months | `docs/analysis-plan.md`, `docs/data-dictionary.md`, `src/hlds/paths.py`, `scripts/download_data.py` |
+| Berke Arda Türk | Loaded the six months into Spark and documented the schema, types and missing values | `src/hlds/loading.py`, `scripts/profile_raw_data.py`, `tests/test_loading.py`, `docs/data-dictionary.md` |
 
 ## Report 2
 | Member | Work | Files |
