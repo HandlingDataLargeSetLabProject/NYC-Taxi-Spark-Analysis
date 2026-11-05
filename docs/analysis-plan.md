@@ -38,9 +38,10 @@ Before/after runs use the same data, the same Spark settings and the same comput
 ## Cleaning rules (Report 1)
 To be confirmed after the first look at the data:
 - keep trips whose pickup time is between 1 January and 31 March, in 2024 and 2025 (each file has 15 to 33 rows outside its own month);
-- drop trips with drop-off before pickup, duration over 5 hours, distance of 0 or below, or negative amounts (`cbd_congestion_fee` alone is negative in 90,956 rows of 2025, so we report the count before dropping);
+- drop trips with drop-off before pickup, duration over 5 hours, distance of 0 or below, or negative amounts (`cbd_congestion_fee` is negative in 90,956 rows of 2025, but `total_amount` is negative in all of them too, so this column drops no extra rows);
 - never read a missing `cbd_congestion_fee` in the 2024 rows as 0;
-- keep `passenger_count` missing values but count them, since they are reported by the driver;
+- keep the flex fare trips (`payment_type` 0), where `passenger_count`, `RatecodeID`, `store_and_fwd_flag`, `congestion_surcharge` and `Airport_fee` are all missing, and mark them with `details_missing`;
+- treat 0 passengers and the rate code 99 (unknown) as missing values;
 - drop exact duplicate rows.
 
 ## Charts for Report 3 (first ideas)

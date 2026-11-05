@@ -52,5 +52,15 @@ Descriptions follow the official data dictionary. Types and missing-value counts
 ## Cleaned table
 Filled in by the cleaning tasks (R1-05, R1-07).
 
+`clean_missing_values_and_types` in `src/hlds/cleaning.py` (R1-05) keeps all 20,752,804 rows and changes the columns below; all other columns stay as in the raw table. The counts were measured on all six months on Alican's laptop. Duplicates and invalid rows are handled in R1-07.
+
 | Column | Type | Change from raw | Notes |
 |---|---|---|---|
+| `passenger_count` | int | long to int; 0 becomes missing | 0 passengers means the count was not entered. Missing: 2024 857,893 (751,962 flex fare rows and 105,931 zeros); 2025 2,332,871 (2,263,749 and 69,122) |
+| `RatecodeID` | int | long to int; 99 (unknown) becomes missing | Missing: 2024 848,661 (751,962 flex fare rows and 96,699 with 99); 2025 2,388,832 (2,263,749 and 125,083) |
+| `payment_type` | int | long to int | No missing values. Code 0 (flex fare) is found on exactly the rows where `details_missing` is true |
+| `store_and_fwd_flag` | boolean | text `Y` / `N` to true / false | Still missing on the flex fare rows |
+| `congestion_surcharge`, `Airport_fee` | double | none | Still missing on the flex fare rows. Not filled with 0, because we do not know whether these trips paid them |
+| `cbd_congestion_fee` | double | none | Still missing for every 2024 row, never read as 0 |
+| `details_missing` | boolean | new | True where the five sparse columns are missing: 2024 751,962, 2025 2,263,749 rows |
+| `charge_in_force` | boolean | new | True for pickups from 5 January 2025, 00:00: 0 rows in 2024, 10,833,929 in 2025 |
