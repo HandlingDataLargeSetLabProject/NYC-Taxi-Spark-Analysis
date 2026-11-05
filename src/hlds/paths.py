@@ -8,7 +8,8 @@ DATA_DIR = PROJECT_ROOT / "data"
 RAW_DIR = DATA_DIR / "raw"
 ZONE_LOOKUP_FILE = RAW_DIR / "taxi_zone_lookup.csv"
 
-DEFAULT_MONTHS = ["2025-01", "2025-02", "2025-03"]
+# The zone charge started in January 2025, so the same months of 2024 are the comparison without it.
+DEFAULT_MONTHS = ["2024-01", "2024-02", "2024-03", "2025-01", "2025-02", "2025-03"]
 MONTH_PATTERN = re.compile(r"^\d{4}-(0[1-9]|1[0-2])$")
 
 
