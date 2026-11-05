@@ -12,6 +12,8 @@ VALID_PERIODS = [("2024-01-01", "2024-04-01"), ("2025-01-01", "2025-04-01")]
 MAX_TRIP_HOURS = 5
 # 99.9% of the rows are under 30 miles, while the largest values reach 320,136 miles.
 MAX_TRIP_MILES = 100
+# After the other rules only two rows are above this (863,380 and 132,555 dollars); the next largest is 1,022.
+MAX_TOTAL_AMOUNT = 2000
 AMOUNT_COLUMNS = [
     "fare_amount", "extra", "mta_tax", "tip_amount", "tolls_amount", "improvement_surcharge",
     "total_amount", "congestion_surcharge", "Airport_fee", "cbd_congestion_fee",
@@ -63,6 +65,7 @@ def invalid_row_rules():
         "distance_zero_or_below": distance <= 0,
         "distance_over_limit": distance > MAX_TRIP_MILES,
         "negative_total": F.col("total_amount") < 0,
+        "total_over_limit": F.col("total_amount") > MAX_TOTAL_AMOUNT,
     }
 
 

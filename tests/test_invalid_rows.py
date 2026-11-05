@@ -54,11 +54,14 @@ CASES = {
     "over the distance limit": {"trip_distance": 100.01},
     "missing amounts": {"congestion_surcharge": None, "Airport_fee": None, "cbd_congestion_fee": None},
     "negative total": {"total_amount": -24.0},
+    "exactly the amount limit": {"total_amount": 2000.0},
+    "over the amount limit": {"total_amount": 2000.01},
     "negative fare with a positive total": {"fare_amount": -4.75},
 }
 DROPPED = {
     "before 2024", "April 2024", "December 2024", "April 2025", "year 2007", "dropoff before pickup",
     "zero seconds", "over five hours", "zero miles", "negative miles", "over the distance limit", "negative total",
+    "over the amount limit",
 }
 
 
