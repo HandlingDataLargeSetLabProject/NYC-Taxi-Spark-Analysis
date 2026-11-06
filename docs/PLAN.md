@@ -25,7 +25,7 @@ Report 3 has only about three weeks including the holidays, so the aggregated ou
 | R1-06 | W2 (2–8 Nov) | Berke | Load the data into Spark; document the schema in `data-dictionary.md` | done |
 | R1-07 | W2 (2–8 Nov) | Berke | Cleaning: duplicates and invalid rows | done |
 | R1-08 | W3 (9–15 Nov) | Alican | Analytical objectives for Reports 2 and 3 | todo |
-| R1-09 | W3 (9–15 Nov) | Berke | Descriptive statistics and the summary table | todo |
+| R1-09 | W3 (9–15 Nov) | Berke | Descriptive statistics and the summary table | done |
 | R1-10 | W3 (9–15 Nov) | Alican | Report 1 sections: dataset, problem, cleaning | todo |
 | R1-11 | W3 (9–15 Nov) | Berke | Report 1 sections: environment, statistics, problems and solutions | todo |
 | R1-12 | W4 (16–18 Nov) | Alican | Final edit and submission of Report 1 | todo |
