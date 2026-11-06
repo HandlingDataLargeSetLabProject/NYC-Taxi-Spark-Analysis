@@ -7,7 +7,8 @@ from pyspark.sql import SparkSession
 
 MASTER = "local[*]"
 # Fixed so that before/after measurements run with the same memory; fits on both our 16 GB and 32 GB laptops.
-DRIVER_MEMORY = "4g"
+# With 4g, scripts/describe_trips.py ran out of memory on the 24 thread laptop.
+DRIVER_MEMORY = "6g"
 # Spark reads the taxi times in this zone. With the laptop's own zone, trips that start in the hour skipped
 # by European summer time get negative durations, and results would differ between our laptops.
 SESSION_TIME_ZONE = "UTC"

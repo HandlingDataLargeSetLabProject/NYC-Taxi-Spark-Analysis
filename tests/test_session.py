@@ -33,7 +33,7 @@ class GetSparkTest(unittest.TestCase):
         self.assertEqual(values, [1, 2, 3])
 
     def test_driver_memory_is_fixed(self):
-        self.assertEqual(self.spark.conf.get("spark.driver.memory"), "4g")
+        self.assertEqual(self.spark.conf.get("spark.driver.memory"), "6g")
 
     def test_session_time_zone_is_utc(self):
         self.assertEqual(self.spark.conf.get("spark.sql.session.timeZone"), "UTC")
