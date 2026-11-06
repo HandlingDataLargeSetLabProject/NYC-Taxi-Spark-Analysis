@@ -62,7 +62,7 @@ A few choices are fixed already, because the cleaning showed that they matter:
 - In the price queries (Q2 and Q4) we use `total_amount` and leave out the trips marked `has_negative_part` (Section 4.4). These trips stay in the demand counts (Q1 and Q3).
 - Flex fare trips are shown as their own group in Q2. Their share of the cleaned rows grows from 7.05% in 2024 to 19.47% in 2025, so an average over all trips would change only because the mix of trips changed.
 - The tip percentage is measured only for credit card payments, because cash tips are not recorded in the data.
-- Trip durations are computed from New York local time. On 10 March 2024 and 9 March 2025 the clocks in New York jumped from 02:00 to 03:00, and 2,360 trips that cross this hour would otherwise look exactly one hour longer.
+- Trip durations are computed from New York local time. On 10 March 2024 and 9 March 2025 the clocks in New York jumped from 02:00 to 03:00, and 2,360 trips that cross this hour would otherwise look exactly one hour longer (median 75 minutes instead of 15, from `scripts/check_summer_time.py`).
 
 For the optimizations in Report 2 we plan to test caching of the cleaned table (Alican), a broadcast join with the zone table (Berke) and Parquet output partitioned by pickup date (Berke), each measured before and after on the same data, the same Spark settings and the same laptop. In Report 3 we plan a heat map of trips by hour and weekday and a daily trend line (O1), charts of tip percentage and speed by hour (O2), the top zones and routes (O3), the share of trips that pay the charge by hour and zone (O4), and a chart of the execution times before and after each optimization.
 
