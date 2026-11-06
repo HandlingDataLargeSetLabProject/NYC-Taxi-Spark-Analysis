@@ -21,6 +21,7 @@ One line per finished task. Each report's contribution section is built from thi
 | Alican Kaya, Berke Arda Türk | Fixed the Spark session time zone to UTC after Berke found negative durations, and raised the driver memory to 6g after the summary script ran out of memory on Alican's laptop, with tests | `src/hlds/session.py`, `tests/test_session.py` |
 | Alican Kaya | Finalized the objectives and the measures of Q1 and Q2, including the New York summer time correction | `docs/analysis-plan.md` |
 | Alican Kaya | Wrote the Report 1 sections on the dataset, the problem, the objectives and the cleaning | `reports/report1/alican-sections.md` |
+| Alican Kaya | Wrote the script that joins the report sections and builds the Word and PDF files | `reports/report1/build_report.py`, `reports/report1/to_word.ps1` |
 
 ## Report 2
 | Member | Work | Files |
