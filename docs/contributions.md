@@ -17,6 +17,7 @@ One line per finished task. Each report's contribution section is built from thi
 | Berke Arda Türk | Loaded the six months into Spark and documented the schema, types and missing values | `src/hlds/loading.py`, `scripts/profile_raw_data.py`, `tests/test_loading.py`, `docs/data-dictionary.md` |
 | Alican Kaya | Cleaned missing values and converted types, keeping every row and marking flex fare trips and the zone charge period, with tests | `src/hlds/cleaning.py`, `tests/test_cleaning.py`, `docs/data-dictionary.md`, `docs/analysis-plan.md` |
 | Berke Arda Türk | Dropped invalid and duplicate rows, marked trips with a negative price part and measured each rule, with tests; Alican checked the numbers on his laptop | `src/hlds/cleaning.py`, `tests/test_invalid_rows.py`, `scripts/profile_cleaning.py`, `docs/data-dictionary.md`, `docs/analysis-plan.md` |
+| Berke Arda Türk | Wrote the descriptive statistics and the summary tables for the cleaned data, with tests | `src/hlds/statistics.py`, `tests/test_statistics.py`, `scripts/describe_trips.py`, `results/descriptive_statistics.md` |
 
 ## Report 2
 | Member | Work | Files |
