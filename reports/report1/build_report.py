@@ -7,6 +7,7 @@ Run: python reports/report1/build_report.py
 
 import html
 import re
+import struct
 import subprocess
 from pathlib import Path
 
@@ -46,6 +47,10 @@ CAPTION = re.compile(r"^(Table|Figure) \d+(\.\d+)*\. ")
 IMAGE = re.compile(r"^!\[(.*)\]\((.+)\)$")
 BULLET = re.compile(r"^- (.+)$")
 NUMBERED = re.compile(r"^\d+\. (.+)$")
+# Word reads HTML pixels as 0.75 pt. The text area is about 470 x 700 pt, so pictures stay inside
+# 620 px wide and 560 px high (about 60% of the page height, leaving room for the caption).
+MAX_IMAGE_WIDTH = 620
+MAX_IMAGE_HEIGHT = 560
 # Word only keeps a page break from HTML when it is written as a line break with this style.
 PAGE_BREAK = "<br clear=all style='page-break-before:always'>"
 
@@ -75,6 +80,15 @@ def inline(text):
     return text
 
 
+def fitted_size(png_path):
+    """Pixel size for the <img> tag: the picture's own size, made smaller if it is wider or taller than the page."""
+    with open(png_path, "rb") as file:
+        header = file.read(24)
+    width, height = struct.unpack(">II", header[16:24])
+    scale = min(1, MAX_IMAGE_WIDTH / width, MAX_IMAGE_HEIGHT / height)
+    return round(width * scale), round(height * scale)
+
+
 def table_html(rows):
     cells = [[cell.strip() for cell in row.strip().strip("|").split("|")] for row in rows]
     header, body = cells[0], cells[2:]
@@ -102,7 +116,9 @@ def block_html(block, base_dir):
     image = IMAGE.match(first)
     if image:
         path = (base_dir / image.group(2)).resolve()
-        return f'<p class="figure"><img src="{path.as_uri()}" alt="{html.escape(image.group(1))}"></p>'
+        width, height = fitted_size(path)
+        return (f'<p class="figure"><img src="{path.as_uri()}" width="{width}" height="{height}" '
+                f'alt="{html.escape(image.group(1))}"></p>')
     if BULLET.match(first):
         return list_html([BULLET.match(line).group(1) for line in block], "ul")
     if NUMBERED.match(first):

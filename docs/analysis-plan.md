@@ -21,14 +21,14 @@ Why this problem:
 |---|---|---|---|
 | Q1 | O1 | Alican | derive pickup date, hour and weekday, group and count, sort; daily trend and daily average per year |
 | Q2 | O2 | Alican | leave out `has_negative_part`, derived columns (duration, speed, price per mile, tip %), group by hour and payment type with flex fare as its own group, averages and percentiles |
+| Q3 | O3 | Berke | join with the zone table for pickup and drop-off, group by borough and zone pair, top-N, airport trips |
+| Q4 | O4 | Berke | filter trips with `cbd_congestion_fee > 0`, join with zones, share by zone and hour, compare total price with other trips; compare 2024 and 2025 by daily averages |
 
 Measures used in Q2:
 - Duration: the time between pickup and drop-off, with both times read as New York local time and converted to UTC first, so that trips across the summer time change are not one hour too long.
 - Speed: `trip_distance` divided by the duration in hours. Price per mile: `total_amount` divided by `trip_distance`. Divisions use `try_divide`, because Spark 4 stops with an error on a division by zero.
 - Price: `total_amount`, not the single parts. The parts do not add up to the total in the same way for every vendor (`extra` in particular), so comparing parts between vendors would mislead.
 - Tip percentage: `tip_amount` divided by `total_amount` minus `tip_amount`, only for credit card payments (`payment_type` 1), because cash tips are not recorded.
-| Q3 | O3 | Berke | join with the zone table for pickup and drop-off, group by borough and zone pair, top-N, airport trips |
-| Q4 | O4 | Berke | filter trips with `cbd_congestion_fee > 0`, join with zones, share by zone and hour, compare total price with other trips; compare 2024 and 2025 by daily averages |
 
 Each query is written with the DataFrame API and, where it reads better, also as Spark SQL.
 
