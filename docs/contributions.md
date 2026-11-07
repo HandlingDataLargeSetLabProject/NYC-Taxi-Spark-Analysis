@@ -22,6 +22,7 @@ One line per finished task. Each report's contribution section is built from thi
 | Alican Kaya | Finalized the objectives and the measures of Q1 and Q2, including the New York summer time correction | `docs/analysis-plan.md` |
 | Alican Kaya | Wrote the Report 1 sections on the dataset, the problem, the objectives and the cleaning | `reports/report1/alican-sections.md` |
 | Alican Kaya | Wrote the script that joins the report sections and builds the Word and PDF files | `reports/report1/build_report.py`, `reports/report1/to_word.ps1` |
+| Berke Arda Türk | Wrote the Report 1 sections on the Spark environment, loading the data, the descriptive statistics, the problems and solutions and the code excerpts, and took the screenshot of the loaded data | `reports/report1/berke-sections.md`, `reports/screenshots/loaded-data.png` |
 
 ## Report 2
 | Member | Work | Files |
