@@ -37,9 +37,13 @@ Each query is written with the DataFrame API and, where it reads better, also as
 |---|---|---|---|---|
 | Caching / persistence | Alican | Q1–Q2 read and clean the raw files each time | clean once, `cache()` the result, reuse it | repeated queries on the same cleaned table |
 | Broadcast join | Berke | shuffle join (automatic broadcast turned off) | `broadcast()` on the zone table | Q3 and Q4 |
-| Partitioning / columnar storage | Berke | one large DataFrame, default partitions | cleaned data written as Parquet partitioned by pickup date, read with filters | queries that filter on dates or a few columns |
+| Partitioning / columnar storage | Berke | cleaned data written as plain Parquet, read with the same filters | cleaned data written as Parquet partitioned by pickup date, read with filters | queries that filter on dates or a few columns |
 
-Before/after runs use the same data, the same Spark settings and the same computer, measured with `src/hlds/timing.py`.
+Before/after runs use the same data, the same Spark settings and the same computer, measured with `src/hlds/timing.py`:
+- one warm-up run and five measured runs; we report the median and keep the minimum and maximum;
+- caching is measured on Q1 and Q2 run one after the other, including the time to fill the cache, because a single query cannot gain from it;
+- for each optimization we save the `explain()` plan, so we can show why the time changed, for example that the run before the broadcast join really used a shuffle join;
+- each optimization is measured on its owner's computer, and the times go to `results/timings_<machine>.csv`. Times from the two computers are never compared with each other.
 
 ## Cleaning rules (Report 1)
 Checked on all six months; the count for each rule is in the "Cleaned table" part of `data-dictionary.md`:
@@ -61,13 +65,14 @@ Q1 and Q2 save their grouped results as small files in `results/` during Report 
 - Bar chart: execution time before and after each optimization.
 
 ## Optional extension
-Spark MLlib, decided in W8: predict tip percentage for card payments (regression), or group zones by their hourly demand profile (clustering).
+Spark MLlib, decided in W6: predict tip percentage for card payments (regression), or group zones by their hourly demand profile (clustering).
 
 ## Decisions
 - We add January to March 2024 instead of December 2024 (30 October 2026). December has Christmas and New Year, which would mix with the effect of the charge, while the same season one year earlier gives a fairer comparison. The larger data should also make the effect of the optimizations easier to see.
 - We drop only negative totals, not every row with a negative amount (5 November 2026). `cbd_congestion_fee` is negative in 90,956 rows of 2025, and `total_amount` is negative in all of them, so these are reversals and they are dropped. But 20,862 rows in 2024 and 315,192 in 2025 have a negative part and a total that is not negative. Our first draft of the rules dropped those too and removed 7.03% of 2025 against 3.64% of 2024, which would lower the 2025 demand only because of the data. The rules we use now, which also drop trips of 0 seconds, remove 4.46% and 3.43%.
 - We drop a `total_amount` over 2,000 dollars (6 November 2026). The raw data has 13 rows above it, and 11 of them are dropped by the other rules too. The two left are from 2025, 863,380.37 and 132,555.41 dollars for trips under 3 miles, and the next largest amount is 1,021.99. Together they raised the 2025 mean by about 0.10 dollars, which is a large part of the difference between the years.
 - We compute trip durations from New York local time (6 November 2026). The times in the files are New York clock times without a time zone. On 10 March 2024 and 9 March 2025 the clocks in New York jumped from 02:00 to 03:00, and no row has a time in that hour. The plain clock difference makes the 2,360 trips that cross it exactly one hour longer (median 75 minutes instead of 15). Reading the times as New York time and converting them to UTC corrects all of them and changes no other row, so we keep these trips instead of dropping them. The numbers come from `scripts/check_summer_time.py`.
+- We fixed how the optimizations are measured before writing any of them (7 November 2026): five runs after a warm-up, the `explain()` plan for each case, caching measured on Q1 and Q2 together, and plain Parquet as the run before partitioning. We keep all three optimizations, but if two of them do not have a working before/after run by 29 November, the third becomes optional.
 
 ## Limitations
 - When a negative total is dropped, the trip it reverses stays in the data. We call a kept trip reversed when a dropped row has the same `VendorID`, pickup and drop-off time, `PULocationID` and `DOLocationID`, and the opposite `total_amount`. This matches 90,868 kept trips in 2024 (0.98% of the rows, 0.93% of `total_amount`) and 148,495 in 2025 (1.39% and 1.47%).

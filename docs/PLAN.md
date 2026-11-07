@@ -6,10 +6,10 @@ Week 1 (W1) starts on Monday, 26 October 2026. Statuses: `todo`, `doing`, `revie
 | Report | Deadline | Our target |
 |---|---|---|
 | Report 1 | 18 Nov 2026, 23:59 | 17 Nov |
-| Report 2 | 23 Dec 2026, 23:59 | 22 Dec |
-| Report 3 | 14 Jan 2027, 23:59 | 13 Jan |
+| Report 2 | 23 Dec 2026, 23:59 | 9 Dec |
+| Report 3 | 14 Jan 2027, 23:59 | 6 Jan |
 
-Report 3 has only about three weeks including the holidays, so the aggregated outputs and first chart drafts are prepared during Report 2.
+Report 1 was submitted on 7 November, so Reports 2 and 3 were moved earlier. Report 3 falls in the holidays, so every query saves its aggregated output in `results/` during Report 2 and the charts can start right after.
 
 ## Tasks
 | ID | Week | Owner | Task | Status |
@@ -30,27 +30,30 @@ Report 3 has only about three weeks including the holidays, so the aggregated ou
 | R1-11 | W3 (9–15 Nov) | Berke | Report 1 sections: environment, statistics, problems and solutions | done |
 | R1-12 | W4 (16–18 Nov) | Alican | Final edit and submission of Report 1 | done |
 | R1-13 | W4 (16–18 Nov) | Berke | Report 1 code excerpts, screenshots, contribution section | done |
-| R2-01 | W4–W5 (19–29 Nov) | Alican | Query Q1 (filtering, grouping, aggregation) | todo |
-| R2-02 | W5 (23–29 Nov) | Alican | Query Q2 | todo |
-| R2-03 | W4–W5 (19–29 Nov) | Berke | Query Q3 with a join | todo |
-| R2-04 | W5 (23–29 Nov) | Berke | Query Q4 (time-based or category analysis) | todo |
-| R2-05 | W6 (30 Nov–6 Dec) | Alican | `scripts/run_benchmarks.py` | todo |
-| R2-06 | W6 (30 Nov–6 Dec) | Alican | Optimization O1: caching / persistence | todo |
-| R2-07 | W6 (30 Nov–6 Dec) | Berke | Optimization O2: broadcast join | todo |
-| R2-08 | W6 (30 Nov–6 Dec) | Berke | Optimization O3: partitioning or columnar storage | todo |
-| R2-09 | W7 (7–13 Dec) | Alican | Before/after measurements on own machine; timing table | todo |
-| R2-10 | W7 (7–13 Dec) | Berke | Before/after measurements on own machine; aggregated outputs in `results/` | todo |
-| R2-11 | W8 (14–20 Dec) | Alican | Report 2 sections: queries and optimizations; first chart drafts | todo |
-| R2-12 | W8 (14–20 Dec) | Berke | Report 2 sections: interpretation, problems and solutions; choose the dashboard tool | todo |
-| R2-13 | W9 (21–23 Dec) | Alican | Final edit and submission of Report 2 | todo |
-| R2-14 | W9 (21–23 Dec) | Berke | Report 2 code excerpts and contribution section | todo |
-| R3-01 | W10 (28 Dec–3 Jan) | Alican | Charts for Q1, Q2 and the performance results | todo |
-| R3-02 | W10 (28 Dec–3 Jan) | Berke | Charts for Q3, Q4; dashboard draft | todo |
-| R3-03 | W11 (4–10 Jan) | Alican | Chart interpretation; limitations and possible improvements | todo |
-| R3-04 | W11 (4–10 Jan) | Berke | Dashboard; key findings and their practical meaning | todo |
-| R3-05 | W12 (11–14 Jan) | Alican | Final edit and submission of Report 3 | todo |
-| R3-06 | W12 (11–14 Jan) | Berke | Dashboard screenshots and contribution section | todo |
+| R2-05 | W3 (9–15 Nov) | Alican | `scripts/run_benchmarks.py` skeleton on `timing.measure`: saves the `explain()` plan and writes times to `results/timings_<machine>.csv`; first trial run (clean + count) | todo |
+| R2-01 | W3–W4 (9–22 Nov) | Alican | Query Q1: daily trend, daily average per year, hour × weekday table; output in `results/` | todo |
+| R2-02 | W3–W4 (9–22 Nov) | Alican | Query Q2: durations from New York time converted to UTC, speed, price per mile, tip %; output in `results/` | todo |
+| R2-03 | W3–W4 (9–22 Nov) | Berke | Query Q3 with the zone joins; output in `results/`; first trial run on own machine | todo |
+| R2-04 | W3–W4 (9–22 Nov) | Berke | Query Q4: zone charge trips without `has_negative_part`, charge period by date; output in `results/` | todo |
+| R2-06 | W4–W5 (16–29 Nov) | Alican | Optimization O1: caching / persistence on the Q1 + Q2 sequence (after R2-01, R2-02, R2-05) | todo |
+| R2-07 | W4–W5 (16–29 Nov) | Berke | Optimization O2: broadcast join; check with `explain()` that the run before is a shuffle join (after R2-03, R2-04, R2-05) | todo |
+| R2-08 | W4–W5 (16–29 Nov) | Berke | Optimization O3: cleaned table as plain Parquet (before) and partitioned by pickup date (after) | todo |
+| R2-09 | W5 (23–29 Nov) | Alican | O1 before/after measurements on own machine | todo |
+| R2-10 | W5 (23–29 Nov) | Berke | O2 and O3 before/after measurements on own machine | todo |
+| R2-15 | W5 (23–29 Nov) | Alican | Adapt the report build script for Report 2 | todo |
+| R2-11 | W6 (30 Nov–6 Dec) | Alican | Report 2 sections: introduction, measuring method, Q1, Q2, O1, own problems and solutions | todo |
+| R2-12 | W6 (30 Nov–6 Dec) | Berke | Report 2 sections: Q3, Q4, O2, O3, own problems and solutions; choose the dashboard tool | todo |
+| R2-14 | W6 (30 Nov–6 Dec) | Berke | Report 2 code excerpts and contribution lines | todo |
+| R2-16 | W6–W7 (3–8 Dec) | Alican | Report 2 section: what the four queries show together (2025 against 2024, effect of the zone charge) | todo |
+| R2-13 | W7 (7–9 Dec) | Alican | Final edit and submission of Report 2 (after R2-11 to R2-16) | todo |
+| R3-01 | W7–W8 (10–20 Dec) | Alican | Charts for Q1, Q2 and the performance results | todo |
+| R3-02 | W7–W8 (10–20 Dec) | Berke | Charts for Q3, Q4; dashboard draft | todo |
+| R3-03 | W9–W10 (21 Dec–3 Jan) | Alican | Chart interpretation; limitations and possible improvements | todo |
+| R3-04 | W9–W10 (21 Dec–3 Jan) | Berke | Dashboard; key findings and their practical meaning | todo |
+| R3-06 | W11 (4–5 Jan) | Berke | Dashboard screenshots and contribution lines | todo |
+| R3-05 | W11 (4–6 Jan) | Alican | Final edit and submission of Report 3 | todo |
 
 ## Notes
 - Each member commits on at least three different days per week.
-- MLlib is optional; we decide during W8 whether to add it.
+- MLlib is optional; we decide during W6 whether to add it.
+- If on 29 November fewer than two optimizations have a working before/after run, O3 becomes optional. If on 2 December the timing table is not ready, we skip MLlib.
