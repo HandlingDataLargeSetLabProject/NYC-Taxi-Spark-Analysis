@@ -28,7 +28,7 @@ Report 3 has only about three weeks including the holidays, so the aggregated ou
 | R1-09 | W3 (9–15 Nov) | Berke | Descriptive statistics and the summary table | done |
 | R1-10 | W3 (9–15 Nov) | Alican | Report 1 sections: dataset, problem, cleaning | done |
 | R1-11 | W3 (9–15 Nov) | Berke | Report 1 sections: environment, statistics, problems and solutions | done |
-| R1-12 | W4 (16–18 Nov) | Alican | Final edit and submission of Report 1 | todo |
+| R1-12 | W4 (16–18 Nov) | Alican | Final edit and submission of Report 1 | done |
 | R1-13 | W4 (16–18 Nov) | Berke | Report 1 code excerpts, screenshots, contribution section | done |
 | R2-01 | W4–W5 (19–29 Nov) | Alican | Query Q1 (filtering, grouping, aggregation) | todo |
 | R2-02 | W5 (23–29 Nov) | Alican | Query Q2 | todo |
