@@ -147,11 +147,11 @@ Source: `scripts/profile_cleaning.py`, run on all six months.
 Why each rule:
 
 - **Pickup outside the quarter.** Each monthly file has a few rows from other dates; the data does not tell us why. We keep a row when its pickup is anywhere in January to March of 2024 or 2025, even if it is in the file of a neighbouring month, so only 46 rows are dropped.
-- **Drop-off before or at the same second as pickup.** A trip cannot end before it starts, and a trip of 0 seconds is a meter switched on and off. The 0 second trips grew from 2,621 to 29,197, so keeping them would have added fake demand to 2025.
+- **Drop-off before or at the same second as pickup.** A trip cannot end before it starts, and a taxi cannot cover a distance in 0 seconds, so we do not count these rows as trips. The rows of 0 seconds grew from 2,621 to 29,197, so keeping them would have raised the demand of 2025 much more than that of 2024.
 - **Duration over 5 hours.** A normal taxi trip in New York is far shorter, so these are most likely meters that were left running.
 - **Distance of 0 or below.** This is the largest rule. Without a distance we cannot compute speed or price per mile, and the data does not say whether the taxi moved at all.
 - **Distance over 100 miles.** 99.92% of the raw rows are under 30 miles, while the largest values reach 320,136 miles, which is impossible for a taxi trip. 100 miles still keeps long airport and out-of-town trips.
-- **Negative `total_amount`.** These rows are reversals or refunds of another trip (Sections 6.4 and 6.6).
+- **Negative `total_amount`.** Most of these rows look like reversals or refunds of another trip: a strict match finds the original of many of them, but not of all (Sections 6.4 and 6.6).
 - **`total_amount` over 2,000 dollars.** The raw data has 13 such rows, and the other rules already drop 11 of them. The two that are left are from 2025: 863,380.37 and 132,555.41 dollars for trips under 3 miles. The next largest amount is 1,021.99. These two rows alone raised the 2025 mean of `total_amount` by about 0.10 dollars.
 - **Exact duplicates.** Only one row in the six months is an exact copy of another, so this rule hardly changes anything, but it makes sure that no trip is counted twice.
 
