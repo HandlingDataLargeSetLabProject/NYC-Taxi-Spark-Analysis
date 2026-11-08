@@ -7,6 +7,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DATA_DIR = PROJECT_ROOT / "data"
 RAW_DIR = DATA_DIR / "raw"
 ZONE_LOOKUP_FILE = RAW_DIR / "taxi_zone_lookup.csv"
+RESULTS_DIR = PROJECT_ROOT / "results"
 
 # The zone charge started in January 2025, so the same months of 2024 are the comparison without it.
 DEFAULT_MONTHS = ["2024-01", "2024-02", "2024-03", "2025-01", "2025-02", "2025-03"]
