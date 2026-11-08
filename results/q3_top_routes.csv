@@ -1,0 +1,41 @@
+year,rank_in_year,pickup_zone_id,pickup_borough,pickup_zone,dropoff_zone_id,dropoff_borough,dropoff_zone,trips,trips_per_day
+2024,1,237,Manhattan,Upper East Side South,236,Manhattan,Upper East Side North,63600,698.9
+2024,2,236,Manhattan,Upper East Side North,237,Manhattan,Upper East Side South,56384,619.6
+2024,3,236,Manhattan,Upper East Side North,236,Manhattan,Upper East Side North,45038,494.9
+2024,4,237,Manhattan,Upper East Side South,237,Manhattan,Upper East Side South,41726,458.5
+2024,5,161,Manhattan,Midtown Center,237,Manhattan,Upper East Side South,30694,337.3
+2024,6,142,Manhattan,Lincoln Square East,239,Manhattan,Upper West Side South,26605,292.4
+2024,7,237,Manhattan,Upper East Side South,161,Manhattan,Midtown Center,26412,290.2
+2024,8,239,Manhattan,Upper West Side South,142,Manhattan,Lincoln Square East,26412,290.2
+2024,9,161,Manhattan,Midtown Center,236,Manhattan,Upper East Side North,26177,287.7
+2024,10,239,Manhattan,Upper West Side South,238,Manhattan,Upper West Side North,25326,278.3
+2024,11,237,Manhattan,Upper East Side South,162,Manhattan,Midtown East,23690,260.3
+2024,12,141,Manhattan,Lenox Hill West,236,Manhattan,Upper East Side North,22820,250.8
+2024,13,236,Manhattan,Upper East Side North,161,Manhattan,Midtown Center,21296,234.0
+2024,14,238,Manhattan,Upper West Side North,239,Manhattan,Upper West Side South,20850,229.1
+2024,15,186,Manhattan,Penn Station/Madison Sq West,230,Manhattan,Times Sq/Theatre District,20715,227.6
+2024,16,236,Manhattan,Upper East Side North,141,Manhattan,Lenox Hill West,20565,226.0
+2024,17,142,Manhattan,Lincoln Square East,238,Manhattan,Upper West Side North,20023,220.0
+2024,18,236,Manhattan,Upper East Side North,239,Manhattan,Upper West Side South,19937,219.1
+2024,19,237,Manhattan,Upper East Side South,141,Manhattan,Lenox Hill West,19648,215.9
+2024,20,263,Manhattan,Yorkville West,236,Manhattan,Upper East Side North,19368,212.8
+2025,1,237,Manhattan,Upper East Side South,236,Manhattan,Upper East Side North,70289,781.0
+2025,2,236,Manhattan,Upper East Side North,237,Manhattan,Upper East Side South,61014,677.9
+2025,3,236,Manhattan,Upper East Side North,236,Manhattan,Upper East Side North,48050,533.9
+2025,4,237,Manhattan,Upper East Side South,237,Manhattan,Upper East Side South,46223,513.6
+2025,5,161,Manhattan,Midtown Center,237,Manhattan,Upper East Side South,32698,363.3
+2025,6,237,Manhattan,Upper East Side South,161,Manhattan,Midtown Center,29017,322.4
+2025,7,161,Manhattan,Midtown Center,236,Manhattan,Upper East Side North,28130,312.6
+2025,8,239,Manhattan,Upper West Side South,238,Manhattan,Upper West Side North,27238,302.6
+2025,9,142,Manhattan,Lincoln Square East,239,Manhattan,Upper West Side South,26251,291.7
+2025,10,239,Manhattan,Upper West Side South,142,Manhattan,Lincoln Square East,25386,282.1
+2025,11,141,Manhattan,Lenox Hill West,236,Manhattan,Upper East Side North,24524,272.5
+2025,12,186,Manhattan,Penn Station/Madison Sq West,230,Manhattan,Times Sq/Theatre District,23962,266.2
+2025,13,237,Manhattan,Upper East Side South,162,Manhattan,Midtown East,23401,260.0
+2025,14,236,Manhattan,Upper East Side North,161,Manhattan,Midtown Center,23251,258.3
+2025,15,236,Manhattan,Upper East Side North,141,Manhattan,Lenox Hill West,22972,255.2
+2025,16,238,Manhattan,Upper West Side North,239,Manhattan,Upper West Side South,22494,249.9
+2025,17,237,Manhattan,Upper East Side South,141,Manhattan,Lenox Hill West,22105,245.6
+2025,18,236,Manhattan,Upper East Side North,239,Manhattan,Upper West Side South,21328,237.0
+2025,19,263,Manhattan,Yorkville West,236,Manhattan,Upper East Side North,20682,229.8
+2025,20,186,Manhattan,Penn Station/Madison Sq West,161,Manhattan,Midtown Center,20592,228.8

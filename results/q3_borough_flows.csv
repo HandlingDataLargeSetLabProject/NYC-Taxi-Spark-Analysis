@@ -1,0 +1,124 @@
+year,pickup_borough,dropoff_borough,trips,trips_per_day,share
+2024,Manhattan,Manhattan,7806368,85784.3,0.846
+2024,Queens,Manhattan,466255,5123.7,0.0505
+2024,Manhattan,Queens,243311,2673.7,0.0264
+2024,Manhattan,Brooklyn,171324,1882.7,0.0186
+2024,Queens,Queens,163269,1794.2,0.0177
+2024,Queens,Brooklyn,118879,1306.4,0.0129
+2024,Brooklyn,Brooklyn,44336,487.2,0.0048
+2024,Brooklyn,Manhattan,29868,328.2,0.0032
+2024,Manhattan,Bronx,24752,272.0,0.0027
+2024,Queens,N/A,22067,242.5,0.0024
+2024,Manhattan,Unknown,20929,230.0,0.0023
+2024,Manhattan,EWR,20565,226.0,0.0022
+2024,Unknown,Unknown,19884,218.5,0.0022
+2024,Queens,Bronx,16574,182.1,0.0018
+2024,Brooklyn,Queens,10563,116.1,0.0011
+2024,Bronx,Manhattan,9915,109.0,0.0011
+2024,Manhattan,N/A,9081,99.8,0.001
+2024,Unknown,Manhattan,8163,89.7,0.0009
+2024,Bronx,Bronx,7371,81.0,0.0008
+2024,Brooklyn,Bronx,2035,22.4,0.0002
+2024,Bronx,Brooklyn,1929,21.2,0.0002
+2024,Bronx,Queens,1869,20.5,0.0002
+2024,Queens,Unknown,1451,15.9,0.0002
+2024,N/A,N/A,987,10.8,0.0001
+2024,Queens,Staten Island,889,9.8,0.0001
+2024,Queens,EWR,799,8.8,0.0001
+2024,Manhattan,Staten Island,741,8.1,0.0001
+2024,Unknown,Queens,626,6.9,0.0001
+2024,Unknown,Brooklyn,440,4.8,0.0
+2024,N/A,Queens,388,4.3,0.0
+2024,N/A,Manhattan,333,3.7,0.0
+2024,N/A,Brooklyn,209,2.3,0.0
+2024,Brooklyn,N/A,185,2.0,0.0
+2024,N/A,EWR,155,1.7,0.0
+2024,EWR,EWR,132,1.5,0.0
+2024,Brooklyn,EWR,119,1.3,0.0
+2024,Brooklyn,Staten Island,112,1.2,0.0
+2024,Bronx,N/A,72,0.8,0.0
+2024,Brooklyn,Unknown,70,0.8,0.0
+2024,Unknown,Bronx,69,0.8,0.0
+2024,Staten Island,Brooklyn,67,0.7,0.0
+2024,Staten Island,Staten Island,61,0.7,0.0
+2024,N/A,Bronx,51,0.6,0.0
+2024,Unknown,N/A,49,0.5,0.0
+2024,Unknown,EWR,34,0.4,0.0
+2024,Staten Island,Manhattan,28,0.3,0.0
+2024,EWR,N/A,21,0.2,0.0
+2024,EWR,Manhattan,18,0.2,0.0
+2024,N/A,Unknown,15,0.2,0.0
+2024,N/A,Staten Island,14,0.2,0.0
+2024,Staten Island,Queens,13,0.1,0.0
+2024,Bronx,Unknown,9,0.1,0.0
+2024,EWR,Queens,7,0.1,0.0
+2024,Bronx,EWR,6,0.1,0.0
+2024,Staten Island,N/A,6,0.1,0.0
+2024,EWR,Staten Island,3,0.0,0.0
+2024,Staten Island,EWR,3,0.0,0.0
+2024,Unknown,Staten Island,3,0.0,0.0
+2024,Bronx,Staten Island,1,0.0,0.0
+2024,EWR,Brooklyn,1,0.0,0.0
+2024,EWR,Unknown,1,0.0,0.0
+2024,Staten Island,Bronx,1,0.0,0.0
+2025,Manhattan,Manhattan,8944285,99380.9,0.836
+2025,Queens,Manhattan,474112,5267.9,0.0443
+2025,Queens,Queens,240800,2675.6,0.0225
+2025,Manhattan,Queens,229113,2545.7,0.0214
+2025,Manhattan,Brooklyn,183795,2042.2,0.0172
+2025,Brooklyn,Brooklyn,169853,1887.3,0.0159
+2025,Queens,Brooklyn,135838,1509.3,0.0127
+2025,Brooklyn,Manhattan,75926,843.6,0.0071
+2025,Brooklyn,Queens,32259,358.4,0.003
+2025,Bronx,Bronx,30751,341.7,0.0029
+2025,Manhattan,Bronx,27962,310.7,0.0026
+2025,Bronx,Manhattan,26470,294.1,0.0025
+2025,Queens,N/A,21095,234.4,0.002
+2025,Manhattan,EWR,18630,207.0,0.0017
+2025,Queens,Bronx,18463,205.1,0.0017
+2025,Manhattan,Unknown,17154,190.6,0.0016
+2025,Unknown,Unknown,10515,116.8,0.001
+2025,Manhattan,N/A,10378,115.3,0.001
+2025,Unknown,Manhattan,9807,109.0,0.0009
+2025,Brooklyn,Bronx,4915,54.6,0.0005
+2025,Bronx,Queens,4306,47.8,0.0004
+2025,Bronx,Brooklyn,4016,44.6,0.0004
+2025,N/A,N/A,949,10.5,0.0001
+2025,Manhattan,Staten Island,833,9.3,0.0001
+2025,Queens,Unknown,805,8.9,0.0001
+2025,Queens,Staten Island,796,8.8,0.0001
+2025,Unknown,Queens,687,7.6,0.0001
+2025,Queens,EWR,620,6.9,0.0001
+2025,Unknown,Brooklyn,515,5.7,0.0
+2025,Staten Island,Brooklyn,474,5.3,0.0
+2025,Brooklyn,Staten Island,319,3.5,0.0
+2025,Brooklyn,N/A,281,3.1,0.0
+2025,N/A,EWR,220,2.4,0.0
+2025,N/A,Queens,204,2.3,0.0
+2025,Staten Island,Staten Island,199,2.2,0.0
+2025,N/A,Manhattan,186,2.1,0.0
+2025,Staten Island,Manhattan,172,1.9,0.0
+2025,EWR,EWR,147,1.6,0.0
+2025,Brooklyn,EWR,129,1.4,0.0
+2025,Unknown,N/A,94,1.0,0.0
+2025,Bronx,N/A,88,1.0,0.0
+2025,Unknown,Bronx,63,0.7,0.0
+2025,Brooklyn,Unknown,48,0.5,0.0
+2025,N/A,Brooklyn,48,0.5,0.0
+2025,N/A,Bronx,40,0.4,0.0
+2025,Staten Island,Queens,35,0.4,0.0
+2025,EWR,N/A,28,0.3,0.0
+2025,EWR,Manhattan,26,0.3,0.0
+2025,Unknown,EWR,25,0.3,0.0
+2025,N/A,Unknown,11,0.1,0.0
+2025,Staten Island,EWR,7,0.1,0.0
+2025,EWR,Unknown,5,0.1,0.0
+2025,Staten Island,Bronx,4,0.0,0.0
+2025,Bronx,EWR,3,0.0,0.0
+2025,Bronx,Unknown,3,0.0,0.0
+2025,EWR,Queens,3,0.0,0.0
+2025,EWR,Staten Island,3,0.0,0.0
+2025,EWR,Brooklyn,2,0.0,0.0
+2025,N/A,Staten Island,2,0.0,0.0
+2025,Staten Island,N/A,2,0.0,0.0
+2025,Staten Island,Unknown,1,0.0,0.0

@@ -1,0 +1,13 @@
+year,airport,direction,trips,trips_per_day
+2024,JFK Airport,from,408312,4486.9
+2024,JFK Airport,to,87532,961.9
+2024,LaGuardia Airport,from,278605,3061.6
+2024,LaGuardia Airport,to,101104,1111.0
+2024,Newark Airport,from,183,2.0
+2024,Newark Airport,to,21813,239.7
+2025,JFK Airport,from,398105,4423.4
+2025,JFK Airport,to,82679,918.7
+2025,LaGuardia Airport,from,272419,3026.9
+2025,LaGuardia Airport,to,99008,1100.1
+2025,Newark Airport,from,214,2.4
+2025,Newark Airport,to,19781,219.8
