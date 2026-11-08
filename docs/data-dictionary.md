@@ -95,4 +95,9 @@ Small grouped tables in `results/`, written by the query scripts for the charts 
 | `q1_hour_weekday.csv` | `scripts/query_demand.py` (Q1) | `year`, `weekday`, `hour`, `trips`, `days` (days of that weekday in the quarter), `trips_per_day` |
 | `q2_by_payment.csv` | `scripts/query_prices.py` (Q2) | `year`, `payment` (flex fare, credit card, cash, other), `trips`, `median_duration_minutes`, mean and median of `speed_mph`, `price_per_mile` and `tip_pct` (credit card only). Rows with `has_negative_part` are left out |
 | `q2_by_hour_payment.csv` | `scripts/query_prices.py` (Q2) | the same columns, also grouped by pickup `hour` |
+| `q3_pickup_zones.csv` | `scripts/query_places.py` (Q3) | `year`, `zone_id`, `borough`, `zone`, `trips`, `trips_per_day`, `rank_in_year` (1 is the zone with the most pickups). Zones 264 and 265 are left out, because they are placeholders, not places |
+| `q3_dropoff_zones.csv` | `scripts/query_places.py` (Q3) | the same columns for the drop-off zone |
+| `q3_borough_flows.csv` | `scripts/query_places.py` (Q3) | `year`, `pickup_borough`, `dropoff_borough`, `trips`, `trips_per_day`, `share` (of all trips of the year). `Unknown` and `N/A` are the boroughs of zones 264 and 265 |
+| `q3_top_routes.csv` | `scripts/query_places.py` (Q3) | `year`, `rank_in_year`, `pickup_zone_id`, `pickup_borough`, `pickup_zone`, `dropoff_zone_id`, `dropoff_borough`, `dropoff_zone`, `trips`, `trips_per_day`; the 20 busiest zone pairs of each year, without zones 264 and 265 |
+| `q3_airport_trips.csv` | `scripts/query_places.py` (Q3) | `year`, `airport` (zone name of Newark, JFK or LaGuardia), `direction` (`from` the airport or `to` it), `trips`, `trips_per_day`. A trip between two airports counts in both directions |
 | `timings_<machine>.csv` | `scripts/run_benchmarks.py` | `date`, `optimization`, `variant`, `median_s`, `min_s`, `max_s`, `runs_s`, `cpu`, `logical_cores`, `ram_gb`, `spark_version`, `driver_memory` |
