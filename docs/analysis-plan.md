@@ -42,7 +42,7 @@ Each query is written with the DataFrame API and, where it reads better, also as
 Before/after runs use the same data, the same Spark settings and the same computer, measured with `src/hlds/timing.py`:
 - one warm-up run and five measured runs; we report the median and keep the minimum and maximum;
 - caching is measured on Q1 and Q2 run one after the other, including the time to fill the cache, because a single query cannot gain from it;
-- for each optimization we save the `explain()` plan, so we can show why the time changed, for example that the run before the broadcast join really used a shuffle join;
+- for each optimization we save the `explain()` plan after the measured runs, so we can show why the time changed, for example that the run before the broadcast join really used a shuffle join. Adaptive query execution is on, and before a query has run its plan is only the starting plan (`isFinalPlan=false`); the join type can still change while it runs;
 - each optimization is measured on its owner's computer, and the times go to `results/timings_<machine>.csv`. Times from the two computers are never compared with each other.
 
 ## Cleaning rules (Report 1)
