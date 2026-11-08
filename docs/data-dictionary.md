@@ -84,3 +84,13 @@ Filled in by the cleaning tasks (R1-05, R1-07).
 | Rows in the cleaned table | 9,227,496 | 10,698,520 |
 
 The cleaned table has 19,926,016 rows. Flex fare rows lose more than the others: 13.52% in 2024 and 8.01% in 2025, against 2.56% and 3.56%, mostly because of distances of 0. When a negative total is dropped, the trip it reverses stays; `docs/analysis-plan.md` describes how much this is under "Limitations".
+
+## Query results
+Small grouped tables in `results/`, written by the query scripts for the charts of Report 3. Pickup hour and date are New York clock times; `weekday` is 0 for Monday to 6 for Sunday.
+
+| File | Written by | Columns |
+|---|---|---|
+| `q1_daily_trips.csv` | `scripts/query_demand.py` (Q1) | `year`, `pickup_date`, `trips` |
+| `q1_daily_average.csv` | `scripts/query_demand.py` (Q1) | `year`, `days`, `trips`, `trips_per_day` |
+| `q1_hour_weekday.csv` | `scripts/query_demand.py` (Q1) | `year`, `weekday`, `hour`, `trips`, `days` (days of that weekday in the quarter), `trips_per_day` |
+| `timings_<machine>.csv` | `scripts/run_benchmarks.py` | `date`, `optimization`, `variant`, `median_s`, `min_s`, `max_s`, `runs_s`, `cpu`, `logical_cores`, `ram_gb`, `spark_version`, `driver_memory` |
