@@ -93,4 +93,6 @@ Small grouped tables in `results/`, written by the query scripts for the charts 
 | `q1_daily_trips.csv` | `scripts/query_demand.py` (Q1) | `year`, `pickup_date`, `trips` |
 | `q1_daily_average.csv` | `scripts/query_demand.py` (Q1) | `year`, `days`, `trips`, `trips_per_day` |
 | `q1_hour_weekday.csv` | `scripts/query_demand.py` (Q1) | `year`, `weekday`, `hour`, `trips`, `days` (days of that weekday in the quarter), `trips_per_day` |
+| `q2_by_payment.csv` | `scripts/query_prices.py` (Q2) | `year`, `payment` (flex fare, credit card, cash, other), `trips`, `median_duration_minutes`, mean and median of `speed_mph`, `price_per_mile` and `tip_pct` (credit card only). Rows with `has_negative_part` are left out |
+| `q2_by_hour_payment.csv` | `scripts/query_prices.py` (Q2) | the same columns, also grouped by pickup `hour` |
 | `timings_<machine>.csv` | `scripts/run_benchmarks.py` | `date`, `optimization`, `variant`, `median_s`, `min_s`, `max_s`, `runs_s`, `cpu`, `logical_cores`, `ram_gb`, `spark_version`, `driver_memory` |

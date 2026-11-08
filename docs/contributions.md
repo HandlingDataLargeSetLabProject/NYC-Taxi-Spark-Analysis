@@ -31,6 +31,7 @@ One line per finished task. Each report's contribution section is built from thi
 |---|---|---|
 | Alican Kaya | Wrote the measuring script for the optimizations, which saves the final query plan and the times with the machine details, with tests | `src/hlds/benchmarks.py`, `scripts/run_benchmarks.py`, `tests/test_benchmarks.py`, `src/hlds/paths.py` |
 | Alican Kaya | Wrote query Q1 on demand by day, hour and weekday (DataFrame API and Spark SQL) and the shared CSV writer for the results, with tests | `src/hlds/demand.py`, `src/hlds/results.py`, `scripts/query_demand.py`, `tests/test_demand.py`, `results/q1_*.csv`, `docs/data-dictionary.md` |
+| Alican Kaya | Wrote query Q2 on duration, speed, price per mile and tips by hour and payment type, with the New York summer time correction, with tests | `src/hlds/prices.py`, `scripts/query_prices.py`, `tests/test_prices.py`, `results/q2_*.csv`, `docs/data-dictionary.md` |
 
 ## Report 3
 | Member | Work | Files |
