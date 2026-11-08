@@ -1,0 +1,158 @@
+== Physical Plan ==
+AdaptiveSparkPlan (25)
++- == Final Plan ==
+   ResultQueryStage (15)
+   +- * HashAggregate (14)
+      +- ShuffleQueryStage (13), Statistics(sizeInBytes=352.0 B, rowCount=22)
+         +- Exchange (12)
+            +- * HashAggregate (11)
+               +- * HashAggregate (10)
+                  +- AQEShuffleRead (9), coalesced
+                     +- ShuffleQueryStage (8), Statistics(sizeInBytes=3.6 GiB, rowCount=1.99E+7)
+                        +- Exchange (7)
+                           +- * HashAggregate (6)
+                              +- * Project (5)
+                                 +- * Project (4)
+                                    +- * Filter (3)
+                                       +- * ColumnarToRow (2)
+                                          +- Scan parquet  (1)
++- == Initial Plan ==
+   HashAggregate (24)
+   +- Exchange (23)
+      +- HashAggregate (22)
+         +- HashAggregate (21)
+            +- Exchange (20)
+               +- HashAggregate (19)
+                  +- Project (18)
+                     +- Project (17)
+                        +- Filter (16)
+                           +- Scan parquet  (1)
+
+
+(1) Scan parquet 
+Output [20]: [VendorID#285, tpep_pickup_datetime#286, tpep_dropoff_datetime#287, passenger_count#288L, trip_distance#289, RatecodeID#290L, store_and_fwd_flag#291, PULocationID#292, DOLocationID#293, payment_type#294L, fare_amount#295, extra#296, mta_tax#297, tip_amount#298, tolls_amount#299, improvement_surcharge#300, total_amount#301, congestion_surcharge#302, Airport_fee#303, cbd_congestion_fee#304]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/G6X/Desktop/HLDS/KonuBuluncaDegisiriz/data/raw/yellow_tripdata_2024-01.parquet, ... 5 entries]
+PushedFilters: [IsNotNull(tpep_dropoff_datetime), IsNotNull(tpep_pickup_datetime), IsNotNull(trip_distance), IsNotNull(total_amount), Or(And(GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00),LessThan(tpep_pickup_datetime,2024-04-01T00:00)),And(GreaterThanOrEqual(tpep_pickup_datetime,2025-01-01T00:00),LessThan(tpep_pickup_datetime,2025-04-01T00:00))), GreaterThan(trip_distance,0.0), LessThanOrEqual(trip_distance,100.0), GreaterThanOrEqual(total_amount,0.0), LessThanOrEqual(total_amount,2000.0)]
+ReadSchema: struct<VendorID:int,tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,passenger_count:bigint,trip_distance:double,RatecodeID:bigint,store_and_fwd_flag:string,PULocationID:int,DOLocationID:int,payment_type:bigint,fare_amount:double,extra:double,mta_tax:double,tip_amount:double,tolls_amount:double,improvement_surcharge:double,total_amount:double,congestion_surcharge:double,Airport_fee:double,cbd_congestion_fee:double>
+
+(2) ColumnarToRow [codegen id : 1]
+Input [20]: [VendorID#285, tpep_pickup_datetime#286, tpep_dropoff_datetime#287, passenger_count#288L, trip_distance#289, RatecodeID#290L, store_and_fwd_flag#291, PULocationID#292, DOLocationID#293, payment_type#294L, fare_amount#295, extra#296, mta_tax#297, tip_amount#298, tolls_amount#299, improvement_surcharge#300, total_amount#301, congestion_surcharge#302, Airport_fee#303, cbd_congestion_fee#304]
+
+(3) Filter [codegen id : 1]
+Input [20]: [VendorID#285, tpep_pickup_datetime#286, tpep_dropoff_datetime#287, passenger_count#288L, trip_distance#289, RatecodeID#290L, store_and_fwd_flag#291, PULocationID#292, DOLocationID#293, payment_type#294L, fare_amount#295, extra#296, mta_tax#297, tip_amount#298, tolls_amount#299, improvement_surcharge#300, total_amount#301, congestion_surcharge#302, Airport_fee#303, cbd_congestion_fee#304]
+Condition : (((((((((((isnotnull(tpep_dropoff_datetime#287) AND isnotnull(tpep_pickup_datetime#286)) AND isnotnull(trip_distance#289)) AND isnotnull(total_amount#301)) AND (((tpep_pickup_datetime#286 >= 2024-01-01 00:00:00) AND (tpep_pickup_datetime#286 < 2024-04-01 00:00:00)) OR ((tpep_pickup_datetime#286 >= 2025-01-01 00:00:00) AND (tpep_pickup_datetime#286 < 2025-04-01 00:00:00)))) AND (tpep_dropoff_datetime#287 >= tpep_pickup_datetime#286)) AND NOT (tpep_dropoff_datetime#287 = tpep_pickup_datetime#286)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#286 as timestamp), cast(tpep_dropoff_datetime#287 as timestamp), Some(UTC)) <= 18000)) AND (trip_distance#289 > 0.0)) AND (trip_distance#289 <= 100.0)) AND (total_amount#301 >= 0.0)) AND (total_amount#301 <= 2000.0))
+
+(4) Project [codegen id : 1]
+Output [22]: [VendorID#285, tpep_pickup_datetime#286, tpep_dropoff_datetime#287, cast(passenger_count#288L as int) AS passenger_count#308, trip_distance#289, cast(RatecodeID#290L as int) AS RatecodeID#309, CASE WHEN (store_and_fwd_flag#291 = Y) THEN true WHEN (store_and_fwd_flag#291 = N) THEN false END AS store_and_fwd_flag#311, PULocationID#292, DOLocationID#293, cast(payment_type#294L as int) AS payment_type#310, fare_amount#295, extra#296, mta_tax#297, tip_amount#298, tolls_amount#299, improvement_surcharge#300, total_amount#301, congestion_surcharge#302, Airport_fee#303, cbd_congestion_fee#304, isnull(store_and_fwd_flag#291) AS details_missing#306, (tpep_pickup_datetime#286 >= 2025-01-05 00:00:00) AS charge_in_force#307]
+Input [20]: [VendorID#285, tpep_pickup_datetime#286, tpep_dropoff_datetime#287, passenger_count#288L, trip_distance#289, RatecodeID#290L, store_and_fwd_flag#291, PULocationID#292, DOLocationID#293, payment_type#294L, fare_amount#295, extra#296, mta_tax#297, tip_amount#298, tolls_amount#299, improvement_surcharge#300, total_amount#301, congestion_surcharge#302, Airport_fee#303, cbd_congestion_fee#304]
+
+(5) Project [codegen id : 1]
+Output [23]: [VendorID#285, tpep_pickup_datetime#286, tpep_dropoff_datetime#287, CASE WHEN NOT (passenger_count#308 = 0) THEN passenger_count#308 END AS passenger_count#312, trip_distance#289, CASE WHEN NOT (RatecodeID#309 = 99) THEN RatecodeID#309 END AS RatecodeID#313, store_and_fwd_flag#311, PULocationID#292, DOLocationID#293, payment_type#310, fare_amount#295, extra#296, mta_tax#297, tip_amount#298, tolls_amount#299, improvement_surcharge#300, total_amount#301, congestion_surcharge#302, Airport_fee#303, cbd_congestion_fee#304, details_missing#306, charge_in_force#307, (((((((((coalesce((fare_amount#295 < 0.0), false) OR coalesce((extra#296 < 0.0), false)) OR coalesce((mta_tax#297 < 0.0), false)) OR coalesce((tip_amount#298 < 0.0), false)) OR coalesce((tolls_amount#299 < 0.0), false)) OR coalesce((improvement_surcharge#300 < 0.0), false)) OR coalesce((total_amount#301 < 0.0), false)) OR coalesce((congestion_surcharge#302 < 0.0), false)) OR coalesce((Airport_fee#303 < 0.0), false)) OR coalesce((cbd_congestion_fee#304 < 0.0), false)) AS has_negative_part#314]
+Input [22]: [VendorID#285, tpep_pickup_datetime#286, tpep_dropoff_datetime#287, passenger_count#308, trip_distance#289, RatecodeID#309, store_and_fwd_flag#311, PULocationID#292, DOLocationID#293, payment_type#310, fare_amount#295, extra#296, mta_tax#297, tip_amount#298, tolls_amount#299, improvement_surcharge#300, total_amount#301, congestion_surcharge#302, Airport_fee#303, cbd_congestion_fee#304, details_missing#306, charge_in_force#307]
+
+(6) HashAggregate [codegen id : 1]
+Input [23]: [VendorID#285, tpep_pickup_datetime#286, tpep_dropoff_datetime#287, passenger_count#312, trip_distance#289, RatecodeID#313, store_and_fwd_flag#311, PULocationID#292, DOLocationID#293, payment_type#310, fare_amount#295, extra#296, mta_tax#297, tip_amount#298, tolls_amount#299, improvement_surcharge#300, total_amount#301, congestion_surcharge#302, Airport_fee#303, cbd_congestion_fee#304, details_missing#306, charge_in_force#307, has_negative_part#314]
+Keys [23]: [DOLocationID#293, knownfloatingpointnormalized(normalizenanandzero(improvement_surcharge#300)) AS improvement_surcharge#300, tpep_dropoff_datetime#287, PULocationID#292, knownfloatingpointnormalized(normalizenanandzero(tolls_amount#299)) AS tolls_amount#299, knownfloatingpointnormalized(normalizenanandzero(tip_amount#298)) AS tip_amount#298, passenger_count#312, details_missing#306, store_and_fwd_flag#311, knownfloatingpointnormalized(normalizenanandzero(extra#296)) AS extra#296, knownfloatingpointnormalized(normalizenanandzero(mta_tax#297)) AS mta_tax#297, knownfloatingpointnormalized(normalizenanandzero(trip_distance#289)) AS trip_distance#289, knownfloatingpointnormalized(normalizenanandzero(Airport_fee#303)) AS Airport_fee#303, RatecodeID#313, VendorID#285, payment_type#310, knownfloatingpointnormalized(normalizenanandzero(fare_amount#295)) AS fare_amount#295, knownfloatingpointnormalized(normalizenanandzero(cbd_congestion_fee#304)) AS cbd_congestion_fee#304, knownfloatingpointnormalized(normalizenanandzero(congestion_surcharge#302)) AS congestion_surcharge#302, charge_in_force#307, knownfloatingpointnormalized(normalizenanandzero(total_amount#301)) AS total_amount#301, tpep_pickup_datetime#286, has_negative_part#314]
+Functions: []
+Aggregate Attributes: []
+Results [23]: [DOLocationID#293, improvement_surcharge#300, tpep_dropoff_datetime#287, PULocationID#292, tolls_amount#299, tip_amount#298, passenger_count#312, details_missing#306, store_and_fwd_flag#311, extra#296, mta_tax#297, trip_distance#289, Airport_fee#303, RatecodeID#313, VendorID#285, payment_type#310, fare_amount#295, cbd_congestion_fee#304, congestion_surcharge#302, charge_in_force#307, total_amount#301, tpep_pickup_datetime#286, has_negative_part#314]
+
+(7) Exchange
+Input [23]: [DOLocationID#293, improvement_surcharge#300, tpep_dropoff_datetime#287, PULocationID#292, tolls_amount#299, tip_amount#298, passenger_count#312, details_missing#306, store_and_fwd_flag#311, extra#296, mta_tax#297, trip_distance#289, Airport_fee#303, RatecodeID#313, VendorID#285, payment_type#310, fare_amount#295, cbd_congestion_fee#304, congestion_surcharge#302, charge_in_force#307, total_amount#301, tpep_pickup_datetime#286, has_negative_part#314]
+Arguments: hashpartitioning(DOLocationID#293, improvement_surcharge#300, tpep_dropoff_datetime#287, PULocationID#292, tolls_amount#299, tip_amount#298, passenger_count#312, details_missing#306, store_and_fwd_flag#311, extra#296, mta_tax#297, trip_distance#289, Airport_fee#303, RatecodeID#313, VendorID#285, payment_type#310, fare_amount#295, cbd_congestion_fee#304, congestion_surcharge#302, charge_in_force#307, total_amount#301, tpep_pickup_datetime#286, has_negative_part#314, 200), ENSURE_REQUIREMENTS, [plan_id=646]
+
+(8) ShuffleQueryStage
+Output [23]: [DOLocationID#293, improvement_surcharge#300, tpep_dropoff_datetime#287, PULocationID#292, tolls_amount#299, tip_amount#298, passenger_count#312, details_missing#306, store_and_fwd_flag#311, extra#296, mta_tax#297, trip_distance#289, Airport_fee#303, RatecodeID#313, VendorID#285, payment_type#310, fare_amount#295, cbd_congestion_fee#304, congestion_surcharge#302, charge_in_force#307, total_amount#301, tpep_pickup_datetime#286, has_negative_part#314]
+Arguments: 0
+
+(9) AQEShuffleRead
+Input [23]: [DOLocationID#293, improvement_surcharge#300, tpep_dropoff_datetime#287, PULocationID#292, tolls_amount#299, tip_amount#298, passenger_count#312, details_missing#306, store_and_fwd_flag#311, extra#296, mta_tax#297, trip_distance#289, Airport_fee#303, RatecodeID#313, VendorID#285, payment_type#310, fare_amount#295, cbd_congestion_fee#304, congestion_surcharge#302, charge_in_force#307, total_amount#301, tpep_pickup_datetime#286, has_negative_part#314]
+Arguments: coalesced
+
+(10) HashAggregate [codegen id : 2]
+Input [23]: [DOLocationID#293, improvement_surcharge#300, tpep_dropoff_datetime#287, PULocationID#292, tolls_amount#299, tip_amount#298, passenger_count#312, details_missing#306, store_and_fwd_flag#311, extra#296, mta_tax#297, trip_distance#289, Airport_fee#303, RatecodeID#313, VendorID#285, payment_type#310, fare_amount#295, cbd_congestion_fee#304, congestion_surcharge#302, charge_in_force#307, total_amount#301, tpep_pickup_datetime#286, has_negative_part#314]
+Keys [23]: [DOLocationID#293, improvement_surcharge#300, tpep_dropoff_datetime#287, PULocationID#292, tolls_amount#299, tip_amount#298, passenger_count#312, details_missing#306, store_and_fwd_flag#311, extra#296, mta_tax#297, trip_distance#289, Airport_fee#303, RatecodeID#313, VendorID#285, payment_type#310, fare_amount#295, cbd_congestion_fee#304, congestion_surcharge#302, charge_in_force#307, total_amount#301, tpep_pickup_datetime#286, has_negative_part#314]
+Functions: []
+Aggregate Attributes: []
+Results: []
+
+(11) HashAggregate [codegen id : 2]
+Input: []
+Keys: []
+Functions [1]: [partial_count(1)]
+Aggregate Attributes [1]: [count#340L]
+Results [1]: [count#341L]
+
+(12) Exchange
+Input [1]: [count#341L]
+Arguments: SinglePartition, ENSURE_REQUIREMENTS, [plan_id=686]
+
+(13) ShuffleQueryStage
+Output [1]: [count#341L]
+Arguments: 1
+
+(14) HashAggregate [codegen id : 3]
+Input [1]: [count#341L]
+Keys: []
+Functions [1]: [count(1)]
+Aggregate Attributes [1]: [count(1)#339L]
+Results [1]: [count(1)#339L AS count#315L]
+
+(15) ResultQueryStage
+Output [1]: [count#315L]
+Arguments: 2
+
+(16) Filter
+Input [20]: [VendorID#285, tpep_pickup_datetime#286, tpep_dropoff_datetime#287, passenger_count#288L, trip_distance#289, RatecodeID#290L, store_and_fwd_flag#291, PULocationID#292, DOLocationID#293, payment_type#294L, fare_amount#295, extra#296, mta_tax#297, tip_amount#298, tolls_amount#299, improvement_surcharge#300, total_amount#301, congestion_surcharge#302, Airport_fee#303, cbd_congestion_fee#304]
+Condition : (((((((((((isnotnull(tpep_dropoff_datetime#287) AND isnotnull(tpep_pickup_datetime#286)) AND isnotnull(trip_distance#289)) AND isnotnull(total_amount#301)) AND (((tpep_pickup_datetime#286 >= 2024-01-01 00:00:00) AND (tpep_pickup_datetime#286 < 2024-04-01 00:00:00)) OR ((tpep_pickup_datetime#286 >= 2025-01-01 00:00:00) AND (tpep_pickup_datetime#286 < 2025-04-01 00:00:00)))) AND (tpep_dropoff_datetime#287 >= tpep_pickup_datetime#286)) AND NOT (tpep_dropoff_datetime#287 = tpep_pickup_datetime#286)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#286 as timestamp), cast(tpep_dropoff_datetime#287 as timestamp), Some(UTC)) <= 18000)) AND (trip_distance#289 > 0.0)) AND (trip_distance#289 <= 100.0)) AND (total_amount#301 >= 0.0)) AND (total_amount#301 <= 2000.0))
+
+(17) Project
+Output [22]: [VendorID#285, tpep_pickup_datetime#286, tpep_dropoff_datetime#287, cast(passenger_count#288L as int) AS passenger_count#308, trip_distance#289, cast(RatecodeID#290L as int) AS RatecodeID#309, CASE WHEN (store_and_fwd_flag#291 = Y) THEN true WHEN (store_and_fwd_flag#291 = N) THEN false END AS store_and_fwd_flag#311, PULocationID#292, DOLocationID#293, cast(payment_type#294L as int) AS payment_type#310, fare_amount#295, extra#296, mta_tax#297, tip_amount#298, tolls_amount#299, improvement_surcharge#300, total_amount#301, congestion_surcharge#302, Airport_fee#303, cbd_congestion_fee#304, isnull(store_and_fwd_flag#291) AS details_missing#306, (tpep_pickup_datetime#286 >= 2025-01-05 00:00:00) AS charge_in_force#307]
+Input [20]: [VendorID#285, tpep_pickup_datetime#286, tpep_dropoff_datetime#287, passenger_count#288L, trip_distance#289, RatecodeID#290L, store_and_fwd_flag#291, PULocationID#292, DOLocationID#293, payment_type#294L, fare_amount#295, extra#296, mta_tax#297, tip_amount#298, tolls_amount#299, improvement_surcharge#300, total_amount#301, congestion_surcharge#302, Airport_fee#303, cbd_congestion_fee#304]
+
+(18) Project
+Output [23]: [VendorID#285, tpep_pickup_datetime#286, tpep_dropoff_datetime#287, CASE WHEN NOT (passenger_count#308 = 0) THEN passenger_count#308 END AS passenger_count#312, trip_distance#289, CASE WHEN NOT (RatecodeID#309 = 99) THEN RatecodeID#309 END AS RatecodeID#313, store_and_fwd_flag#311, PULocationID#292, DOLocationID#293, payment_type#310, fare_amount#295, extra#296, mta_tax#297, tip_amount#298, tolls_amount#299, improvement_surcharge#300, total_amount#301, congestion_surcharge#302, Airport_fee#303, cbd_congestion_fee#304, details_missing#306, charge_in_force#307, (((((((((coalesce((fare_amount#295 < 0.0), false) OR coalesce((extra#296 < 0.0), false)) OR coalesce((mta_tax#297 < 0.0), false)) OR coalesce((tip_amount#298 < 0.0), false)) OR coalesce((tolls_amount#299 < 0.0), false)) OR coalesce((improvement_surcharge#300 < 0.0), false)) OR coalesce((total_amount#301 < 0.0), false)) OR coalesce((congestion_surcharge#302 < 0.0), false)) OR coalesce((Airport_fee#303 < 0.0), false)) OR coalesce((cbd_congestion_fee#304 < 0.0), false)) AS has_negative_part#314]
+Input [22]: [VendorID#285, tpep_pickup_datetime#286, tpep_dropoff_datetime#287, passenger_count#308, trip_distance#289, RatecodeID#309, store_and_fwd_flag#311, PULocationID#292, DOLocationID#293, payment_type#310, fare_amount#295, extra#296, mta_tax#297, tip_amount#298, tolls_amount#299, improvement_surcharge#300, total_amount#301, congestion_surcharge#302, Airport_fee#303, cbd_congestion_fee#304, details_missing#306, charge_in_force#307]
+
+(19) HashAggregate
+Input [23]: [VendorID#285, tpep_pickup_datetime#286, tpep_dropoff_datetime#287, passenger_count#312, trip_distance#289, RatecodeID#313, store_and_fwd_flag#311, PULocationID#292, DOLocationID#293, payment_type#310, fare_amount#295, extra#296, mta_tax#297, tip_amount#298, tolls_amount#299, improvement_surcharge#300, total_amount#301, congestion_surcharge#302, Airport_fee#303, cbd_congestion_fee#304, details_missing#306, charge_in_force#307, has_negative_part#314]
+Keys [23]: [DOLocationID#293, knownfloatingpointnormalized(normalizenanandzero(improvement_surcharge#300)) AS improvement_surcharge#300, tpep_dropoff_datetime#287, PULocationID#292, knownfloatingpointnormalized(normalizenanandzero(tolls_amount#299)) AS tolls_amount#299, knownfloatingpointnormalized(normalizenanandzero(tip_amount#298)) AS tip_amount#298, passenger_count#312, details_missing#306, store_and_fwd_flag#311, knownfloatingpointnormalized(normalizenanandzero(extra#296)) AS extra#296, knownfloatingpointnormalized(normalizenanandzero(mta_tax#297)) AS mta_tax#297, knownfloatingpointnormalized(normalizenanandzero(trip_distance#289)) AS trip_distance#289, knownfloatingpointnormalized(normalizenanandzero(Airport_fee#303)) AS Airport_fee#303, RatecodeID#313, VendorID#285, payment_type#310, knownfloatingpointnormalized(normalizenanandzero(fare_amount#295)) AS fare_amount#295, knownfloatingpointnormalized(normalizenanandzero(cbd_congestion_fee#304)) AS cbd_congestion_fee#304, knownfloatingpointnormalized(normalizenanandzero(congestion_surcharge#302)) AS congestion_surcharge#302, charge_in_force#307, knownfloatingpointnormalized(normalizenanandzero(total_amount#301)) AS total_amount#301, tpep_pickup_datetime#286, has_negative_part#314]
+Functions: []
+Aggregate Attributes: []
+Results [23]: [DOLocationID#293, improvement_surcharge#300, tpep_dropoff_datetime#287, PULocationID#292, tolls_amount#299, tip_amount#298, passenger_count#312, details_missing#306, store_and_fwd_flag#311, extra#296, mta_tax#297, trip_distance#289, Airport_fee#303, RatecodeID#313, VendorID#285, payment_type#310, fare_amount#295, cbd_congestion_fee#304, congestion_surcharge#302, charge_in_force#307, total_amount#301, tpep_pickup_datetime#286, has_negative_part#314]
+
+(20) Exchange
+Input [23]: [DOLocationID#293, improvement_surcharge#300, tpep_dropoff_datetime#287, PULocationID#292, tolls_amount#299, tip_amount#298, passenger_count#312, details_missing#306, store_and_fwd_flag#311, extra#296, mta_tax#297, trip_distance#289, Airport_fee#303, RatecodeID#313, VendorID#285, payment_type#310, fare_amount#295, cbd_congestion_fee#304, congestion_surcharge#302, charge_in_force#307, total_amount#301, tpep_pickup_datetime#286, has_negative_part#314]
+Arguments: hashpartitioning(DOLocationID#293, improvement_surcharge#300, tpep_dropoff_datetime#287, PULocationID#292, tolls_amount#299, tip_amount#298, passenger_count#312, details_missing#306, store_and_fwd_flag#311, extra#296, mta_tax#297, trip_distance#289, Airport_fee#303, RatecodeID#313, VendorID#285, payment_type#310, fare_amount#295, cbd_congestion_fee#304, congestion_surcharge#302, charge_in_force#307, total_amount#301, tpep_pickup_datetime#286, has_negative_part#314, 200), ENSURE_REQUIREMENTS, [plan_id=611]
+
+(21) HashAggregate
+Input [23]: [DOLocationID#293, improvement_surcharge#300, tpep_dropoff_datetime#287, PULocationID#292, tolls_amount#299, tip_amount#298, passenger_count#312, details_missing#306, store_and_fwd_flag#311, extra#296, mta_tax#297, trip_distance#289, Airport_fee#303, RatecodeID#313, VendorID#285, payment_type#310, fare_amount#295, cbd_congestion_fee#304, congestion_surcharge#302, charge_in_force#307, total_amount#301, tpep_pickup_datetime#286, has_negative_part#314]
+Keys [23]: [DOLocationID#293, improvement_surcharge#300, tpep_dropoff_datetime#287, PULocationID#292, tolls_amount#299, tip_amount#298, passenger_count#312, details_missing#306, store_and_fwd_flag#311, extra#296, mta_tax#297, trip_distance#289, Airport_fee#303, RatecodeID#313, VendorID#285, payment_type#310, fare_amount#295, cbd_congestion_fee#304, congestion_surcharge#302, charge_in_force#307, total_amount#301, tpep_pickup_datetime#286, has_negative_part#314]
+Functions: []
+Aggregate Attributes: []
+Results: []
+
+(22) HashAggregate
+Input: []
+Keys: []
+Functions [1]: [partial_count(1)]
+Aggregate Attributes [1]: [count#340L]
+Results [1]: [count#341L]
+
+(23) Exchange
+Input [1]: [count#341L]
+Arguments: SinglePartition, ENSURE_REQUIREMENTS, [plan_id=615]
+
+(24) HashAggregate
+Input [1]: [count#341L]
+Keys: []
+Functions [1]: [count(1)]
+Aggregate Attributes [1]: [count(1)#339L]
+Results [1]: [count(1)#339L AS count#315L]
+
+(25) AdaptiveSparkPlan
+Output [1]: [count#315L]
+Arguments: isFinalPlan=true
+
+
