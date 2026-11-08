@@ -29,6 +29,7 @@ One line per finished task. Each report's contribution section is built from thi
 ## Report 2
 | Member | Work | Files |
 |---|---|---|
+| Alican Kaya | Wrote the measuring script for the optimizations, which saves the final query plan and the times with the machine details, with tests | `src/hlds/benchmarks.py`, `scripts/run_benchmarks.py`, `tests/test_benchmarks.py`, `src/hlds/paths.py` |
 
 ## Report 3
 | Member | Work | Files |

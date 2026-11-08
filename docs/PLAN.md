@@ -30,7 +30,7 @@ Report 1 was submitted on 7 November, so Reports 2 and 3 were moved earlier. Rep
 | R1-11 | W3 (9–15 Nov) | Berke | Report 1 sections: environment, statistics, problems and solutions | done |
 | R1-12 | W4 (16–18 Nov) | Alican | Final edit and submission of Report 1 | done |
 | R1-13 | W4 (16–18 Nov) | Berke | Report 1 code excerpts, screenshots, contribution section | done |
-| R2-05 | W3 (9–15 Nov) | Alican | `scripts/run_benchmarks.py` skeleton on `timing.measure`: saves the `explain()` plan and writes times to `results/timings_<machine>.csv`; first trial run (clean + count) | todo |
+| R2-05 | W3 (9–15 Nov) | Alican | `scripts/run_benchmarks.py` skeleton on `timing.measure`: saves the `explain()` plan and writes times to `results/timings_<machine>.csv`; first trial run (clean + count) | done |
 | R2-01 | W3–W4 (9–22 Nov) | Alican | Query Q1: daily trend, daily average per year, hour × weekday table; output in `results/` | todo |
 | R2-02 | W3–W4 (9–22 Nov) | Alican | Query Q2: durations from New York time converted to UTC, speed, price per mile, tip %; output in `results/` | todo |
 | R2-03 | W3–W4 (9–22 Nov) | Berke | Query Q3 with the zone joins; output in `results/`; first trial run on own machine | todo |
