@@ -1,0 +1,5 @@
+year,charge_group,trips,trips_per_day,share,median_total_amount,median_trip_distance
+2024,all trips,8878230,102048.6,1.0,20.5,1.74
+2025,all trips,10040953,116755.3,1.0,20.95,1.76
+2025,does not pay,2611125,30361.9,0.26,18.45,1.64
+2025,pays the charge,7429828,86393.3,0.74,21.54,1.8

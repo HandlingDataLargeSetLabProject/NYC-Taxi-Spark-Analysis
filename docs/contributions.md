@@ -33,6 +33,7 @@ One line per finished task. Each report's contribution section is built from thi
 | Alican Kaya | Wrote query Q1 on demand by day, hour and weekday (DataFrame API and Spark SQL) and the shared CSV writer for the results, with tests | `src/hlds/demand.py`, `src/hlds/results.py`, `scripts/query_demand.py`, `tests/test_demand.py`, `results/q1_*.csv`, `docs/data-dictionary.md` |
 | Alican Kaya | Wrote query Q2 on duration, speed, price per mile and tips by hour and payment type, with the New York summer time correction, with tests | `src/hlds/prices.py`, `scripts/query_prices.py`, `tests/test_prices.py`, `results/q2_*.csv`, `docs/data-dictionary.md` |
 | Berke Arda Türk | Wrote query Q3 on pickup and drop-off zones, borough flows, the busiest routes (Spark SQL) and airport trips, with the zone table joined for both ends, with tests; first trial run of the measuring script on my laptop | `src/hlds/places.py`, `scripts/query_places.py`, `tests/test_places.py`, `results/q3_*.csv`, `results/timings_berke.csv`, `results/plans/berke/`, `docs/data-dictionary.md` |
+| Berke Arda Türk | Wrote query Q4 on the congestion relief zone charge: both years from 5 January to 31 March, the share of trips paying the charge and their median price by hour and zone, with tests; fixed the local path in my pilot plan | `src/hlds/congestion.py`, `scripts/query_congestion.py`, `tests/test_congestion.py`, `results/q4_*.csv`, `results/plans/berke/pilot_clean_count.txt`, `docs/analysis-plan.md`, `docs/data-dictionary.md` |
 
 ## Report 3
 | Member | Work | Files |
