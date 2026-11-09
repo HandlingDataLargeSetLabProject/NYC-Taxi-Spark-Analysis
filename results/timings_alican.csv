@@ -1,2 +1,4 @@
 date,optimization,variant,median_s,min_s,max_s,runs_s,cpu,logical_cores,ram_gb,spark_version,driver_memory
 2026-11-08,pilot,clean_count,30.49,26.006,46.248,30.49;46.248;26.006,"Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",24,31.6,4.2.0,6g
+2026-11-09,O1,before,281.517,230.147,349.924,230.147;281.517;281.432;337.608;349.924,"Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",24,31.6,4.2.0,6g
+2026-11-09,O1,after,187.666,175.608,191.655,175.608;184.396;191.655;188.895;187.666,"Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",24,31.6,4.2.0,6g

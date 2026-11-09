@@ -13,6 +13,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 from hlds.benchmarks import (BenchmarkCase, append_timing, count_rows, machine_info, measure_case, save_plan,
                              timing_row, timings_file)
+from hlds.caching import run_q1_and_q2
 from hlds.cleaning import clean_trips
 from hlds.loading import load_trips
 from hlds.paths import RESULTS_DIR
@@ -23,6 +24,15 @@ def clean_and_count(spark):
     return count_rows(clean_trips(load_trips(spark)))
 
 
+def q1_q2_without_cache(spark):
+    return run_q1_and_q2(clean_trips(load_trips(spark)))
+
+
+def q1_q2_with_cache(spark):
+    # The time to fill the cache is part of the run, because a real run pays for it too.
+    return run_q1_and_q2(clean_trips(load_trips(spark)).cache())
+
+
 def clear_cache(spark):
     spark.catalog.clearCache()
 
@@ -30,6 +40,8 @@ def clear_cache(spark):
 # Each optimization adds its "before" and "after" cases here (R2-06 to R2-08).
 CASES = [
     BenchmarkCase("pilot", "clean_count", clean_and_count, reset=clear_cache),
+    BenchmarkCase("O1", "before", q1_q2_without_cache, reset=clear_cache),
+    BenchmarkCase("O1", "after", q1_q2_with_cache, reset=clear_cache),
 ]
 
 

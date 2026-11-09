@@ -35,10 +35,10 @@ Report 1 was submitted on 7 November, so Reports 2 and 3 were moved earlier. Rep
 | R2-02 | W3–W4 (9–22 Nov) | Alican | Query Q2: durations from New York time converted to UTC, speed, price per mile, tip %; output in `results/` | done |
 | R2-03 | W3–W4 (9–22 Nov) | Berke | Query Q3 with the zone joins; output in `results/`; first trial run on own machine | done |
 | R2-04 | W3–W4 (9–22 Nov) | Berke | Query Q4: zone charge trips without `has_negative_part`, charge period by date; output in `results/` | done |
-| R2-06 | W4–W5 (16–29 Nov) | Alican | Optimization O1: caching / persistence on the Q1 + Q2 sequence (after R2-01, R2-02, R2-05) | todo |
+| R2-06 | W4–W5 (16–29 Nov) | Alican | Optimization O1: caching / persistence on the Q1 + Q2 sequence (after R2-01, R2-02, R2-05) | done |
 | R2-07 | W4–W5 (16–29 Nov) | Berke | Optimization O2: broadcast join; check with `explain()` that the run before is a shuffle join (after R2-03, R2-04, R2-05) | todo |
 | R2-08 | W4–W5 (16–29 Nov) | Berke | Optimization O3: cleaned table as plain Parquet (before) and partitioned by pickup date (after) | todo |
-| R2-09 | W5 (23–29 Nov) | Alican | O1 before/after measurements on own machine | todo |
+| R2-09 | W5 (23–29 Nov) | Alican | O1 before/after measurements on own machine | done |
 | R2-10 | W5 (23–29 Nov) | Berke | O2 and O3 before/after measurements on own machine | todo |
 | R2-15 | W5 (23–29 Nov) | Alican | Adapt the report build script for Report 2 | todo |
 | R2-11 | W6 (30 Nov–6 Dec) | Alican | Report 2 sections: introduction, measuring method, Q1, Q2, O1, own problems and solutions | todo |
