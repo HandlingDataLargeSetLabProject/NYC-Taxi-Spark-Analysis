@@ -1,0 +1,1032 @@
+year,zone_id,borough,zone,charge_group,trips,trips_per_day,share,median_total_amount,median_trip_distance
+2024,1,EWR,Newark Airport,all trips,167,1.9,1.0,102.0,0.3
+2024,2,Queens,Jamaica Bay,all trips,11,0.1,1.0,56.5,10.34
+2024,3,Bronx,Allerton/Pelham Gardens,all trips,265,3.0,1.0,41.81,9.0
+2024,4,Manhattan,Alphabet City,all trips,14140,162.5,1.0,21.35,2.19
+2024,6,Staten Island,Arrochar/Fort Wadsworth,all trips,61,0.7,1.0,20.08,3.24
+2024,7,Queens,Astoria,all trips,4629,53.2,1.0,23.0,3.05
+2024,8,Queens,Astoria Park,all trips,18,0.2,1.0,54.89,4.4
+2024,9,Queens,Auburndale,all trips,140,1.6,1.0,31.0,6.98
+2024,10,Queens,Baisley Park,all trips,2767,31.8,1.0,80.94,13.86
+2024,11,Brooklyn,Bath Beach,all trips,203,2.3,1.0,46.28,9.2
+2024,12,Manhattan,Battery Park,all trips,2657,30.5,1.0,33.24,4.6
+2024,13,Manhattan,Battery Park City,all trips,50488,580.3,1.0,28.2,3.51
+2024,14,Brooklyn,Bay Ridge,all trips,1091,12.5,1.0,39.94,8.9
+2024,15,Queens,Bay Terrace/Fort Totten,all trips,127,1.5,1.0,43.0,9.5
+2024,16,Queens,Bayside,all trips,173,2.0,1.0,40.5,9.6
+2024,17,Brooklyn,Bedford,all trips,1789,20.6,1.0,26.0,3.92
+2024,18,Bronx,Bedford Park,all trips,453,5.2,1.0,41.0,8.9
+2024,19,Queens,Bellerose,all trips,273,3.1,1.0,43.0,10.7
+2024,20,Bronx,Belmont,all trips,322,3.7,1.0,36.0,6.6
+2024,21,Brooklyn,Bensonhurst East,all trips,352,4.0,1.0,37.0,7.5
+2024,22,Brooklyn,Bensonhurst West,all trips,498,5.7,1.0,39.0,7.4
+2024,23,Staten Island,Bloomfield/Emerson Hill,all trips,14,0.2,1.0,41.33,11.92
+2024,24,Manhattan,Bloomingdale,all trips,23054,265.0,1.0,19.0,1.9
+2024,25,Brooklyn,Boerum Hill,all trips,3716,42.7,1.0,26.26,3.76
+2024,26,Brooklyn,Borough Park,all trips,633,7.3,1.0,28.0,4.9
+2024,27,Queens,Breezy Point/Fort Tilden/Riis Beach,all trips,11,0.1,1.0,25.8,5.74
+2024,28,Queens,Briarwood/Jamaica Hills,all trips,1038,11.9,1.0,43.0,9.48
+2024,29,Brooklyn,Brighton Beach,all trips,550,6.3,1.0,46.0,11.2
+2024,30,Queens,Broad Channel,all trips,14,0.2,1.0,27.73,5.52
+2024,31,Bronx,Bronx Park,all trips,38,0.4,1.0,39.0,8.27
+2024,32,Bronx,Bronxdale,all trips,365,4.2,1.0,39.0,8.3
+2024,33,Brooklyn,Brooklyn Heights,all trips,4632,53.2,1.0,29.76,4.42
+2024,34,Brooklyn,Brooklyn Navy Yard,all trips,240,2.8,1.0,28.0,3.67
+2024,35,Brooklyn,Brownsville,all trips,1781,20.5,1.0,26.0,4.6
+2024,36,Brooklyn,Bushwick North,all trips,854,9.8,1.0,29.29,5.02
+2024,37,Brooklyn,Bushwick South,all trips,1708,19.6,1.0,29.0,4.83
+2024,38,Queens,Cambria Heights,all trips,403,4.6,1.0,49.0,12.92
+2024,39,Brooklyn,Canarsie,all trips,2067,23.8,1.0,31.0,6.3
+2024,40,Brooklyn,Carroll Gardens,all trips,1237,14.2,1.0,28.84,3.5
+2024,41,Manhattan,Central Harlem,all trips,22156,254.7,1.0,17.0,1.74
+2024,42,Manhattan,Central Harlem North,all trips,10183,117.0,1.0,20.0,2.42
+2024,43,Manhattan,Central Park,all trips,139173,1599.7,1.0,19.32,1.61
+2024,44,Staten Island,Charleston/Tottenville,all trips,1,0.0,1.0,82.9,21.71
+2024,45,Manhattan,Chinatown,all trips,12554,144.3,1.0,24.31,2.59
+2024,46,Bronx,City Island,all trips,35,0.4,1.0,44.0,11.6
+2024,47,Bronx,Claremont/Bathgate,all trips,506,5.8,1.0,33.0,5.7
+2024,48,Manhattan,Clinton East,all trips,229492,2637.8,1.0,18.95,1.54
+2024,49,Brooklyn,Clinton Hill,all trips,1838,21.1,1.0,28.0,4.11
+2024,50,Manhattan,Clinton West,all trips,50553,581.1,1.0,19.35,1.7
+2024,51,Bronx,Co-Op City,all trips,1159,13.3,1.0,44.0,10.48
+2024,52,Brooklyn,Cobble Hill,all trips,1778,20.4,1.0,27.0,3.49
+2024,53,Queens,College Point,all trips,141,1.6,1.0,35.51,7.83
+2024,54,Brooklyn,Columbia Street,all trips,230,2.6,1.0,33.47,4.84
+2024,55,Brooklyn,Coney Island,all trips,861,9.9,1.0,45.0,11.1
+2024,56,Queens,Corona,all trips,752,8.6,1.0,35.0,7.49
+2024,57,Queens,Corona,all trips,28,0.3,1.0,27.66,5.71
+2024,58,Bronx,Country Club,all trips,21,0.2,1.0,39.1,8.7
+2024,59,Bronx,Crotona Park,all trips,13,0.1,1.0,48.5,11.65
+2024,60,Bronx,Crotona Park East,all trips,340,3.9,1.0,31.19,6.0
+2024,61,Brooklyn,Crown Heights North,all trips,3626,41.7,1.0,26.0,4.3
+2024,62,Brooklyn,Crown Heights South,all trips,1194,13.7,1.0,25.53,4.28
+2024,63,Brooklyn,Cypress Hills,all trips,502,5.8,1.0,32.0,6.27
+2024,64,Queens,Douglaston,all trips,125,1.4,1.0,42.0,9.6
+2024,65,Brooklyn,Downtown Brooklyn/MetroTech,all trips,5128,58.9,1.0,28.44,3.94
+2024,66,Brooklyn,DUMBO/Vinegar Hill,all trips,2588,29.7,1.0,28.24,4.09
+2024,67,Brooklyn,Dyker Heights,all trips,244,2.8,1.0,37.0,7.2
+2024,68,Manhattan,East Chelsea,all trips,236452,2717.8,1.0,21.7,1.74
+2024,69,Bronx,East Concourse/Concourse Village,all trips,1088,12.5,1.0,29.15,4.8
+2024,70,Queens,East Elmhurst,all trips,35177,404.3,1.0,65.88,9.37
+2024,71,Brooklyn,East Flatbush/Farragut,all trips,1250,14.4,1.0,24.0,3.8
+2024,72,Brooklyn,East Flatbush/Remsen Village,all trips,1548,17.8,1.0,26.0,4.5
+2024,73,Queens,East Flushing,all trips,97,1.1,1.0,41.0,9.85
+2024,74,Manhattan,East Harlem North,all trips,20107,231.1,1.0,18.0,1.98
+2024,75,Manhattan,East Harlem South,all trips,55504,638.0,1.0,17.8,1.7
+2024,76,Brooklyn,East New York,all trips,2834,32.6,1.0,30.0,6.05
+2024,77,Brooklyn,East New York/Pennsylvania Avenue,all trips,658,7.6,1.0,29.0,6.0
+2024,78,Bronx,East Tremont,all trips,634,7.3,1.0,31.0,5.8
+2024,79,Manhattan,East Village,all trips,218427,2510.7,1.0,19.68,1.74
+2024,80,Brooklyn,East Williamsburg,all trips,2206,25.4,1.0,30.45,4.65
+2024,81,Bronx,Eastchester,all trips,359,4.1,1.0,42.0,9.6
+2024,82,Queens,Elmhurst,all trips,1525,17.5,1.0,30.0,5.3
+2024,83,Queens,Elmhurst/Maspeth,all trips,508,5.8,1.0,30.6,4.1
+2024,84,Staten Island,Eltingville/Annadale/Prince's Bay,all trips,1,0.0,1.0,65.48,20.11
+2024,85,Brooklyn,Erasmus,all trips,741,8.5,1.0,27.0,4.4
+2024,86,Queens,Far Rockaway,all trips,759,8.7,1.0,49.0,14.4
+2024,87,Manhattan,Financial District North,all trips,41294,474.6,1.0,28.42,3.77
+2024,88,Manhattan,Financial District South,all trips,22844,262.6,1.0,30.8,4.36
+2024,89,Brooklyn,Flatbush/Ditmas Park,all trips,2037,23.4,1.0,27.0,4.37
+2024,90,Manhattan,Flatiron,all trips,145220,1669.2,1.0,18.7,1.42
+2024,91,Brooklyn,Flatlands,all trips,1393,16.0,1.0,27.9,5.2
+2024,92,Queens,Flushing,all trips,636,7.3,1.0,36.0,7.8
+2024,93,Queens,Flushing Meadows-Corona Park,all trips,1358,15.6,1.0,85.94,9.04
+2024,94,Bronx,Fordham South,all trips,248,2.9,1.0,33.0,6.35
+2024,95,Queens,Forest Hills,all trips,1616,18.6,1.0,28.99,5.4
+2024,96,Queens,Forest Park/Highland Park,all trips,28,0.3,1.0,29.96,3.0
+2024,97,Brooklyn,Fort Greene,all trips,3893,44.7,1.0,25.0,3.41
+2024,98,Queens,Fresh Meadows,all trips,179,2.1,1.0,38.0,9.2
+2024,99,Staten Island,Freshkills Park,all trips,1,0.0,1.0,12.2,2.25
+2024,100,Manhattan,Garment District,all trips,138426,1591.1,1.0,19.6,1.4
+2024,101,Queens,Glen Oaks,all trips,129,1.5,1.0,41.65,10.43
+2024,102,Queens,Glendale,all trips,265,3.0,1.0,28.0,4.9
+2024,105,Manhattan,Governor's Island/Ellis Island/Liberty Island,all trips,1,0.0,1.0,18.48,1.41
+2024,106,Brooklyn,Gowanus,all trips,549,6.3,1.0,28.31,4.55
+2024,107,Manhattan,Gramercy,all trips,184104,2116.1,1.0,18.84,1.5
+2024,108,Brooklyn,Gravesend,all trips,356,4.1,1.0,41.0,9.89
+2024,109,Staten Island,Great Kills,all trips,1,0.0,1.0,111.48,16.06
+2024,111,Brooklyn,Green-Wood Cemetery,all trips,14,0.2,1.0,34.0,3.51
+2024,112,Brooklyn,Greenpoint,all trips,2037,23.4,1.0,28.9,4.15
+2024,113,Manhattan,Greenwich Village North,all trips,131489,1511.4,1.0,18.85,1.49
+2024,114,Manhattan,Greenwich Village South,all trips,132775,1526.1,1.0,19.68,1.7
+2024,115,Staten Island,Grymes Hill/Clifton,all trips,10,0.1,1.0,33.82,8.56
+2024,116,Manhattan,Hamilton Heights,all trips,7063,81.2,1.0,21.9,3.08
+2024,117,Queens,Hammels/Arverne,all trips,717,8.2,1.0,49.0,13.4
+2024,118,Staten Island,Heartland Village/Todt Hill,all trips,10,0.1,1.0,58.54,10.93
+2024,119,Bronx,Highbridge,all trips,560,6.4,1.0,29.0,5.57
+2024,120,Manhattan,Highbridge Park,all trips,42,0.5,1.0,27.6,3.2
+2024,121,Queens,Hillcrest/Pomonok,all trips,572,6.6,1.0,32.0,6.55
+2024,122,Queens,Hollis,all trips,251,2.9,1.0,39.0,9.4
+2024,123,Brooklyn,Homecrest,all trips,467,5.4,1.0,29.0,5.7
+2024,124,Queens,Howard Beach,all trips,396,4.6,1.0,41.44,7.86
+2024,125,Manhattan,Hudson Sq,all trips,44087,506.7,1.0,19.8,1.75
+2024,126,Bronx,Hunts Point,all trips,367,4.2,1.0,30.7,5.7
+2024,127,Manhattan,Inwood,all trips,742,8.5,1.0,31.0,6.4
+2024,128,Manhattan,Inwood Hill Park,all trips,69,0.8,1.0,38.33,7.29
+2024,129,Queens,Jackson Heights,all trips,2423,27.9,1.0,29.88,3.87
+2024,130,Queens,Jamaica,all trips,2149,24.7,1.0,39.2,9.41
+2024,131,Queens,Jamaica Estates,all trips,478,5.5,1.0,34.0,7.4
+2024,132,Queens,JFK Airport,all trips,385555,4431.7,1.0,87.69,17.49
+2024,133,Brooklyn,Kensington,all trips,404,4.6,1.0,28.0,4.9
+2024,134,Queens,Kew Gardens,all trips,919,10.6,1.0,42.86,5.5
+2024,135,Queens,Kew Gardens Hills,all trips,383,4.4,1.0,35.0,7.9
+2024,136,Bronx,Kingsbridge Heights,all trips,366,4.2,1.0,31.74,6.0
+2024,137,Manhattan,Kips Bay,all trips,99300,1141.4,1.0,18.95,1.59
+2024,138,Queens,LaGuardia Airport,all trips,266874,3067.5,1.0,67.39,9.5
+2024,139,Queens,Laurelton,all trips,448,5.1,1.0,42.0,11.7
+2024,140,Manhattan,Lenox Hill East,all trips,186062,2138.6,1.0,19.6,1.7
+2024,141,Manhattan,Lenox Hill West,all trips,215033,2471.6,1.0,17.64,1.38
+2024,142,Manhattan,Lincoln Square East,all trips,295921,3401.4,1.0,18.84,1.61
+2024,143,Manhattan,Lincoln Square West,all trips,102008,1172.5,1.0,18.5,1.68
+2024,144,Manhattan,Little Italy/NoLiTa,all trips,86589,995.3,1.0,20.8,1.92
+2024,145,Queens,Long Island City/Hunters Point,all trips,4991,57.4,1.0,30.96,3.24
+2024,146,Queens,Long Island City/Queens Plaza,all trips,4001,46.0,1.0,21.0,2.4
+2024,147,Bronx,Longwood,all trips,318,3.7,1.0,29.0,5.5
+2024,148,Manhattan,Lower East Side,all trips,97279,1118.1,1.0,21.89,2.2
+2024,149,Brooklyn,Madison,all trips,350,4.0,1.0,30.0,5.6
+2024,150,Brooklyn,Manhattan Beach,all trips,201,2.3,1.0,36.0,6.91
+2024,151,Manhattan,Manhattan Valley,all trips,71294,819.5,1.0,18.0,1.71
+2024,152,Manhattan,Manhattanville,all trips,5832,67.0,1.0,19.15,2.33
+2024,153,Manhattan,Marble Hill,all trips,127,1.5,1.0,27.0,5.7
+2024,154,Brooklyn,Marine Park/Floyd Bennett Field,all trips,151,1.7,1.0,26.05,4.55
+2024,155,Brooklyn,Marine Park/Mill Basin,all trips,663,7.6,1.0,30.0,6.1
+2024,156,Staten Island,Mariners Harbor,all trips,2,0.0,1.0,58.0,12.92
+2024,157,Queens,Maspeth,all trips,1110,12.8,1.0,37.0,5.65
+2024,158,Manhattan,Meatpacking/West Village West,all trips,81028,931.4,1.0,21.0,1.86
+2024,159,Bronx,Melrose South,all trips,915,10.5,1.0,25.41,3.7
+2024,160,Queens,Middle Village,all trips,324,3.7,1.0,31.0,5.7
+2024,161,Manhattan,Midtown Center,all trips,426035,4897.0,1.0,20.2,1.55
+2024,162,Manhattan,Midtown East,all trips,316179,3634.2,1.0,20.15,1.54
+2024,163,Manhattan,Midtown North,all trips,259581,2983.7,1.0,19.62,1.52
+2024,164,Manhattan,Midtown South,all trips,200909,2309.3,1.0,19.6,1.49
+2024,165,Brooklyn,Midwood,all trips,766,8.8,1.0,27.0,5.0
+2024,166,Manhattan,Morningside Heights,all trips,43023,494.5,1.0,20.16,2.1
+2024,167,Bronx,Morrisania/Melrose,all trips,725,8.3,1.0,30.0,5.0
+2024,168,Bronx,Mott Haven/Port Morris,all trips,1705,19.6,1.0,27.32,4.83
+2024,169,Bronx,Mount Hope,all trips,634,7.3,1.0,29.1,5.6
+2024,170,Manhattan,Murray Hill,all trips,254878,2929.6,1.0,19.72,1.5
+2024,171,Queens,Murray Hill-Queens,all trips,215,2.5,1.0,37.74,8.2
+2024,172,Staten Island,New Dorp/Midland Beach,all trips,10,0.1,1.0,68.26,14.5
+2024,173,Queens,North Corona,all trips,232,2.7,1.0,29.0,5.1
+2024,174,Bronx,Norwood,all trips,418,4.8,1.0,41.0,8.6
+2024,175,Queens,Oakland Gardens,all trips,178,2.0,1.0,35.0,9.4
+2024,176,Staten Island,Oakwood,all trips,5,0.1,1.0,45.88,10.13
+2024,177,Brooklyn,Ocean Hill,all trips,1218,14.0,1.0,28.0,5.0
+2024,178,Brooklyn,Ocean Parkway South,all trips,144,1.7,1.0,33.0,5.49
+2024,179,Queens,Old Astoria,all trips,1624,18.7,1.0,25.38,3.59
+2024,180,Queens,Ozone Park,all trips,261,3.0,1.0,34.86,5.8
+2024,181,Brooklyn,Park Slope,all trips,3402,39.1,1.0,26.31,3.83
+2024,182,Bronx,Parkchester,all trips,804,9.2,1.0,36.3,7.6
+2024,183,Bronx,Pelham Bay,all trips,154,1.8,1.0,40.0,9.3
+2024,184,Bronx,Pelham Bay Park,all trips,19,0.2,1.0,47.0,11.7
+2024,185,Bronx,Pelham Parkway,all trips,333,3.8,1.0,31.0,5.3
+2024,186,Manhattan,Penn Station/Madison Sq West,all trips,298832,3434.9,1.0,21.3,1.54
+2024,187,Staten Island,Port Richmond,all trips,4,0.0,1.0,8.4,0.1
+2024,188,Brooklyn,Prospect-Lefferts Gardens,all trips,2248,25.8,1.0,25.81,4.34
+2024,189,Brooklyn,Prospect Heights,all trips,1115,12.8,1.0,25.45,3.8
+2024,190,Brooklyn,Prospect Park,all trips,157,1.8,1.0,25.09,3.7
+2024,191,Queens,Queens Village,all trips,791,9.1,1.0,47.0,12.12
+2024,192,Queens,Queensboro Hill,all trips,179,2.1,1.0,28.57,6.34
+2024,193,Queens,Queensbridge/Ravenswood,all trips,1526,17.5,1.0,24.79,3.2
+2024,194,Manhattan,Randalls Island,all trips,308,3.5,1.0,75.32,5.08
+2024,195,Brooklyn,Red Hook,all trips,996,11.4,1.0,44.0,7.36
+2024,196,Queens,Rego Park,all trips,700,8.0,1.0,32.0,6.2
+2024,197,Queens,Richmond Hill,all trips,1338,15.4,1.0,34.0,5.1
+2024,198,Queens,Ridgewood,all trips,631,7.3,1.0,29.0,4.76
+2024,199,Bronx,Rikers Island,all trips,4,0.0,1.0,52.87,9.27
+2024,200,Bronx,Riverdale/North Riverdale/Fieldston,all trips,268,3.1,1.0,40.18,9.53
+2024,201,Queens,Rockaway Park,all trips,206,2.4,1.0,43.67,10.6
+2024,202,Manhattan,Roosevelt Island,all trips,383,4.4,1.0,31.1,4.38
+2024,203,Queens,Rosedale,all trips,457,5.3,1.0,47.04,11.5
+2024,205,Queens,Saint Albans,all trips,969,11.1,1.0,43.0,10.9
+2024,206,Staten Island,Saint George/New Brighton,all trips,9,0.1,1.0,58.33,11.55
+2024,207,Queens,Saint Michaels Cemetery/Woodside,all trips,106,1.2,1.0,61.68,6.8
+2024,208,Bronx,Schuylerville/Edgewater Park,all trips,366,4.2,1.0,36.0,7.6
+2024,209,Manhattan,Seaport,all trips,15200,174.7,1.0,26.8,3.37
+2024,210,Brooklyn,Sheepshead Bay,all trips,656,7.5,1.0,39.0,8.0
+2024,211,Manhattan,SoHo,all trips,68387,786.1,1.0,20.5,1.8
+2024,212,Bronx,Soundview/Bruckner,all trips,410,4.7,1.0,31.97,6.1
+2024,213,Bronx,Soundview/Castle Hill,all trips,930,10.7,1.0,34.0,7.2
+2024,214,Staten Island,South Beach/Dongan Hills,all trips,14,0.2,1.0,35.67,10.3
+2024,215,Queens,South Jamaica,all trips,1706,19.6,1.0,51.94,12.3
+2024,216,Queens,South Ozone Park,all trips,1898,21.8,1.0,50.25,3.72
+2024,217,Brooklyn,South Williamsburg,all trips,444,5.1,1.0,27.0,4.0
+2024,218,Queens,Springfield Gardens North,all trips,958,11.0,1.0,38.0,8.72
+2024,219,Queens,Springfield Gardens South,all trips,1213,13.9,1.0,69.0,13.87
+2024,220,Bronx,Spuyten Duyvil/Kingsbridge,all trips,411,4.7,1.0,35.0,8.1
+2024,221,Staten Island,Stapleton,all trips,10,0.1,1.0,31.52,5.52
+2024,222,Brooklyn,Starrett City,all trips,882,10.1,1.0,33.0,7.4
+2024,223,Queens,Steinway,all trips,1809,20.8,1.0,36.94,5.35
+2024,224,Manhattan,Stuy Town/Peter Cooper Village,all trips,12291,141.3,1.0,20.02,1.9
+2024,225,Brooklyn,Stuyvesant Heights,all trips,1834,21.1,1.0,27.0,4.7
+2024,226,Queens,Sunnyside,all trips,6687,76.9,1.0,27.4,3.6
+2024,227,Brooklyn,Sunset Park East,all trips,289,3.3,1.0,34.0,7.0
+2024,228,Brooklyn,Sunset Park West,all trips,764,8.8,1.0,37.0,6.92
+2024,229,Manhattan,Sutton Place/Turtle Bay North,all trips,164758,1893.8,1.0,18.8,1.5
+2024,230,Manhattan,Times Sq/Theatre District,all trips,307479,3534.2,1.0,20.6,1.62
+2024,231,Manhattan,TriBeCa/Civic Center,all trips,117773,1353.7,1.0,22.32,2.2
+2024,232,Manhattan,Two Bridges/Seward Park,all trips,12162,139.8,1.0,24.2,2.87
+2024,233,Manhattan,UN/Turtle Bay South,all trips,106039,1218.8,1.0,20.0,1.6
+2024,234,Manhattan,Union Sq,all trips,243315,2796.7,1.0,19.2,1.46
+2024,235,Bronx,University Heights/Morris Heights,all trips,767,8.8,1.0,31.5,5.9
+2024,236,Manhattan,Upper East Side North,all trips,394195,4531.0,1.0,17.8,1.43
+2024,237,Manhattan,Upper East Side South,all trips,416121,4783.0,1.0,17.5,1.26
+2024,238,Manhattan,Upper West Side North,all trips,180470,2074.4,1.0,18.48,1.61
+2024,239,Manhattan,Upper West Side South,all trips,264083,3035.4,1.0,18.51,1.64
+2024,240,Bronx,Van Cortlandt Park,all trips,40,0.5,1.0,40.45,6.7
+2024,241,Bronx,Van Cortlandt Village,all trips,501,5.8,1.0,38.0,8.26
+2024,242,Bronx,Van Nest/Morris Park,all trips,582,6.7,1.0,33.0,6.6
+2024,243,Manhattan,Washington Heights North,all trips,1753,20.1,1.0,30.0,5.66
+2024,244,Manhattan,Washington Heights South,all trips,6324,72.7,1.0,26.4,4.34
+2024,245,Staten Island,West Brighton,all trips,7,0.1,1.0,19.5,3.64
+2024,246,Manhattan,West Chelsea/Hudson Yards,all trips,151740,1744.1,1.0,21.48,1.77
+2024,247,Bronx,West Concourse,all trips,997,11.5,1.0,26.0,4.43
+2024,248,Bronx,West Farms/Bronx River,all trips,415,4.8,1.0,30.0,6.1
+2024,249,Manhattan,West Village,all trips,215249,2474.1,1.0,19.68,1.64
+2024,250,Bronx,Westchester Village/Unionport,all trips,360,4.1,1.0,31.23,6.4
+2024,251,Staten Island,Westerleigh,all trips,6,0.1,1.0,14.3,1.69
+2024,252,Queens,Whitestone,all trips,200,2.3,1.0,37.75,7.75
+2024,253,Queens,Willets Point,all trips,29,0.3,1.0,43.11,5.87
+2024,254,Bronx,Williamsbridge/Olinville,all trips,679,7.8,1.0,37.0,8.7
+2024,255,Brooklyn,Williamsburg (North Side),all trips,3983,45.8,1.0,28.02,3.95
+2024,256,Brooklyn,Williamsburg (South Side),all trips,3178,36.5,1.0,27.64,3.63
+2024,257,Brooklyn,Windsor Terrace,all trips,252,2.9,1.0,34.0,5.5
+2024,258,Queens,Woodhaven,all trips,502,5.8,1.0,32.0,6.8
+2024,259,Bronx,Woodlawn/Wakefield,all trips,356,4.1,1.0,43.0,9.7
+2024,260,Queens,Woodside,all trips,1997,23.0,1.0,26.6,3.8
+2024,261,Manhattan,World Trade Center,all trips,41778,480.2,1.0,28.21,3.38
+2024,262,Manhattan,Yorkville East,all trips,124712,1433.5,1.0,18.87,1.71
+2024,263,Manhattan,Yorkville West,all trips,175656,2019.0,1.0,17.5,1.5
+2025,1,EWR,Newark Airport,all trips,196,2.3,1.0,110.06,0.08
+2025,1,EWR,Newark Airport,does not pay,170,2.0,0.8673,107.06,0.07
+2025,1,EWR,Newark Airport,pays the charge,26,0.3,0.1327,123.97,16.0
+2025,2,Queens,Jamaica Bay,all trips,11,0.1,1.0,61.68,16.68
+2025,2,Queens,Jamaica Bay,does not pay,9,0.1,0.8182,61.5,11.72
+2025,2,Queens,Jamaica Bay,pays the charge,2,0.0,0.1818,98.03,17.75
+2025,3,Bronx,Allerton/Pelham Gardens,all trips,704,8.2,1.0,33.37,6.9
+2025,3,Bronx,Allerton/Pelham Gardens,does not pay,669,7.8,0.9503,31.48,6.44
+2025,3,Bronx,Allerton/Pelham Gardens,pays the charge,35,0.4,0.0497,60.9,15.54
+2025,4,Manhattan,Alphabet City,all trips,26538,308.6,1.0,21.42,2.14
+2025,4,Manhattan,Alphabet City,does not pay,499,5.8,0.0188,29.07,5.6
+2025,4,Manhattan,Alphabet City,pays the charge,26039,302.8,0.9812,21.42,2.13
+2025,5,Staten Island,Arden Heights,all trips,2,0.0,1.0,47.04,16.42
+2025,5,Staten Island,Arden Heights,does not pay,2,0.0,1.0,47.04,16.42
+2025,6,Staten Island,Arrochar/Fort Wadsworth,all trips,240,2.8,1.0,21.83,7.5
+2025,6,Staten Island,Arrochar/Fort Wadsworth,does not pay,223,2.6,0.9292,21.83,7.01
+2025,6,Staten Island,Arrochar/Fort Wadsworth,pays the charge,17,0.2,0.0708,53.4,12.9
+2025,7,Queens,Astoria,all trips,13035,151.6,1.0,26.36,3.86
+2025,7,Queens,Astoria,does not pay,10068,117.1,0.7724,21.75,3.05
+2025,7,Queens,Astoria,pays the charge,2967,34.5,0.2276,32.9,4.6
+2025,8,Queens,Astoria Park,all trips,62,0.7,1.0,44.95,4.19
+2025,8,Queens,Astoria Park,does not pay,49,0.6,0.7903,35.07,3.86
+2025,8,Queens,Astoria Park,pays the charge,13,0.2,0.2097,49.25,6.06
+2025,9,Queens,Auburndale,all trips,299,3.5,1.0,24.37,5.02
+2025,9,Queens,Auburndale,does not pay,291,3.4,0.9732,23.75,4.91
+2025,9,Queens,Auburndale,pays the charge,8,0.1,0.0268,65.14,13.0
+2025,10,Queens,Baisley Park,all trips,4060,47.2,1.0,44.34,10.0
+2025,10,Queens,Baisley Park,does not pay,3152,36.7,0.7764,33.02,6.81
+2025,10,Queens,Baisley Park,pays the charge,908,10.6,0.2236,98.03,14.5
+2025,11,Brooklyn,Bath Beach,all trips,580,6.7,1.0,22.65,4.62
+2025,11,Brooklyn,Bath Beach,does not pay,552,6.4,0.9517,22.0,4.07
+2025,11,Brooklyn,Bath Beach,pays the charge,28,0.3,0.0483,54.54,12.6
+2025,12,Manhattan,Battery Park,all trips,2468,28.7,1.0,31.75,4.39
+2025,12,Manhattan,Battery Park,does not pay,27,0.3,0.0109,40.38,5.03
+2025,12,Manhattan,Battery Park,pays the charge,2441,28.4,0.9891,31.6,4.38
+2025,13,Manhattan,Battery Park City,all trips,59567,692.6,1.0,28.14,3.44
+2025,13,Manhattan,Battery Park City,does not pay,1398,16.3,0.0235,35.5,5.99
+2025,13,Manhattan,Battery Park City,pays the charge,58169,676.4,0.9765,28.05,3.41
+2025,14,Brooklyn,Bay Ridge,all trips,3103,36.1,1.0,29.22,5.9
+2025,14,Brooklyn,Bay Ridge,does not pay,2864,33.3,0.923,27.59,5.37
+2025,14,Brooklyn,Bay Ridge,pays the charge,239,2.8,0.077,51.76,10.1
+2025,15,Queens,Bay Terrace/Fort Totten,all trips,282,3.3,1.0,34.1,8.62
+2025,15,Queens,Bay Terrace/Fort Totten,does not pay,262,3.0,0.9291,32.44,8.25
+2025,15,Queens,Bay Terrace/Fort Totten,pays the charge,20,0.2,0.0709,64.33,14.7
+2025,16,Queens,Bayside,all trips,527,6.1,1.0,29.5,7.1
+2025,16,Queens,Bayside,does not pay,495,5.8,0.9393,26.53,6.59
+2025,16,Queens,Bayside,pays the charge,32,0.4,0.0607,59.57,14.38
+2025,17,Brooklyn,Bedford,all trips,6496,75.5,1.0,24.84,3.34
+2025,17,Brooklyn,Bedford,does not pay,5406,62.9,0.8322,22.0,2.8
+2025,17,Brooklyn,Bedford,pays the charge,1090,12.7,0.1678,39.0,5.57
+2025,18,Bronx,Bedford Park,all trips,1604,18.7,1.0,26.0,4.8
+2025,18,Bronx,Bedford Park,does not pay,1518,17.7,0.9464,25.24,4.54
+2025,18,Bronx,Bedford Park,pays the charge,86,1.0,0.0536,56.1,13.27
+2025,19,Queens,Bellerose,all trips,733,8.5,1.0,30.37,8.09
+2025,19,Queens,Bellerose,does not pay,713,8.3,0.9727,29.33,7.79
+2025,19,Queens,Bellerose,pays the charge,20,0.2,0.0273,74.1,17.4
+2025,20,Bronx,Belmont,all trips,926,10.8,1.0,26.02,4.78
+2025,20,Bronx,Belmont,does not pay,873,10.2,0.9428,24.84,4.47
+2025,20,Bronx,Belmont,pays the charge,53,0.6,0.0572,57.43,11.97
+2025,21,Brooklyn,Bensonhurst East,all trips,1028,12.0,1.0,22.0,3.39
+2025,21,Brooklyn,Bensonhurst East,does not pay,1001,11.6,0.9737,22.0,3.3
+2025,21,Brooklyn,Bensonhurst East,pays the charge,27,0.3,0.0263,63.8,12.8
+2025,22,Brooklyn,Bensonhurst West,all trips,1476,17.2,1.0,21.8,3.34
+2025,22,Brooklyn,Bensonhurst West,does not pay,1408,16.4,0.9539,21.0,3.12
+2025,22,Brooklyn,Bensonhurst West,pays the charge,68,0.8,0.0461,60.88,12.22
+2025,23,Staten Island,Bloomfield/Emerson Hill,all trips,52,0.6,1.0,48.33,10.42
+2025,23,Staten Island,Bloomfield/Emerson Hill,does not pay,47,0.5,0.9038,46.77,10.35
+2025,23,Staten Island,Bloomfield/Emerson Hill,pays the charge,5,0.1,0.0962,75.15,18.1
+2025,24,Manhattan,Bloomingdale,all trips,25856,300.7,1.0,19.3,1.97
+2025,24,Manhattan,Bloomingdale,does not pay,20126,234.0,0.7784,16.8,1.61
+2025,24,Manhattan,Bloomingdale,pays the charge,5730,66.6,0.2216,32.82,4.37
+2025,25,Brooklyn,Boerum Hill,all trips,8355,97.2,1.0,27.88,4.1
+2025,25,Brooklyn,Boerum Hill,does not pay,6128,71.3,0.7335,25.32,3.8
+2025,25,Brooklyn,Boerum Hill,pays the charge,2227,25.9,0.2665,32.52,4.7
+2025,26,Brooklyn,Borough Park,all trips,2488,28.9,1.0,20.95,2.69
+2025,26,Brooklyn,Borough Park,does not pay,2371,27.6,0.953,20.0,2.54
+2025,26,Brooklyn,Borough Park,pays the charge,117,1.4,0.047,54.74,10.2
+2025,27,Queens,Breezy Point/Fort Tilden/Riis Beach,all trips,26,0.3,1.0,41.06,7.86
+2025,27,Queens,Breezy Point/Fort Tilden/Riis Beach,does not pay,25,0.3,0.9615,41.06,7.86
+2025,27,Queens,Breezy Point/Fort Tilden/Riis Beach,pays the charge,1,0.0,0.0385,115.63,18.3
+2025,28,Queens,Briarwood/Jamaica Hills,all trips,2528,29.4,1.0,29.31,6.46
+2025,28,Queens,Briarwood/Jamaica Hills,does not pay,2262,26.3,0.8948,26.63,5.71
+2025,28,Queens,Briarwood/Jamaica Hills,pays the charge,266,3.1,0.1052,81.75,12.18
+2025,29,Brooklyn,Brighton Beach,all trips,933,10.8,1.0,29.0,5.66
+2025,29,Brooklyn,Brighton Beach,does not pay,908,10.6,0.9732,27.92,5.31
+2025,29,Brooklyn,Brighton Beach,pays the charge,25,0.3,0.0268,68.82,16.56
+2025,30,Queens,Broad Channel,all trips,44,0.5,1.0,33.27,6.38
+2025,30,Queens,Broad Channel,does not pay,43,0.5,0.9773,33.27,6.38
+2025,30,Queens,Broad Channel,pays the charge,1,0.0,0.0227,80.6,17.05
+2025,31,Bronx,Bronx Park,all trips,147,1.7,1.0,30.66,6.45
+2025,31,Bronx,Bronx Park,does not pay,128,1.5,0.8707,26.0,5.07
+2025,31,Bronx,Bronx Park,pays the charge,19,0.2,0.1293,56.46,11.88
+2025,32,Bronx,Bronxdale,all trips,917,10.7,1.0,32.0,6.74
+2025,32,Bronx,Bronxdale,does not pay,874,10.2,0.9531,30.79,6.36
+2025,32,Bronx,Bronxdale,pays the charge,43,0.5,0.0469,61.36,13.51
+2025,33,Brooklyn,Brooklyn Heights,all trips,8515,99.0,1.0,29.01,4.3
+2025,33,Brooklyn,Brooklyn Heights,does not pay,4797,55.8,0.5634,26.62,4.2
+2025,33,Brooklyn,Brooklyn Heights,pays the charge,3718,43.2,0.4366,31.43,4.45
+2025,34,Brooklyn,Brooklyn Navy Yard,all trips,1133,13.2,1.0,31.6,4.25
+2025,34,Brooklyn,Brooklyn Navy Yard,does not pay,702,8.2,0.6196,27.44,3.68
+2025,34,Brooklyn,Brooklyn Navy Yard,pays the charge,431,5.0,0.3804,34.85,4.67
+2025,35,Brooklyn,Brownsville,all trips,5897,68.6,1.0,23.38,3.51
+2025,35,Brooklyn,Brownsville,does not pay,5753,66.9,0.9756,23.0,3.45
+2025,35,Brooklyn,Brownsville,pays the charge,144,1.7,0.0244,55.69,9.02
+2025,36,Brooklyn,Bushwick North,all trips,5308,61.7,1.0,27.51,4.32
+2025,36,Brooklyn,Bushwick North,does not pay,4507,52.4,0.8491,24.97,3.71
+2025,36,Brooklyn,Bushwick North,pays the charge,801,9.3,0.1509,40.26,6.34
+2025,37,Brooklyn,Bushwick South,all trips,7802,90.7,1.0,27.15,4.0
+2025,37,Brooklyn,Bushwick South,does not pay,6493,75.5,0.8322,24.67,3.47
+2025,37,Brooklyn,Bushwick South,pays the charge,1309,15.2,0.1678,39.92,5.96
+2025,38,Queens,Cambria Heights,all trips,765,8.9,1.0,44.0,11.1
+2025,38,Queens,Cambria Heights,does not pay,729,8.5,0.9529,43.0,10.21
+2025,38,Queens,Cambria Heights,pays the charge,36,0.4,0.0471,86.63,20.41
+2025,39,Brooklyn,Canarsie,all trips,6684,77.7,1.0,24.0,3.8
+2025,39,Brooklyn,Canarsie,does not pay,6561,76.3,0.9816,23.55,3.71
+2025,39,Brooklyn,Canarsie,pays the charge,123,1.4,0.0184,67.87,12.58
+2025,40,Brooklyn,Carroll Gardens,all trips,2564,29.8,1.0,30.03,4.45
+2025,40,Brooklyn,Carroll Gardens,does not pay,1599,18.6,0.6236,24.39,3.2
+2025,40,Brooklyn,Carroll Gardens,pays the charge,965,11.2,0.3764,37.08,5.56
+2025,41,Manhattan,Central Harlem,all trips,35450,412.2,1.0,17.74,1.9
+2025,41,Manhattan,Central Harlem,does not pay,28442,330.7,0.8023,14.9,1.51
+2025,41,Manhattan,Central Harlem,pays the charge,7008,81.5,0.1977,34.54,5.3
+2025,42,Manhattan,Central Harlem North,all trips,21184,246.3,1.0,20.0,2.7
+2025,42,Manhattan,Central Harlem North,does not pay,16765,194.9,0.7914,17.0,2.0
+2025,42,Manhattan,Central Harlem North,pays the charge,4419,51.4,0.2086,36.44,6.8
+2025,43,Manhattan,Central Park,all trips,131133,1524.8,1.0,19.85,1.6
+2025,43,Manhattan,Central Park,does not pay,53247,619.2,0.4061,16.8,1.29
+2025,43,Manhattan,Central Park,pays the charge,77886,905.7,0.5939,22.94,1.92
+2025,44,Staten Island,Charleston/Tottenville,all trips,1,0.0,1.0,0.0,26.65
+2025,44,Staten Island,Charleston/Tottenville,does not pay,1,0.0,1.0,0.0,26.65
+2025,45,Manhattan,Chinatown,all trips,18210,211.7,1.0,24.15,2.5
+2025,45,Manhattan,Chinatown,does not pay,519,6.0,0.0285,34.0,7.6
+2025,45,Manhattan,Chinatown,pays the charge,17691,205.7,0.9715,23.94,2.44
+2025,46,Bronx,City Island,all trips,104,1.2,1.0,40.0,9.93
+2025,46,Bronx,City Island,does not pay,98,1.1,0.9423,39.5,9.48
+2025,46,Bronx,City Island,pays the charge,6,0.1,0.0577,83.78,17.91
+2025,47,Bronx,Claremont/Bathgate,all trips,1508,17.5,1.0,25.32,4.69
+2025,47,Bronx,Claremont/Bathgate,does not pay,1420,16.5,0.9416,24.18,4.22
+2025,47,Bronx,Claremont/Bathgate,pays the charge,88,1.0,0.0584,50.9,10.59
+2025,48,Manhattan,Clinton East,all trips,243635,2833.0,1.0,19.69,1.54
+2025,48,Manhattan,Clinton East,does not pay,1286,15.0,0.0053,25.2,3.2
+2025,48,Manhattan,Clinton East,pays the charge,242349,2818.0,0.9947,19.69,1.54
+2025,49,Brooklyn,Clinton Hill,all trips,5366,62.4,1.0,26.23,3.73
+2025,49,Brooklyn,Clinton Hill,does not pay,4055,47.2,0.7557,23.0,3.04
+2025,49,Brooklyn,Clinton Hill,pays the charge,1311,15.2,0.2443,34.59,4.69
+2025,50,Manhattan,Clinton West,all trips,57096,663.9,1.0,20.2,1.75
+2025,50,Manhattan,Clinton West,does not pay,1122,13.0,0.0197,28.0,4.17
+2025,50,Manhattan,Clinton West,pays the charge,55974,650.9,0.9803,20.06,1.72
+2025,51,Bronx,Co-Op City,all trips,2082,24.2,1.0,38.8,9.3
+2025,51,Bronx,Co-Op City,does not pay,2016,23.4,0.9683,38.0,9.09
+2025,51,Bronx,Co-Op City,pays the charge,66,0.8,0.0317,67.17,15.78
+2025,52,Brooklyn,Cobble Hill,all trips,2775,32.3,1.0,28.66,4.17
+2025,52,Brooklyn,Cobble Hill,does not pay,1673,19.5,0.6029,22.22,2.8
+2025,52,Brooklyn,Cobble Hill,pays the charge,1102,12.8,0.3971,35.63,5.31
+2025,53,Queens,College Point,all trips,726,8.4,1.0,31.49,7.3
+2025,53,Queens,College Point,does not pay,665,7.7,0.916,29.06,6.79
+2025,53,Queens,College Point,pays the charge,61,0.7,0.084,60.88,10.71
+2025,54,Brooklyn,Columbia Street,all trips,675,7.8,1.0,31.63,4.97
+2025,54,Brooklyn,Columbia Street,does not pay,400,4.7,0.5926,26.8,4.5
+2025,54,Brooklyn,Columbia Street,pays the charge,275,3.2,0.4074,34.23,5.42
+2025,55,Brooklyn,Coney Island,all trips,2185,25.4,1.0,38.0,8.9
+2025,55,Brooklyn,Coney Island,does not pay,2140,24.9,0.9794,38.0,8.62
+2025,55,Brooklyn,Coney Island,pays the charge,45,0.5,0.0206,71.53,17.25
+2025,56,Queens,Corona,all trips,2256,26.2,1.0,30.87,6.56
+2025,56,Queens,Corona,does not pay,1938,22.5,0.859,27.48,5.78
+2025,56,Queens,Corona,pays the charge,318,3.7,0.141,51.72,8.5
+2025,57,Queens,Corona,all trips,150,1.7,1.0,28.58,6.2
+2025,57,Queens,Corona,does not pay,141,1.6,0.94,28.44,5.92
+2025,57,Queens,Corona,pays the charge,9,0.1,0.06,52.75,10.39
+2025,58,Bronx,Country Club,all trips,90,1.0,1.0,36.39,8.17
+2025,58,Bronx,Country Club,does not pay,81,0.9,0.9,33.79,7.86
+2025,58,Bronx,Country Club,pays the charge,9,0.1,0.1,59.87,15.93
+2025,59,Bronx,Crotona Park,all trips,45,0.5,1.0,22.75,4.66
+2025,59,Bronx,Crotona Park,does not pay,41,0.5,0.9111,20.95,3.44
+2025,59,Bronx,Crotona Park,pays the charge,4,0.0,0.0889,56.5,12.67
+2025,60,Bronx,Crotona Park East,all trips,1224,14.2,1.0,26.0,5.0
+2025,60,Bronx,Crotona Park East,does not pay,1128,13.1,0.9216,24.98,4.67
+2025,60,Bronx,Crotona Park East,pays the charge,96,1.1,0.0784,50.13,10.83
+2025,61,Brooklyn,Crown Heights North,all trips,12558,146.0,1.0,24.0,3.47
+2025,61,Brooklyn,Crown Heights North,does not pay,11362,132.1,0.9048,23.0,3.2
+2025,61,Brooklyn,Crown Heights North,pays the charge,1196,13.9,0.0952,44.51,6.73
+2025,62,Brooklyn,Crown Heights South,all trips,3751,43.6,1.0,24.13,3.43
+2025,62,Brooklyn,Crown Heights South,does not pay,3428,39.9,0.9139,23.0,3.2
+2025,62,Brooklyn,Crown Heights South,pays the charge,323,3.8,0.0861,44.25,6.76
+2025,63,Brooklyn,Cypress Hills,all trips,2726,31.7,1.0,26.0,4.41
+2025,63,Brooklyn,Cypress Hills,does not pay,2649,30.8,0.9718,25.8,4.3
+2025,63,Brooklyn,Cypress Hills,pays the charge,77,0.9,0.0282,57.73,12.5
+2025,64,Queens,Douglaston,all trips,280,3.3,1.0,34.78,9.08
+2025,64,Queens,Douglaston,does not pay,263,3.1,0.9393,33.39,8.51
+2025,64,Queens,Douglaston,pays the charge,17,0.2,0.0607,60.14,14.85
+2025,65,Brooklyn,Downtown Brooklyn/MetroTech,all trips,8975,104.4,1.0,27.97,3.94
+2025,65,Brooklyn,Downtown Brooklyn/MetroTech,does not pay,5622,65.4,0.6264,27.25,4.01
+2025,65,Brooklyn,Downtown Brooklyn/MetroTech,pays the charge,3353,39.0,0.3736,28.66,3.84
+2025,66,Brooklyn,DUMBO/Vinegar Hill,all trips,7046,81.9,1.0,28.66,4.22
+2025,66,Brooklyn,DUMBO/Vinegar Hill,does not pay,3536,41.1,0.5018,27.24,4.14
+2025,66,Brooklyn,DUMBO/Vinegar Hill,pays the charge,3510,40.8,0.4982,30.35,4.29
+2025,67,Brooklyn,Dyker Heights,all trips,783,9.1,1.0,24.0,4.3
+2025,67,Brooklyn,Dyker Heights,does not pay,701,8.2,0.8953,21.89,3.2
+2025,67,Brooklyn,Dyker Heights,pays the charge,82,1.0,0.1047,54.06,10.51
+2025,68,Manhattan,East Chelsea,all trips,265823,3091.0,1.0,21.75,1.74
+2025,68,Manhattan,East Chelsea,does not pay,1503,17.5,0.0057,28.0,3.7
+2025,68,Manhattan,East Chelsea,pays the charge,264320,3073.5,0.9943,21.74,1.73
+2025,69,Bronx,East Concourse/Concourse Village,all trips,3211,37.3,1.0,25.68,4.22
+2025,69,Bronx,East Concourse/Concourse Village,does not pay,2954,34.3,0.92,24.03,3.89
+2025,69,Bronx,East Concourse/Concourse Village,pays the charge,257,3.0,0.08,46.13,9.35
+2025,70,Queens,East Elmhurst,all trips,28070,326.4,1.0,65.28,9.2
+2025,70,Queens,East Elmhurst,does not pay,13421,156.1,0.4781,57.9,8.51
+2025,70,Queens,East Elmhurst,pays the charge,14649,170.3,0.5219,69.9,9.51
+2025,71,Brooklyn,East Flatbush/Farragut,all trips,4276,49.7,1.0,23.0,3.35
+2025,71,Brooklyn,East Flatbush/Farragut,does not pay,4086,47.5,0.9556,22.0,3.24
+2025,71,Brooklyn,East Flatbush/Farragut,pays the charge,190,2.2,0.0444,56.3,9.73
+2025,72,Brooklyn,East Flatbush/Remsen Village,all trips,5464,63.5,1.0,22.0,3.17
+2025,72,Brooklyn,East Flatbush/Remsen Village,does not pay,5293,61.5,0.9687,21.86,3.06
+2025,72,Brooklyn,East Flatbush/Remsen Village,pays the charge,171,2.0,0.0313,55.68,9.1
+2025,73,Queens,East Flushing,all trips,269,3.1,1.0,24.24,4.8
+2025,73,Queens,East Flushing,does not pay,263,3.1,0.9777,24.0,4.38
+2025,73,Queens,East Flushing,pays the charge,6,0.1,0.0223,47.55,10.96
+2025,74,Manhattan,East Harlem North,all trips,30431,353.8,1.0,19.25,2.24
+2025,74,Manhattan,East Harlem North,does not pay,24327,282.9,0.7994,16.8,1.8
+2025,74,Manhattan,East Harlem North,pays the charge,6104,71.0,0.2006,33.19,5.6
+2025,75,Manhattan,East Harlem South,all trips,67447,784.3,1.0,18.2,1.78
+2025,75,Manhattan,East Harlem South,does not pay,52459,610.0,0.7778,15.95,1.45
+2025,75,Manhattan,East Harlem South,pays the charge,14988,174.3,0.2222,30.33,4.0
+2025,76,Brooklyn,East New York,all trips,10470,121.7,1.0,25.62,4.35
+2025,76,Brooklyn,East New York,does not pay,10279,119.5,0.9818,25.15,4.29
+2025,76,Brooklyn,East New York,pays the charge,191,2.2,0.0182,61.94,11.81
+2025,77,Brooklyn,East New York/Pennsylvania Avenue,all trips,2681,31.2,1.0,24.86,4.0
+2025,77,Brooklyn,East New York/Pennsylvania Avenue,does not pay,2614,30.4,0.975,24.22,3.9
+2025,77,Brooklyn,East New York/Pennsylvania Avenue,pays the charge,67,0.8,0.025,55.89,9.67
+2025,78,Bronx,East Tremont,all trips,1641,19.1,1.0,26.39,5.1
+2025,78,Bronx,East Tremont,does not pay,1522,17.7,0.9275,24.65,4.63
+2025,78,Bronx,East Tremont,pays the charge,119,1.4,0.0725,49.68,11.11
+2025,79,Manhattan,East Village,all trips,258742,3008.6,1.0,20.19,1.72
+2025,79,Manhattan,East Village,does not pay,1078,12.5,0.0042,23.3,2.69
+2025,79,Manhattan,East Village,pays the charge,257664,2996.1,0.9958,20.17,1.71
+2025,80,Brooklyn,East Williamsburg,all trips,7538,87.7,1.0,28.48,4.3
+2025,80,Brooklyn,East Williamsburg,does not pay,5533,64.3,0.734,25.38,3.86
+2025,80,Brooklyn,East Williamsburg,pays the charge,2005,23.3,0.266,34.78,5.12
+2025,81,Bronx,Eastchester,all trips,1124,13.1,1.0,35.65,8.1
+2025,81,Bronx,Eastchester,does not pay,1084,12.6,0.9644,34.45,7.75
+2025,81,Bronx,Eastchester,pays the charge,40,0.5,0.0356,63.41,16.2
+2025,82,Queens,Elmhurst,all trips,6195,72.0,1.0,25.23,4.61
+2025,82,Queens,Elmhurst,does not pay,5587,65.0,0.9019,23.39,4.13
+2025,82,Queens,Elmhurst,pays the charge,608,7.1,0.0981,47.21,7.27
+2025,83,Queens,Elmhurst/Maspeth,all trips,2188,25.4,1.0,28.54,4.5
+2025,83,Queens,Elmhurst/Maspeth,does not pay,1913,22.2,0.8743,25.2,3.99
+2025,83,Queens,Elmhurst/Maspeth,pays the charge,275,3.2,0.1257,38.14,6.54
+2025,84,Staten Island,Eltingville/Annadale/Prince's Bay,all trips,4,0.0,1.0,43.28,8.28
+2025,84,Staten Island,Eltingville/Annadale/Prince's Bay,does not pay,2,0.0,0.5,33.8,8.28
+2025,84,Staten Island,Eltingville/Annadale/Prince's Bay,pays the charge,2,0.0,0.5,102.27,8.1
+2025,85,Brooklyn,Erasmus,all trips,3036,35.3,1.0,24.81,3.73
+2025,85,Brooklyn,Erasmus,does not pay,2844,33.1,0.9368,24.0,3.52
+2025,85,Brooklyn,Erasmus,pays the charge,192,2.2,0.0632,48.95,8.72
+2025,86,Queens,Far Rockaway,all trips,1526,17.7,1.0,48.0,12.1
+2025,86,Queens,Far Rockaway,does not pay,1509,17.5,0.9889,47.6,12.0
+2025,86,Queens,Far Rockaway,pays the charge,17,0.2,0.0111,98.52,22.45
+2025,87,Manhattan,Financial District North,all trips,55876,649.7,1.0,27.3,3.55
+2025,87,Manhattan,Financial District North,does not pay,801,9.3,0.0143,37.0,7.2
+2025,87,Manhattan,Financial District North,pays the charge,55075,640.4,0.9857,27.26,3.52
+2025,88,Manhattan,Financial District South,all trips,28374,329.9,1.0,30.03,4.27
+2025,88,Manhattan,Financial District South,does not pay,1025,11.9,0.0361,37.12,7.81
+2025,88,Manhattan,Financial District South,pays the charge,27349,318.0,0.9639,29.81,4.19
+2025,89,Brooklyn,Flatbush/Ditmas Park,all trips,7175,83.4,1.0,24.68,3.8
+2025,89,Brooklyn,Flatbush/Ditmas Park,does not pay,6553,76.2,0.9133,23.51,3.51
+2025,89,Brooklyn,Flatbush/Ditmas Park,pays the charge,622,7.2,0.0867,50.91,9.1
+2025,90,Manhattan,Flatiron,all trips,160225,1863.1,1.0,18.95,1.43
+2025,90,Manhattan,Flatiron,does not pay,976,11.3,0.0061,26.0,3.3
+2025,90,Manhattan,Flatiron,pays the charge,159249,1851.7,0.9939,18.94,1.43
+2025,91,Brooklyn,Flatlands,all trips,4522,52.6,1.0,24.0,3.7
+2025,91,Brooklyn,Flatlands,does not pay,4379,50.9,0.9684,23.33,3.6
+2025,91,Brooklyn,Flatlands,pays the charge,143,1.7,0.0316,62.01,11.04
+2025,92,Queens,Flushing,all trips,2353,27.4,1.0,28.87,6.54
+2025,92,Queens,Flushing,does not pay,2184,25.4,0.9282,27.25,6.02
+2025,92,Queens,Flushing,pays the charge,169,2.0,0.0718,52.49,11.57
+2025,93,Queens,Flushing Meadows-Corona Park,all trips,1308,15.2,1.0,88.0,8.7
+2025,93,Queens,Flushing Meadows-Corona Park,does not pay,895,10.4,0.6843,80.94,7.42
+2025,93,Queens,Flushing Meadows-Corona Park,pays the charge,413,4.8,0.3157,95.7,10.03
+2025,94,Bronx,Fordham South,all trips,830,9.7,1.0,25.0,4.62
+2025,94,Bronx,Fordham South,does not pay,780,9.1,0.9398,24.42,4.37
+2025,94,Bronx,Fordham South,pays the charge,50,0.6,0.0602,46.58,11.41
+2025,95,Queens,Forest Hills,all trips,5316,61.8,1.0,26.0,5.25
+2025,95,Queens,Forest Hills,does not pay,4862,56.5,0.9146,24.33,4.67
+2025,95,Queens,Forest Hills,pays the charge,454,5.3,0.0854,50.31,9.24
+2025,96,Queens,Forest Park/Highland Park,all trips,130,1.5,1.0,24.51,4.94
+2025,96,Queens,Forest Park/Highland Park,does not pay,121,1.4,0.9308,23.6,4.5
+2025,96,Queens,Forest Park/Highland Park,pays the charge,9,0.1,0.0692,55.96,10.27
+2025,97,Brooklyn,Fort Greene,all trips,9304,108.2,1.0,26.39,3.65
+2025,97,Brooklyn,Fort Greene,does not pay,6650,77.3,0.7147,24.09,3.42
+2025,97,Brooklyn,Fort Greene,pays the charge,2654,30.9,0.2853,30.89,4.0
+2025,98,Queens,Fresh Meadows,all trips,511,5.9,1.0,26.57,5.8
+2025,98,Queens,Fresh Meadows,does not pay,497,5.8,0.9726,26.0,5.57
+2025,98,Queens,Fresh Meadows,pays the charge,14,0.2,0.0274,63.29,13.42
+2025,99,Staten Island,Freshkills Park,all trips,1,0.0,1.0,15.3,2.8
+2025,99,Staten Island,Freshkills Park,does not pay,1,0.0,1.0,15.3,2.8
+2025,100,Manhattan,Garment District,all trips,144428,1679.4,1.0,19.86,1.39
+2025,100,Manhattan,Garment District,does not pay,1007,11.7,0.007,33.0,6.1
+2025,100,Manhattan,Garment District,pays the charge,143421,1667.7,0.993,19.86,1.38
+2025,101,Queens,Glen Oaks,all trips,525,6.1,1.0,33.59,9.02
+2025,101,Queens,Glen Oaks,does not pay,515,6.0,0.981,33.01,8.93
+2025,101,Queens,Glen Oaks,pays the charge,10,0.1,0.019,67.28,17.96
+2025,102,Queens,Glendale,all trips,1319,15.3,1.0,23.58,3.81
+2025,102,Queens,Glendale,does not pay,1239,14.4,0.9393,22.58,3.63
+2025,102,Queens,Glendale,pays the charge,80,0.9,0.0607,50.54,9.24
+2025,106,Brooklyn,Gowanus,all trips,1941,22.6,1.0,28.39,4.33
+2025,106,Brooklyn,Gowanus,does not pay,1590,18.5,0.8192,25.0,3.88
+2025,106,Brooklyn,Gowanus,pays the charge,351,4.1,0.1808,38.53,6.1
+2025,107,Manhattan,Gramercy,all trips,201410,2342.0,1.0,19.37,1.5
+2025,107,Manhattan,Gramercy,does not pay,1481,17.2,0.0074,28.0,4.7
+2025,107,Manhattan,Gramercy,pays the charge,199929,2324.8,0.9926,19.35,1.5
+2025,108,Brooklyn,Gravesend,all trips,872,10.1,1.0,28.19,5.64
+2025,108,Brooklyn,Gravesend,does not pay,856,10.0,0.9817,28.0,5.5
+2025,108,Brooklyn,Gravesend,pays the charge,16,0.2,0.0183,67.15,16.09
+2025,109,Staten Island,Great Kills,all trips,8,0.1,1.0,69.19,14.1
+2025,109,Staten Island,Great Kills,does not pay,7,0.1,0.875,69.19,14.1
+2025,109,Staten Island,Great Kills,pays the charge,1,0.0,0.125,70.95,16.7
+2025,111,Brooklyn,Green-Wood Cemetery,all trips,18,0.2,1.0,20.14,2.87
+2025,111,Brooklyn,Green-Wood Cemetery,does not pay,15,0.2,0.8333,15.76,2.87
+2025,111,Brooklyn,Green-Wood Cemetery,pays the charge,3,0.0,0.1667,34.82,5.15
+2025,112,Brooklyn,Greenpoint,all trips,7713,89.7,1.0,27.82,4.1
+2025,112,Brooklyn,Greenpoint,does not pay,5417,63.0,0.7023,24.78,3.8
+2025,112,Brooklyn,Greenpoint,pays the charge,2296,26.7,0.2977,32.71,4.36
+2025,113,Manhattan,Greenwich Village North,all trips,148126,1722.4,1.0,19.31,1.48
+2025,113,Manhattan,Greenwich Village North,does not pay,539,6.3,0.0036,20.0,1.9
+2025,113,Manhattan,Greenwich Village North,pays the charge,147587,1716.1,0.9964,19.31,1.48
+2025,114,Manhattan,Greenwich Village South,all trips,160967,1871.7,1.0,19.95,1.67
+2025,114,Manhattan,Greenwich Village South,does not pay,607,7.1,0.0038,20.0,1.9
+2025,114,Manhattan,Greenwich Village South,pays the charge,160360,1864.7,0.9962,19.95,1.67
+2025,115,Staten Island,Grymes Hill/Clifton,all trips,60,0.7,1.0,42.59,5.5
+2025,115,Staten Island,Grymes Hill/Clifton,does not pay,50,0.6,0.8333,37.5,5.24
+2025,115,Staten Island,Grymes Hill/Clifton,pays the charge,10,0.1,0.1667,67.26,13.12
+2025,116,Manhattan,Hamilton Heights,all trips,13228,153.8,1.0,21.03,3.13
+2025,116,Manhattan,Hamilton Heights,does not pay,10016,116.5,0.7572,17.42,2.24
+2025,116,Manhattan,Hamilton Heights,pays the charge,3212,37.3,0.2428,37.1,6.8
+2025,117,Queens,Hammels/Arverne,all trips,1322,15.4,1.0,47.48,11.4
+2025,117,Queens,Hammels/Arverne,does not pay,1307,15.2,0.9887,47.26,11.4
+2025,117,Queens,Hammels/Arverne,pays the charge,15,0.2,0.0113,98.82,24.12
+2025,118,Staten Island,Heartland Village/Todt Hill,all trips,42,0.5,1.0,49.25,11.4
+2025,118,Staten Island,Heartland Village/Todt Hill,does not pay,35,0.4,0.8333,41.16,11.29
+2025,118,Staten Island,Heartland Village/Todt Hill,pays the charge,7,0.1,0.1667,112.85,20.17
+2025,119,Bronx,Highbridge,all trips,1723,20.0,1.0,28.2,5.57
+2025,119,Bronx,Highbridge,does not pay,1512,17.6,0.8775,25.0,4.5
+2025,119,Bronx,Highbridge,pays the charge,211,2.5,0.1225,44.91,9.49
+2025,120,Manhattan,Highbridge Park,all trips,116,1.3,1.0,24.75,3.59
+2025,120,Manhattan,Highbridge Park,does not pay,98,1.1,0.8448,19.75,3.12
+2025,120,Manhattan,Highbridge Park,pays the charge,18,0.2,0.1552,42.89,8.6
+2025,121,Queens,Hillcrest/Pomonok,all trips,1358,15.8,1.0,27.87,5.78
+2025,121,Queens,Hillcrest/Pomonok,does not pay,1295,15.1,0.9536,26.5,5.44
+2025,121,Queens,Hillcrest/Pomonok,pays the charge,63,0.7,0.0464,56.05,11.9
+2025,122,Queens,Hollis,all trips,808,9.4,1.0,26.5,5.06
+2025,122,Queens,Hollis,does not pay,791,9.2,0.979,25.5,4.8
+2025,122,Queens,Hollis,pays the charge,17,0.2,0.021,67.09,16.96
+2025,123,Brooklyn,Homecrest,all trips,1445,16.8,1.0,21.0,3.0
+2025,123,Brooklyn,Homecrest,does not pay,1412,16.4,0.9772,21.0,2.9
+2025,123,Brooklyn,Homecrest,pays the charge,33,0.4,0.0228,61.68,12.92
+2025,124,Queens,Howard Beach,all trips,1176,13.7,1.0,29.02,5.3
+2025,124,Queens,Howard Beach,does not pay,1130,13.1,0.9609,27.93,5.1
+2025,124,Queens,Howard Beach,pays the charge,46,0.5,0.0391,69.45,14.25
+2025,125,Manhattan,Hudson Sq,all trips,51805,602.4,1.0,20.58,1.77
+2025,125,Manhattan,Hudson Sq,does not pay,356,4.1,0.0069,29.0,3.36
+2025,125,Manhattan,Hudson Sq,pays the charge,51449,598.2,0.9931,20.58,1.77
+2025,126,Bronx,Hunts Point,all trips,1545,18.0,1.0,25.93,4.8
+2025,126,Bronx,Hunts Point,does not pay,1433,16.7,0.9275,24.85,4.56
+2025,126,Bronx,Hunts Point,pays the charge,112,1.3,0.0725,49.61,9.82
+2025,127,Manhattan,Inwood,all trips,2053,23.9,1.0,25.0,5.14
+2025,127,Manhattan,Inwood,does not pay,1698,19.7,0.8271,22.42,4.42
+2025,127,Manhattan,Inwood,pays the charge,355,4.1,0.1729,43.48,9.94
+2025,128,Manhattan,Inwood Hill Park,all trips,126,1.5,1.0,32.01,7.06
+2025,128,Manhattan,Inwood Hill Park,does not pay,90,1.0,0.7143,26.62,5.3
+2025,128,Manhattan,Inwood Hill Park,pays the charge,36,0.4,0.2857,49.08,9.99
+2025,129,Queens,Jackson Heights,all trips,8428,98.0,1.0,27.9,3.6
+2025,129,Queens,Jackson Heights,does not pay,7670,89.2,0.9101,25.2,2.99
+2025,129,Queens,Jackson Heights,pays the charge,758,8.8,0.0899,42.42,7.2
+2025,130,Queens,Jamaica,all trips,8891,103.4,1.0,25.0,5.1
+2025,130,Queens,Jamaica,does not pay,8358,97.2,0.9401,24.0,4.58
+2025,130,Queens,Jamaica,pays the charge,533,6.2,0.0599,79.75,13.13
+2025,131,Queens,Jamaica Estates,all trips,1365,15.9,1.0,29.0,6.81
+2025,131,Queens,Jamaica Estates,does not pay,1304,15.2,0.9553,27.37,6.28
+2025,131,Queens,Jamaica Estates,pays the charge,61,0.7,0.0447,62.91,14.32
+2025,132,Queens,JFK Airport,all trips,378221,4397.9,1.0,88.44,17.32
+2025,132,Queens,JFK Airport,does not pay,221573,2576.4,0.5858,72.55,13.81
+2025,132,Queens,JFK Airport,pays the charge,156648,1821.5,0.4142,98.44,17.8
+2025,133,Brooklyn,Kensington,all trips,1751,20.4,1.0,25.0,3.93
+2025,133,Brooklyn,Kensington,does not pay,1497,17.4,0.8549,23.0,3.47
+2025,133,Brooklyn,Kensington,pays the charge,254,3.0,0.1451,50.48,9.27
+2025,134,Queens,Kew Gardens,all trips,2300,26.7,1.0,30.4,5.2
+2025,134,Queens,Kew Gardens,does not pay,2160,25.1,0.9391,29.0,5.01
+2025,134,Queens,Kew Gardens,pays the charge,140,1.6,0.0609,65.29,11.81
+2025,135,Queens,Kew Gardens Hills,all trips,1252,14.6,1.0,29.2,6.22
+2025,135,Queens,Kew Gardens Hills,does not pay,1197,13.9,0.9561,28.14,5.93
+2025,135,Queens,Kew Gardens Hills,pays the charge,55,0.6,0.0439,56.48,11.34
+2025,136,Bronx,Kingsbridge Heights,all trips,1089,12.7,1.0,27.79,5.5
+2025,136,Bronx,Kingsbridge Heights,does not pay,1025,11.9,0.9412,26.9,5.32
+2025,136,Bronx,Kingsbridge Heights,pays the charge,64,0.7,0.0588,51.98,11.51
+2025,137,Manhattan,Kips Bay,all trips,111478,1296.3,1.0,19.72,1.6
+2025,137,Manhattan,Kips Bay,does not pay,2145,24.9,0.0192,36.0,7.73
+2025,137,Manhattan,Kips Bay,pays the charge,109333,1271.3,0.9808,19.57,1.6
+2025,138,Queens,LaGuardia Airport,all trips,261699,3043.0,1.0,67.64,9.4
+2025,138,Queens,LaGuardia Airport,does not pay,126116,1466.5,0.4819,61.7,8.85
+2025,138,Queens,LaGuardia Airport,pays the charge,135583,1576.5,0.5181,71.58,9.7
+2025,139,Queens,Laurelton,all trips,999,11.6,1.0,34.88,7.8
+2025,139,Queens,Laurelton,does not pay,982,11.4,0.983,34.11,7.6
+2025,139,Queens,Laurelton,pays the charge,17,0.2,0.017,80.35,18.95
+2025,140,Manhattan,Lenox Hill East,all trips,203198,2362.8,1.0,20.16,1.69
+2025,140,Manhattan,Lenox Hill East,does not pay,114371,1329.9,0.5629,16.8,1.2
+2025,140,Manhattan,Lenox Hill East,pays the charge,88827,1032.9,0.4371,24.15,2.29
+2025,141,Manhattan,Lenox Hill West,all trips,227159,2641.4,1.0,17.7,1.33
+2025,141,Manhattan,Lenox Hill West,does not pay,118379,1376.5,0.5211,15.12,1.0
+2025,141,Manhattan,Lenox Hill West,pays the charge,108780,1264.9,0.4789,21.06,1.77
+2025,142,Manhattan,Lincoln Square East,all trips,303145,3524.9,1.0,19.35,1.6
+2025,142,Manhattan,Lincoln Square East,does not pay,124111,1443.2,0.4094,18.12,1.58
+2025,142,Manhattan,Lincoln Square East,pays the charge,179034,2081.8,0.5906,20.25,1.64
+2025,143,Manhattan,Lincoln Square West,all trips,111465,1296.1,1.0,19.25,1.7
+2025,143,Manhattan,Lincoln Square West,does not pay,54235,630.6,0.4866,17.28,1.5
+2025,143,Manhattan,Lincoln Square West,pays the charge,57230,665.5,0.5134,20.85,1.89
+2025,144,Manhattan,Little Italy/NoLiTa,all trips,111798,1300.0,1.0,21.06,1.88
+2025,144,Manhattan,Little Italy/NoLiTa,does not pay,457,5.3,0.0041,22.0,2.37
+2025,144,Manhattan,Little Italy/NoLiTa,pays the charge,111341,1294.7,0.9959,21.06,1.88
+2025,145,Queens,Long Island City/Hunters Point,all trips,11842,137.7,1.0,29.75,4.1
+2025,145,Queens,Long Island City/Hunters Point,does not pay,8670,100.8,0.7321,28.1,4.7
+2025,145,Queens,Long Island City/Hunters Point,pays the charge,3172,36.9,0.2679,31.96,3.63
+2025,146,Queens,Long Island City/Queens Plaza,all trips,6622,77.0,1.0,24.63,3.1
+2025,146,Queens,Long Island City/Queens Plaza,does not pay,4033,46.9,0.609,21.79,2.69
+2025,146,Queens,Long Island City/Queens Plaza,pays the charge,2589,30.1,0.391,26.92,3.41
+2025,147,Bronx,Longwood,all trips,1120,13.0,1.0,25.51,4.35
+2025,147,Bronx,Longwood,does not pay,1056,12.3,0.9429,24.72,4.05
+2025,147,Bronx,Longwood,pays the charge,64,0.7,0.0571,46.83,9.19
+2025,148,Manhattan,Lower East Side,all trips,119055,1384.4,1.0,22.26,2.14
+2025,148,Manhattan,Lower East Side,does not pay,597,6.9,0.005,25.0,3.04
+2025,148,Manhattan,Lower East Side,pays the charge,118458,1377.4,0.995,22.26,2.14
+2025,149,Brooklyn,Madison,all trips,1017,11.8,1.0,23.0,3.47
+2025,149,Brooklyn,Madison,does not pay,990,11.5,0.9735,22.0,3.3
+2025,149,Brooklyn,Madison,pays the charge,27,0.3,0.0265,66.13,13.35
+2025,150,Brooklyn,Manhattan Beach,all trips,552,6.4,1.0,28.11,5.35
+2025,150,Brooklyn,Manhattan Beach,does not pay,538,6.3,0.9746,27.82,5.2
+2025,150,Brooklyn,Manhattan Beach,pays the charge,14,0.2,0.0254,70.81,15.68
+2025,151,Manhattan,Manhattan Valley,all trips,78160,908.8,1.0,18.1,1.75
+2025,151,Manhattan,Manhattan Valley,does not pay,62150,722.7,0.7952,16.01,1.43
+2025,151,Manhattan,Manhattan Valley,pays the charge,16010,186.2,0.2048,30.55,3.86
+2025,152,Manhattan,Manhattanville,all trips,9730,113.1,1.0,20.4,2.76
+2025,152,Manhattan,Manhattanville,does not pay,7266,84.5,0.7468,16.72,1.93
+2025,152,Manhattan,Manhattanville,pays the charge,2464,28.7,0.2532,34.35,6.07
+2025,153,Manhattan,Marble Hill,all trips,335,3.9,1.0,25.12,5.23
+2025,153,Manhattan,Marble Hill,does not pay,309,3.6,0.9224,24.33,5.0
+2025,153,Manhattan,Marble Hill,pays the charge,26,0.3,0.0776,45.38,10.3
+2025,154,Brooklyn,Marine Park/Floyd Bennett Field,all trips,139,1.6,1.0,29.51,5.56
+2025,154,Brooklyn,Marine Park/Floyd Bennett Field,does not pay,132,1.5,0.9496,28.44,5.3
+2025,154,Brooklyn,Marine Park/Floyd Bennett Field,pays the charge,7,0.1,0.0504,87.94,17.64
+2025,155,Brooklyn,Marine Park/Mill Basin,all trips,2141,24.9,1.0,25.46,4.17
+2025,155,Brooklyn,Marine Park/Mill Basin,does not pay,2101,24.4,0.9813,25.09,4.02
+2025,155,Brooklyn,Marine Park/Mill Basin,pays the charge,40,0.5,0.0187,68.88,12.69
+2025,156,Staten Island,Mariners Harbor,all trips,21,0.2,1.0,41.74,12.24
+2025,156,Staten Island,Mariners Harbor,does not pay,18,0.2,0.8571,31.78,10.81
+2025,156,Staten Island,Mariners Harbor,pays the charge,3,0.0,0.1429,98.12,20.9
+2025,157,Queens,Maspeth,all trips,3819,44.4,1.0,31.72,5.41
+2025,157,Queens,Maspeth,does not pay,2925,34.0,0.7659,26.44,4.13
+2025,157,Queens,Maspeth,pays the charge,894,10.4,0.2341,43.23,6.7
+2025,158,Manhattan,Meatpacking/West Village West,all trips,100594,1169.7,1.0,21.25,1.85
+2025,158,Manhattan,Meatpacking/West Village West,does not pay,803,9.3,0.008,29.76,3.94
+2025,158,Manhattan,Meatpacking/West Village West,pays the charge,99791,1160.4,0.992,21.25,1.85
+2025,159,Bronx,Melrose South,all trips,2805,32.6,1.0,24.64,3.88
+2025,159,Bronx,Melrose South,does not pay,2608,30.3,0.9298,23.52,3.56
+2025,159,Bronx,Melrose South,pays the charge,197,2.3,0.0702,42.41,8.4
+2025,160,Queens,Middle Village,all trips,1580,18.4,1.0,25.59,4.76
+2025,160,Queens,Middle Village,does not pay,1405,16.3,0.8892,23.91,4.16
+2025,160,Queens,Middle Village,pays the charge,175,2.0,0.1108,44.93,7.81
+2025,161,Manhattan,Midtown Center,all trips,469841,5463.3,1.0,21.05,1.53
+2025,161,Manhattan,Midtown Center,does not pay,1757,20.4,0.0037,23.52,2.1
+2025,161,Manhattan,Midtown Center,pays the charge,468084,5442.8,0.9963,21.05,1.53
+2025,162,Manhattan,Midtown East,all trips,332634,3867.8,1.0,20.7,1.52
+2025,162,Manhattan,Midtown East,does not pay,1510,17.6,0.0045,23.16,2.1
+2025,162,Manhattan,Midtown East,pays the charge,331124,3850.3,0.9955,20.7,1.52
+2025,163,Manhattan,Midtown North,all trips,272072,3163.6,1.0,20.58,1.5
+2025,163,Manhattan,Midtown North,does not pay,1106,12.9,0.0041,23.16,2.09
+2025,163,Manhattan,Midtown North,pays the charge,270966,3150.8,0.9959,20.58,1.5
+2025,164,Manhattan,Midtown South,all trips,219209,2548.9,1.0,19.95,1.49
+2025,164,Manhattan,Midtown South,does not pay,957,11.1,0.0044,24.0,2.44
+2025,164,Manhattan,Midtown South,pays the charge,218252,2537.8,0.9956,19.92,1.49
+2025,165,Brooklyn,Midwood,all trips,1870,21.7,1.0,22.92,3.3
+2025,165,Brooklyn,Midwood,does not pay,1801,20.9,0.9631,22.0,3.2
+2025,165,Brooklyn,Midwood,pays the charge,69,0.8,0.0369,55.13,10.54
+2025,166,Manhattan,Morningside Heights,all trips,53457,621.6,1.0,20.4,2.15
+2025,166,Manhattan,Morningside Heights,does not pay,41916,487.4,0.7841,17.6,1.75
+2025,166,Manhattan,Morningside Heights,pays the charge,11541,134.2,0.2159,35.49,5.14
+2025,167,Bronx,Morrisania/Melrose,all trips,2177,25.3,1.0,25.25,4.11
+2025,167,Bronx,Morrisania/Melrose,does not pay,2021,23.5,0.9283,24.12,3.8
+2025,167,Bronx,Morrisania/Melrose,pays the charge,156,1.8,0.0717,46.49,9.51
+2025,168,Bronx,Mott Haven/Port Morris,all trips,5902,68.6,1.0,25.73,4.81
+2025,168,Bronx,Mott Haven/Port Morris,does not pay,5032,58.5,0.8526,23.43,4.19
+2025,168,Bronx,Mott Haven/Port Morris,pays the charge,870,10.1,0.1474,38.91,7.5
+2025,169,Bronx,Mount Hope,all trips,2127,24.7,1.0,24.08,4.3
+2025,169,Bronx,Mount Hope,does not pay,1985,23.1,0.9332,23.12,3.98
+2025,169,Bronx,Mount Hope,pays the charge,142,1.7,0.0668,48.19,10.54
+2025,170,Manhattan,Murray Hill,all trips,274281,3189.3,1.0,20.2,1.5
+2025,170,Manhattan,Murray Hill,does not pay,1961,22.8,0.0071,31.0,5.7
+2025,170,Manhattan,Murray Hill,pays the charge,272320,3166.5,0.9929,20.19,1.5
+2025,171,Queens,Murray Hill-Queens,all trips,645,7.5,1.0,27.59,6.24
+2025,171,Queens,Murray Hill-Queens,does not pay,621,7.2,0.9628,26.51,6.01
+2025,171,Queens,Murray Hill-Queens,pays the charge,24,0.3,0.0372,56.88,12.53
+2025,172,Staten Island,New Dorp/Midland Beach,all trips,48,0.6,1.0,46.88,9.37
+2025,172,Staten Island,New Dorp/Midland Beach,does not pay,41,0.5,0.8542,42.51,8.28
+2025,172,Staten Island,New Dorp/Midland Beach,pays the charge,7,0.1,0.1458,63.85,18.28
+2025,173,Queens,North Corona,all trips,1500,17.4,1.0,24.27,4.78
+2025,173,Queens,North Corona,does not pay,1415,16.5,0.9433,23.2,4.34
+2025,173,Queens,North Corona,pays the charge,85,1.0,0.0567,47.76,9.9
+2025,174,Bronx,Norwood,all trips,1280,14.9,1.0,29.77,6.2
+2025,174,Bronx,Norwood,does not pay,1228,14.3,0.9594,29.0,5.93
+2025,174,Bronx,Norwood,pays the charge,52,0.6,0.0406,58.76,15.15
+2025,175,Queens,Oakland Gardens,all trips,398,4.6,1.0,34.29,8.2
+2025,175,Queens,Oakland Gardens,does not pay,373,4.3,0.9372,32.48,7.67
+2025,175,Queens,Oakland Gardens,pays the charge,25,0.3,0.0628,60.65,14.34
+2025,176,Staten Island,Oakwood,all trips,11,0.1,1.0,49.04,10.39
+2025,176,Staten Island,Oakwood,does not pay,9,0.1,0.8182,45.23,8.89
+2025,176,Staten Island,Oakwood,pays the charge,2,0.0,0.1818,58.17,10.39
+2025,177,Brooklyn,Ocean Hill,all trips,4691,54.5,1.0,24.39,3.71
+2025,177,Brooklyn,Ocean Hill,does not pay,4396,51.1,0.9371,23.48,3.51
+2025,177,Brooklyn,Ocean Hill,pays the charge,295,3.4,0.0629,51.23,8.0
+2025,178,Brooklyn,Ocean Parkway South,all trips,541,6.3,1.0,20.0,2.77
+2025,178,Brooklyn,Ocean Parkway South,does not pay,501,5.8,0.9261,19.28,2.53
+2025,178,Brooklyn,Ocean Parkway South,pays the charge,40,0.5,0.0739,56.32,10.26
+2025,179,Queens,Old Astoria,all trips,5052,58.7,1.0,28.75,4.24
+2025,179,Queens,Old Astoria,does not pay,3799,44.2,0.752,24.1,3.69
+2025,179,Queens,Old Astoria,pays the charge,1253,14.6,0.248,35.62,4.98
+2025,180,Queens,Ozone Park,all trips,1342,15.6,1.0,25.19,4.5
+2025,180,Queens,Ozone Park,does not pay,1302,15.1,0.9702,24.32,4.37
+2025,180,Queens,Ozone Park,pays the charge,40,0.5,0.0298,59.41,11.6
+2025,181,Brooklyn,Park Slope,all trips,8206,95.4,1.0,27.0,3.97
+2025,181,Brooklyn,Park Slope,does not pay,6527,75.9,0.7954,23.72,3.39
+2025,181,Brooklyn,Park Slope,pays the charge,1679,19.5,0.2046,39.53,5.6
+2025,182,Bronx,Parkchester,all trips,2169,25.2,1.0,32.3,6.62
+2025,182,Bronx,Parkchester,does not pay,1946,22.6,0.8972,30.53,6.2
+2025,182,Bronx,Parkchester,pays the charge,223,2.6,0.1028,54.34,12.21
+2025,183,Bronx,Pelham Bay,all trips,413,4.8,1.0,36.0,8.0
+2025,183,Bronx,Pelham Bay,does not pay,394,4.6,0.954,35.0,7.6
+2025,183,Bronx,Pelham Bay,pays the charge,19,0.2,0.046,57.17,14.03
+2025,184,Bronx,Pelham Bay Park,all trips,51,0.6,1.0,33.9,8.02
+2025,184,Bronx,Pelham Bay Park,does not pay,48,0.6,0.9412,31.51,6.5
+2025,184,Bronx,Pelham Bay Park,pays the charge,3,0.0,0.0588,64.33,14.39
+2025,185,Bronx,Pelham Parkway,all trips,845,9.8,1.0,27.74,5.25
+2025,185,Bronx,Pelham Parkway,does not pay,803,9.3,0.9503,27.0,4.91
+2025,185,Bronx,Pelham Parkway,pays the charge,42,0.5,0.0497,57.5,13.48
+2025,186,Manhattan,Penn Station/Madison Sq West,all trips,334650,3891.3,1.0,21.06,1.5
+2025,186,Manhattan,Penn Station/Madison Sq West,does not pay,1977,23.0,0.0059,21.85,1.75
+2025,186,Manhattan,Penn Station/Madison Sq West,pays the charge,332673,3868.3,0.9941,21.06,1.5
+2025,187,Staten Island,Port Richmond,all trips,8,0.1,1.0,52.31,11.5
+2025,187,Staten Island,Port Richmond,does not pay,5,0.1,0.625,51.08,9.02
+2025,187,Staten Island,Port Richmond,pays the charge,3,0.0,0.375,87.69,18.33
+2025,188,Brooklyn,Prospect-Lefferts Gardens,all trips,7817,90.9,1.0,23.94,3.42
+2025,188,Brooklyn,Prospect-Lefferts Gardens,does not pay,7163,83.3,0.9163,22.87,3.2
+2025,188,Brooklyn,Prospect-Lefferts Gardens,pays the charge,654,7.6,0.0837,46.37,7.2
+2025,189,Brooklyn,Prospect Heights,all trips,3058,35.6,1.0,27.0,3.74
+2025,189,Brooklyn,Prospect Heights,does not pay,2392,27.8,0.7822,23.88,3.19
+2025,189,Brooklyn,Prospect Heights,pays the charge,666,7.7,0.2178,36.84,4.9
+2025,190,Brooklyn,Prospect Park,all trips,503,5.8,1.0,25.4,3.53
+2025,190,Brooklyn,Prospect Park,does not pay,418,4.9,0.831,23.01,3.04
+2025,190,Brooklyn,Prospect Park,pays the charge,85,1.0,0.169,42.52,6.27
+2025,191,Queens,Queens Village,all trips,1871,21.8,1.0,29.83,7.1
+2025,191,Queens,Queens Village,does not pay,1836,21.3,0.9813,29.29,6.75
+2025,191,Queens,Queens Village,pays the charge,35,0.4,0.0187,68.48,16.99
+2025,192,Queens,Queensboro Hill,all trips,521,6.1,1.0,27.16,6.4
+2025,192,Queens,Queensboro Hill,does not pay,491,5.7,0.9424,26.06,6.17
+2025,192,Queens,Queensboro Hill,pays the charge,30,0.3,0.0576,52.38,10.88
+2025,193,Queens,Queensbridge/Ravenswood,all trips,2911,33.8,1.0,25.99,3.5
+2025,193,Queens,Queensbridge/Ravenswood,does not pay,2226,25.9,0.7647,22.32,2.91
+2025,193,Queens,Queensbridge/Ravenswood,pays the charge,685,8.0,0.2353,31.02,4.1
+2025,194,Manhattan,Randalls Island,all trips,453,5.3,1.0,46.5,6.02
+2025,194,Manhattan,Randalls Island,does not pay,356,4.1,0.7859,45.81,5.26
+2025,194,Manhattan,Randalls Island,pays the charge,97,1.1,0.2141,47.74,7.18
+2025,195,Brooklyn,Red Hook,all trips,2663,31.0,1.0,39.0,6.56
+2025,195,Brooklyn,Red Hook,does not pay,1904,22.1,0.715,34.0,5.98
+2025,195,Brooklyn,Red Hook,pays the charge,759,8.8,0.285,46.26,7.49
+2025,196,Queens,Rego Park,all trips,2270,26.4,1.0,28.55,5.55
+2025,196,Queens,Rego Park,does not pay,1981,23.0,0.8727,26.0,4.96
+2025,196,Queens,Rego Park,pays the charge,289,3.4,0.1273,46.42,8.2
+2025,197,Queens,Richmond Hill,all trips,6758,78.6,1.0,25.67,4.34
+2025,197,Queens,Richmond Hill,does not pay,6566,76.3,0.9716,25.03,4.13
+2025,197,Queens,Richmond Hill,pays the charge,192,2.2,0.0284,60.84,12.33
+2025,198,Queens,Ridgewood,all trips,3515,40.9,1.0,26.32,4.03
+2025,198,Queens,Ridgewood,does not pay,3060,35.6,0.8706,24.11,3.62
+2025,198,Queens,Ridgewood,pays the charge,455,5.3,0.1294,42.67,7.24
+2025,199,Bronx,Rikers Island,all trips,5,0.1,1.0,66.78,11.76
+2025,199,Bronx,Rikers Island,pays the charge,5,0.1,1.0,66.78,11.76
+2025,200,Bronx,Riverdale/North Riverdale/Fieldston,all trips,603,7.0,1.0,39.0,8.96
+2025,200,Bronx,Riverdale/North Riverdale/Fieldston,does not pay,548,6.4,0.9088,36.63,8.35
+2025,200,Bronx,Riverdale/North Riverdale/Fieldston,pays the charge,55,0.6,0.0912,53.94,12.12
+2025,201,Queens,Rockaway Park,all trips,443,5.2,1.0,42.6,9.61
+2025,201,Queens,Rockaway Park,does not pay,429,5.0,0.9684,41.35,9.46
+2025,201,Queens,Rockaway Park,pays the charge,14,0.2,0.0316,94.38,20.18
+2025,202,Manhattan,Roosevelt Island,all trips,634,7.4,1.0,32.96,5.0
+2025,202,Manhattan,Roosevelt Island,does not pay,506,5.9,0.7981,31.0,4.93
+2025,202,Manhattan,Roosevelt Island,pays the charge,128,1.5,0.2019,36.98,5.12
+2025,203,Queens,Rosedale,all trips,970,11.3,1.0,37.0,8.19
+2025,203,Queens,Rosedale,does not pay,957,11.1,0.9866,36.85,8.1
+2025,203,Queens,Rosedale,pays the charge,13,0.2,0.0134,83.81,18.14
+2025,204,Staten Island,Rossville/Woodrow,all trips,4,0.0,1.0,78.78,12.29
+2025,204,Staten Island,Rossville/Woodrow,does not pay,3,0.0,0.75,78.78,12.29
+2025,204,Staten Island,Rossville/Woodrow,pays the charge,1,0.0,0.25,121.46,29.65
+2025,205,Queens,Saint Albans,all trips,2663,31.0,1.0,31.0,6.0
+2025,205,Queens,Saint Albans,does not pay,2621,30.5,0.9842,30.22,5.64
+2025,205,Queens,Saint Albans,pays the charge,42,0.5,0.0158,76.39,16.21
+2025,206,Staten Island,Saint George/New Brighton,all trips,31,0.4,1.0,60.16,12.54
+2025,206,Staten Island,Saint George/New Brighton,does not pay,23,0.3,0.7419,52.15,9.58
+2025,206,Staten Island,Saint George/New Brighton,pays the charge,8,0.1,0.2581,83.56,16.23
+2025,207,Queens,Saint Michaels Cemetery/Woodside,all trips,226,2.6,1.0,67.0,6.14
+2025,207,Queens,Saint Michaels Cemetery/Woodside,does not pay,145,1.7,0.6416,60.5,4.75
+2025,207,Queens,Saint Michaels Cemetery/Woodside,pays the charge,81,0.9,0.3584,73.43,7.6
+2025,208,Bronx,Schuylerville/Edgewater Park,all trips,1096,12.7,1.0,29.77,6.89
+2025,208,Bronx,Schuylerville/Edgewater Park,does not pay,1008,11.7,0.9197,28.26,6.42
+2025,208,Bronx,Schuylerville/Edgewater Park,pays the charge,88,1.0,0.0803,60.48,14.06
+2025,209,Manhattan,Seaport,all trips,18410,214.1,1.0,26.1,3.23
+2025,209,Manhattan,Seaport,does not pay,528,6.1,0.0287,38.0,8.2
+2025,209,Manhattan,Seaport,pays the charge,17882,207.9,0.9713,25.82,3.19
+2025,210,Brooklyn,Sheepshead Bay,all trips,1657,19.3,1.0,25.0,4.46
+2025,210,Brooklyn,Sheepshead Bay,does not pay,1629,18.9,0.9831,25.0,4.3
+2025,210,Brooklyn,Sheepshead Bay,pays the charge,28,0.3,0.0169,74.12,18.1
+2025,211,Manhattan,SoHo,all trips,86422,1004.9,1.0,20.75,1.76
+2025,211,Manhattan,SoHo,does not pay,267,3.1,0.0031,21.0,1.9
+2025,211,Manhattan,SoHo,pays the charge,86155,1001.8,0.9969,20.75,1.76
+2025,212,Bronx,Soundview/Bruckner,all trips,1711,19.9,1.0,27.4,5.74
+2025,212,Bronx,Soundview/Bruckner,does not pay,1535,17.8,0.8971,25.88,5.3
+2025,212,Bronx,Soundview/Bruckner,pays the charge,176,2.0,0.1029,51.69,10.84
+2025,213,Bronx,Soundview/Castle Hill,all trips,2616,30.4,1.0,29.0,5.91
+2025,213,Bronx,Soundview/Castle Hill,does not pay,2425,28.2,0.927,28.0,5.6
+2025,213,Bronx,Soundview/Castle Hill,pays the charge,191,2.2,0.073,51.11,11.4
+2025,214,Staten Island,South Beach/Dongan Hills,all trips,79,0.9,1.0,32.67,6.24
+2025,214,Staten Island,South Beach/Dongan Hills,does not pay,72,0.8,0.9114,29.99,5.58
+2025,214,Staten Island,South Beach/Dongan Hills,pays the charge,7,0.1,0.0886,82.14,18.46
+2025,215,Queens,South Jamaica,all trips,3673,42.7,1.0,33.0,6.77
+2025,215,Queens,South Jamaica,does not pay,3288,38.2,0.8952,28.47,5.32
+2025,215,Queens,South Jamaica,pays the charge,385,4.5,0.1048,98.03,13.54
+2025,216,Queens,South Ozone Park,all trips,7627,88.7,1.0,31.33,3.41
+2025,216,Queens,South Ozone Park,does not pay,7397,86.0,0.9698,30.2,3.3
+2025,216,Queens,South Ozone Park,pays the charge,230,2.7,0.0302,79.75,14.22
+2025,217,Brooklyn,South Williamsburg,all trips,1418,16.5,1.0,26.79,3.5
+2025,217,Brooklyn,South Williamsburg,does not pay,1209,14.1,0.8526,24.59,3.2
+2025,217,Brooklyn,South Williamsburg,pays the charge,209,2.4,0.1474,34.02,4.53
+2025,218,Queens,Springfield Gardens North,all trips,1921,22.3,1.0,33.1,7.48
+2025,218,Queens,Springfield Gardens North,does not pay,1900,22.1,0.9891,33.0,7.39
+2025,218,Queens,Springfield Gardens North,pays the charge,21,0.2,0.0109,74.65,16.52
+2025,219,Queens,Springfield Gardens South,all trips,2275,26.5,1.0,48.0,9.93
+2025,219,Queens,Springfield Gardens South,does not pay,1961,22.8,0.862,39.53,7.9
+2025,219,Queens,Springfield Gardens South,pays the charge,314,3.7,0.138,98.03,15.6
+2025,220,Bronx,Spuyten Duyvil/Kingsbridge,all trips,1174,13.7,1.0,31.0,6.6
+2025,220,Bronx,Spuyten Duyvil/Kingsbridge,does not pay,1065,12.4,0.9072,29.0,6.1
+2025,220,Bronx,Spuyten Duyvil/Kingsbridge,pays the charge,109,1.3,0.0928,54.3,12.67
+2025,221,Staten Island,Stapleton,all trips,114,1.3,1.0,42.5,7.71
+2025,221,Staten Island,Stapleton,does not pay,91,1.1,0.7982,36.37,5.97
+2025,221,Staten Island,Stapleton,pays the charge,23,0.3,0.2018,69.44,12.5
+2025,222,Brooklyn,Starrett City,all trips,1816,21.1,1.0,28.48,5.5
+2025,222,Brooklyn,Starrett City,does not pay,1799,20.9,0.9906,28.0,5.46
+2025,222,Brooklyn,Starrett City,pays the charge,17,0.2,0.0094,74.27,14.84
+2025,223,Queens,Steinway,all trips,4283,49.8,1.0,32.96,5.14
+2025,223,Queens,Steinway,does not pay,3674,42.7,0.8578,29.8,4.16
+2025,223,Queens,Steinway,pays the charge,609,7.1,0.1422,47.27,7.81
+2025,224,Manhattan,Stuy Town/Peter Cooper Village,all trips,18230,212.0,1.0,20.28,1.9
+2025,224,Manhattan,Stuy Town/Peter Cooper Village,does not pay,198,2.3,0.0109,22.1,3.0
+2025,224,Manhattan,Stuy Town/Peter Cooper Village,pays the charge,18032,209.7,0.9891,20.25,1.9
+2025,225,Brooklyn,Stuyvesant Heights,all trips,6445,74.9,1.0,26.0,3.7
+2025,225,Brooklyn,Stuyvesant Heights,does not pay,5550,64.5,0.8611,24.0,3.27
+2025,225,Brooklyn,Stuyvesant Heights,pays the charge,895,10.4,0.1389,44.25,6.4
+2025,226,Queens,Sunnyside,all trips,13739,159.8,1.0,28.34,4.16
+2025,226,Queens,Sunnyside,does not pay,10215,118.8,0.7435,25.23,3.94
+2025,226,Queens,Sunnyside,pays the charge,3524,41.0,0.2565,31.98,4.31
+2025,227,Brooklyn,Sunset Park East,all trips,1259,14.6,1.0,25.59,3.8
+2025,227,Brooklyn,Sunset Park East,does not pay,1156,13.4,0.9182,23.66,3.44
+2025,227,Brooklyn,Sunset Park East,pays the charge,103,1.2,0.0818,47.88,8.8
+2025,228,Brooklyn,Sunset Park West,all trips,3342,38.9,1.0,30.34,5.12
+2025,228,Brooklyn,Sunset Park West,does not pay,2869,33.4,0.8585,27.13,4.32
+2025,228,Brooklyn,Sunset Park West,pays the charge,473,5.5,0.1415,47.29,8.29
+2025,229,Manhattan,Sutton Place/Turtle Bay North,all trips,164339,1910.9,1.0,19.55,1.49
+2025,229,Manhattan,Sutton Place/Turtle Bay North,does not pay,890,10.3,0.0054,20.15,1.74
+2025,229,Manhattan,Sutton Place/Turtle Bay North,pays the charge,163449,1900.6,0.9946,19.55,1.49
+2025,230,Manhattan,Times Sq/Theatre District,all trips,338206,3932.6,1.0,21.25,1.6
+2025,230,Manhattan,Times Sq/Theatre District,does not pay,1744,20.3,0.0052,28.0,3.03
+2025,230,Manhattan,Times Sq/Theatre District,pays the charge,336462,3912.3,0.9948,21.25,1.59
+2025,231,Manhattan,TriBeCa/Civic Center,all trips,136912,1592.0,1.0,22.71,2.15
+2025,231,Manhattan,TriBeCa/Civic Center,does not pay,2000,23.3,0.0146,34.1,6.2
+2025,231,Manhattan,TriBeCa/Civic Center,pays the charge,134912,1568.7,0.9854,22.55,2.13
+2025,232,Manhattan,Two Bridges/Seward Park,all trips,19566,227.5,1.0,23.94,2.8
+2025,232,Manhattan,Two Bridges/Seward Park,does not pay,964,11.2,0.0493,28.0,5.07
+2025,232,Manhattan,Two Bridges/Seward Park,pays the charge,18602,216.3,0.9507,23.67,2.72
+2025,233,Manhattan,UN/Turtle Bay South,all trips,109229,1270.1,1.0,20.25,1.61
+2025,233,Manhattan,UN/Turtle Bay South,does not pay,965,11.2,0.0088,33.0,6.08
+2025,233,Manhattan,UN/Turtle Bay South,pays the charge,108264,1258.9,0.9912,20.22,1.6
+2025,234,Manhattan,Union Sq,all trips,284826,3311.9,1.0,19.65,1.47
+2025,234,Manhattan,Union Sq,does not pay,1001,11.6,0.0035,21.0,1.9
+2025,234,Manhattan,Union Sq,pays the charge,283825,3300.3,0.9965,19.65,1.47
+2025,235,Bronx,University Heights/Morris Heights,all trips,2060,24.0,1.0,25.23,4.8
+2025,235,Bronx,University Heights/Morris Heights,does not pay,1902,22.1,0.9233,24.0,4.37
+2025,235,Bronx,University Heights/Morris Heights,pays the charge,158,1.8,0.0767,43.69,10.2
+2025,236,Manhattan,Upper East Side North,all trips,422314,4910.6,1.0,18.0,1.42
+2025,236,Manhattan,Upper East Side North,does not pay,288150,3350.6,0.6823,15.75,1.08
+2025,236,Manhattan,Upper East Side North,pays the charge,134164,1560.0,0.3177,25.26,2.35
+2025,237,Manhattan,Upper East Side South,all trips,457500,5319.8,1.0,17.7,1.24
+2025,237,Manhattan,Upper East Side South,does not pay,219466,2551.9,0.4797,15.6,1.04
+2025,237,Manhattan,Upper East Side South,pays the charge,238034,2767.8,0.5203,20.22,1.5
+2025,238,Manhattan,Upper West Side North,all trips,190274,2212.5,1.0,18.48,1.6
+2025,238,Manhattan,Upper West Side North,does not pay,144256,1677.4,0.7581,16.4,1.3
+2025,238,Manhattan,Upper West Side North,pays the charge,46018,535.1,0.2419,27.37,3.0
+2025,239,Manhattan,Upper West Side South,all trips,266677,3100.9,1.0,18.84,1.62
+2025,239,Manhattan,Upper West Side South,does not pay,177426,2063.1,0.6653,16.4,1.26
+2025,239,Manhattan,Upper West Side South,pays the charge,89251,1037.8,0.3347,24.4,2.35
+2025,240,Bronx,Van Cortlandt Park,all trips,187,2.2,1.0,31.02,6.49
+2025,240,Bronx,Van Cortlandt Park,does not pay,173,2.0,0.9251,29.88,6.1
+2025,240,Bronx,Van Cortlandt Park,pays the charge,14,0.2,0.0749,63.74,13.88
+2025,241,Bronx,Van Cortlandt Village,all trips,1381,16.1,1.0,29.64,6.1
+2025,241,Bronx,Van Cortlandt Village,does not pay,1294,15.0,0.937,28.38,5.8
+2025,241,Bronx,Van Cortlandt Village,pays the charge,87,1.0,0.063,53.01,12.09
+2025,242,Bronx,Van Nest/Morris Park,all trips,1470,17.1,1.0,27.21,5.09
+2025,242,Bronx,Van Nest/Morris Park,does not pay,1413,16.4,0.9612,26.4,4.8
+2025,242,Bronx,Van Nest/Morris Park,pays the charge,57,0.7,0.0388,55.0,12.27
+2025,243,Manhattan,Washington Heights North,all trips,4927,57.3,1.0,26.65,5.1
+2025,243,Manhattan,Washington Heights North,does not pay,3744,43.5,0.7599,21.05,3.7
+2025,243,Manhattan,Washington Heights North,pays the charge,1183,13.8,0.2401,42.31,9.12
+2025,244,Manhattan,Washington Heights South,all trips,12826,149.1,1.0,25.0,4.28
+2025,244,Manhattan,Washington Heights South,does not pay,9762,113.5,0.7611,20.52,3.08
+2025,244,Manhattan,Washington Heights South,pays the charge,3064,35.6,0.2389,39.82,7.88
+2025,245,Staten Island,West Brighton,all trips,16,0.2,1.0,59.91,12.7
+2025,245,Staten Island,West Brighton,does not pay,11,0.1,0.6875,41.08,9.3
+2025,245,Staten Island,West Brighton,pays the charge,5,0.1,0.3125,77.29,15.78
+2025,246,Manhattan,West Chelsea/Hudson Yards,all trips,182313,2119.9,1.0,21.54,1.77
+2025,246,Manhattan,West Chelsea/Hudson Yards,does not pay,2881,33.5,0.0158,27.3,3.53
+2025,246,Manhattan,West Chelsea/Hudson Yards,pays the charge,179432,2086.4,0.9842,21.45,1.75
+2025,247,Bronx,West Concourse,all trips,3562,41.4,1.0,24.65,4.4
+2025,247,Bronx,West Concourse,does not pay,3217,37.4,0.9031,23.0,3.94
+2025,247,Bronx,West Concourse,pays the charge,345,4.0,0.0969,43.0,8.46
+2025,248,Bronx,West Farms/Bronx River,all trips,1445,16.8,1.0,28.67,5.75
+2025,248,Bronx,West Farms/Bronx River,does not pay,1273,14.8,0.881,26.77,5.4
+2025,248,Bronx,West Farms/Bronx River,pays the charge,172,2.0,0.119,51.73,11.6
+2025,249,Manhattan,West Village,all trips,239146,2780.8,1.0,19.86,1.6
+2025,249,Manhattan,West Village,does not pay,886,10.3,0.0037,20.0,1.87
+2025,249,Manhattan,West Village,pays the charge,238260,2770.5,0.9963,19.86,1.6
+2025,250,Bronx,Westchester Village/Unionport,all trips,1497,17.4,1.0,29.0,5.91
+2025,250,Bronx,Westchester Village/Unionport,does not pay,1372,16.0,0.9165,26.91,5.5
+2025,250,Bronx,Westchester Village/Unionport,pays the charge,125,1.5,0.0835,55.89,12.48
+2025,251,Staten Island,Westerleigh,all trips,25,0.3,1.0,65.69,12.94
+2025,251,Staten Island,Westerleigh,does not pay,14,0.2,0.56,40.91,8.8
+2025,251,Staten Island,Westerleigh,pays the charge,11,0.1,0.44,75.63,16.8
+2025,252,Queens,Whitestone,all trips,596,6.9,1.0,28.2,6.45
+2025,252,Queens,Whitestone,does not pay,557,6.5,0.9346,26.72,6.05
+2025,252,Queens,Whitestone,pays the charge,39,0.5,0.0654,60.46,13.29
+2025,253,Queens,Willets Point,all trips,57,0.7,1.0,31.65,8.15
+2025,253,Queens,Willets Point,does not pay,52,0.6,0.9123,30.24,7.08
+2025,253,Queens,Willets Point,pays the charge,5,0.1,0.0877,51.16,11.5
+2025,254,Bronx,Williamsbridge/Olinville,all trips,2294,26.7,1.0,31.76,6.65
+2025,254,Bronx,Williamsbridge/Olinville,does not pay,2228,25.9,0.9712,30.83,6.4
+2025,254,Bronx,Williamsbridge/Olinville,pays the charge,66,0.8,0.0288,60.46,15.3
+2025,255,Brooklyn,Williamsburg (North Side),all trips,12396,144.1,1.0,27.78,3.87
+2025,255,Brooklyn,Williamsburg (North Side),does not pay,7854,91.3,0.6336,24.81,3.58
+2025,255,Brooklyn,Williamsburg (North Side),pays the charge,4542,52.8,0.3664,31.39,4.23
+2025,256,Brooklyn,Williamsburg (South Side),all trips,9657,112.3,1.0,26.74,3.54
+2025,256,Brooklyn,Williamsburg (South Side),does not pay,5785,67.3,0.599,23.65,3.21
+2025,256,Brooklyn,Williamsburg (South Side),pays the charge,3872,45.0,0.401,30.39,3.97
+2025,257,Brooklyn,Windsor Terrace,all trips,913,10.6,1.0,30.0,4.69
+2025,257,Brooklyn,Windsor Terrace,does not pay,723,8.4,0.7919,24.0,3.6
+2025,257,Brooklyn,Windsor Terrace,pays the charge,190,2.2,0.2081,48.91,8.66
+2025,258,Queens,Woodhaven,all trips,2794,32.5,1.0,26.37,4.66
+2025,258,Queens,Woodhaven,does not pay,2660,30.9,0.952,25.42,4.43
+2025,258,Queens,Woodhaven,pays the charge,134,1.6,0.048,55.89,11.19
+2025,259,Bronx,Woodlawn/Wakefield,all trips,1359,15.8,1.0,31.94,7.28
+2025,259,Bronx,Woodlawn/Wakefield,does not pay,1308,15.2,0.9625,31.01,7.07
+2025,259,Bronx,Woodlawn/Wakefield,pays the charge,51,0.6,0.0375,59.1,15.0
+2025,260,Queens,Woodside,all trips,5509,64.1,1.0,25.0,3.99
+2025,260,Queens,Woodside,does not pay,4556,53.0,0.827,20.3,3.06
+2025,260,Queens,Woodside,pays the charge,953,11.1,0.173,37.57,5.56
+2025,261,Manhattan,World Trade Center,all trips,45644,530.7,1.0,27.78,3.3
+2025,261,Manhattan,World Trade Center,does not pay,1167,13.6,0.0256,35.94,5.72
+2025,261,Manhattan,World Trade Center,pays the charge,44477,517.2,0.9744,27.77,3.26
+2025,262,Manhattan,Yorkville East,all trips,136309,1585.0,1.0,19.0,1.72
+2025,262,Manhattan,Yorkville East,does not pay,89062,1035.6,0.6534,15.92,1.1
+2025,262,Manhattan,Yorkville East,pays the charge,47247,549.4,0.3466,26.08,3.03
+2025,263,Manhattan,Yorkville West,all trips,187792,2183.6,1.0,17.7,1.52
+2025,263,Manhattan,Yorkville West,does not pay,128542,1494.7,0.6845,15.1,1.04
+2025,263,Manhattan,Yorkville West,pays the charge,59250,689.0,0.3155,26.0,2.9
