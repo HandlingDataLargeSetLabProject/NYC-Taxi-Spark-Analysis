@@ -5,6 +5,7 @@ from pathlib import Path
 
 from hlds.benchmarks import (BenchmarkCase, append_timing, count_rows, machine_info, measure_case, save_plan,
                              timing_row, timings_file)
+from hlds.paths import PROJECT_ROOT
 from hlds.timing import TimingResult
 
 
@@ -84,6 +85,13 @@ class SavePlanTest(unittest.TestCase):
             path = save_plan(frame, Path(folder) / "plans", "O2", "before")
             self.assertEqual(path.read_text(encoding="utf-8").strip(), "AdaptiveSparkPlan isFinalPlan=true")
             self.assertEqual(frame.modes, ["formatted"])
+
+    def test_hides_the_local_project_folder(self):
+        plan = f"Location: InMemoryFileIndex [file:/{PROJECT_ROOT.as_posix()}/data/raw/yellow_tripdata_2024-01.parquet]"
+        with tempfile.TemporaryDirectory() as folder:
+            text = save_plan(FakeFrame(plan), Path(folder), "pilot", "clean_count").read_text(encoding="utf-8")
+        self.assertIn("file:/<project>/data/raw/yellow_tripdata_2024-01.parquet", text)
+        self.assertNotIn(PROJECT_ROOT.as_posix(), text)
 
     def test_names_the_file_after_optimization_and_variant(self):
         with tempfile.TemporaryDirectory() as folder:

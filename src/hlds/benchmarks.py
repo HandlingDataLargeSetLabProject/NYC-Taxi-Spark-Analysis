@@ -12,6 +12,7 @@ from dataclasses import dataclass
 from datetime import date
 from typing import Callable, Optional
 
+from hlds.paths import PROJECT_ROOT
 from hlds.timing import measure
 
 MACHINE_LABEL = re.compile(r"^[a-z0-9_-]+$")
@@ -54,9 +55,11 @@ def save_plan(frame, folder, optimization, variant):
     output = io.StringIO()
     with contextlib.redirect_stdout(output):
         frame.explain(mode="formatted")
+    # The plan names the data files with their full local path, which would put our own folders into the repository.
+    text = output.getvalue().replace(PROJECT_ROOT.as_posix(), "<project>")
     folder.mkdir(parents=True, exist_ok=True)
     path = folder / f"{optimization}_{variant}.txt"
-    path.write_text(output.getvalue(), encoding="utf-8")
+    path.write_text(text, encoding="utf-8")
     return path
 
 

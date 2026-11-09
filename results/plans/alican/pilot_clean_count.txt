@@ -32,7 +32,7 @@ AdaptiveSparkPlan (25)
 (1) Scan parquet 
 Output [20]: [VendorID#171, tpep_pickup_datetime#172, tpep_dropoff_datetime#173, passenger_count#174L, trip_distance#175, RatecodeID#176L, store_and_fwd_flag#177, PULocationID#178, DOLocationID#179, payment_type#180L, fare_amount#181, extra#182, mta_tax#183, tip_amount#184, tolls_amount#185, improvement_surcharge#186, total_amount#187, congestion_surcharge#188, Airport_fee#189, cbd_congestion_fee#190]
 Batched: true
-Location: InMemoryFileIndex [file:/C:/Users/Alican/Desktop/KonuBuluncaDegisiriz/data/raw/yellow_tripdata_2024-01.parquet, ... 5 entries]
+Location: InMemoryFileIndex [file:/<project>/data/raw/yellow_tripdata_2024-01.parquet, ... 5 entries]
 PushedFilters: [IsNotNull(tpep_dropoff_datetime), IsNotNull(tpep_pickup_datetime), IsNotNull(trip_distance), IsNotNull(total_amount), Or(And(GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00),LessThan(tpep_pickup_datetime,2024-04-01T00:00)),And(GreaterThanOrEqual(tpep_pickup_datetime,2025-01-01T00:00),LessThan(tpep_pickup_datetime,2025-04-01T00:00))), GreaterThan(trip_distance,0.0), LessThanOrEqual(trip_distance,100.0), GreaterThanOrEqual(total_amount,0.0), LessThanOrEqual(total_amount,2000.0)]
 ReadSchema: struct<VendorID:int,tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,passenger_count:bigint,trip_distance:double,RatecodeID:bigint,store_and_fwd_flag:string,PULocationID:int,DOLocationID:int,payment_type:bigint,fare_amount:double,extra:double,mta_tax:double,tip_amount:double,tolls_amount:double,improvement_surcharge:double,total_amount:double,congestion_surcharge:double,Airport_fee:double,cbd_congestion_fee:double>
 
