@@ -15,7 +15,8 @@ from hlds.benchmarks import (BenchmarkCase, append_timing, count_rows, machine_i
                              timing_row, timings_file)
 from hlds.caching import run_q1_and_q2
 from hlds.cleaning import clean_trips
-from hlds.loading import load_trips
+from hlds.joins import automatic_broadcast_off, zone_pair_counts
+from hlds.loading import load_trips, load_zones
 from hlds.paths import RESULTS_DIR
 from hlds.session import DRIVER_MEMORY, get_spark
 
@@ -33,6 +34,17 @@ def q1_q2_with_cache(spark):
     return run_q1_and_q2(clean_trips(load_trips(spark)).cache())
 
 
+def zone_joins_shuffle(spark):
+    # Both O2 cases run with automatic broadcast off, so the only difference is the broadcast() hint.
+    with automatic_broadcast_off(spark):
+        return zone_pair_counts(clean_trips(load_trips(spark)), load_zones(spark), broadcast_zones=False)
+
+
+def zone_joins_broadcast(spark):
+    with automatic_broadcast_off(spark):
+        return zone_pair_counts(clean_trips(load_trips(spark)), load_zones(spark), broadcast_zones=True)
+
+
 def clear_cache(spark):
     spark.catalog.clearCache()
 
@@ -42,6 +54,8 @@ CASES = [
     BenchmarkCase("pilot", "clean_count", clean_and_count, reset=clear_cache),
     BenchmarkCase("O1", "before", q1_q2_without_cache, reset=clear_cache),
     BenchmarkCase("O1", "after", q1_q2_with_cache, reset=clear_cache),
+    BenchmarkCase("O2", "before", zone_joins_shuffle, reset=clear_cache),
+    BenchmarkCase("O2", "after", zone_joins_broadcast, reset=clear_cache),
 ]
 
 
