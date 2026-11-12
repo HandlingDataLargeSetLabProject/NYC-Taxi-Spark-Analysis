@@ -1,0 +1,111 @@
+== Physical Plan ==
+AdaptiveSparkPlan (18)
++- == Final Plan ==
+   ResultQueryStage (12)
+   +- * Sort (11)
+      +- AQEShuffleRead (10), coalesced
+         +- ShuffleQueryStage (9), Statistics(sizeInBytes=992.0 B, rowCount=31)
+            +- Exchange (8)
+               +- ObjectHashAggregate (7)
+                  +- AQEShuffleRead (6), coalesced
+                     +- ShuffleQueryStage (5), Statistics(sizeInBytes=11.8 MiB, rowCount=31)
+                        +- Exchange (4)
+                           +- ObjectHashAggregate (3)
+                              +- * ColumnarToRow (2)
+                                 +- Scan parquet  (1)
++- == Initial Plan ==
+   Sort (17)
+   +- Exchange (16)
+      +- ObjectHashAggregate (15)
+         +- Exchange (14)
+            +- ObjectHashAggregate (13)
+               +- Scan parquet  (1)
+
+
+(1) Scan parquet 
+Output [2]: [total_amount#2027, pickup_date#2034]
+Batched: true
+Location: InMemoryFileIndex [file:/<project>/data/derived/clean_by_pickup_date]
+PartitionFilters: [isnotnull(pickup_date#2034), (pickup_date#2034 >= 2025-03-01), (pickup_date#2034 <= 2025-03-31)]
+ReadSchema: struct<total_amount:double>
+
+(2) ColumnarToRow [codegen id : 1]
+Input [2]: [total_amount#2027, pickup_date#2034]
+
+(3) ObjectHashAggregate
+Input [2]: [total_amount#2027, pickup_date#2034]
+Keys [1]: [pickup_date#2034]
+Functions [2]: [partial_count(1), partial_percentile_approx(total_amount#2027, 0.5, 10000, 0, 0)]
+Aggregate Attributes [2]: [count#2064L, buf#2065]
+Results [3]: [pickup_date#2034, count#2066L, buf#2067]
+
+(4) Exchange
+Input [3]: [pickup_date#2034, count#2066L, buf#2067]
+Arguments: hashpartitioning(pickup_date#2034, 200), ENSURE_REQUIREMENTS, [plan_id=972]
+
+(5) ShuffleQueryStage
+Output [3]: [pickup_date#2034, count#2066L, buf#2067]
+Arguments: 0
+
+(6) AQEShuffleRead
+Input [3]: [pickup_date#2034, count#2066L, buf#2067]
+Arguments: coalesced
+
+(7) ObjectHashAggregate
+Input [3]: [pickup_date#2034, count#2066L, buf#2067]
+Keys [1]: [pickup_date#2034]
+Functions [2]: [count(1), percentile_approx(total_amount#2027, 0.5, 10000, 0, 0)]
+Aggregate Attributes [2]: [count(1)#2062L, percentile_approx(total_amount#2027, 0.5, 10000, 0, 0)#2063]
+Results [3]: [pickup_date#2034, count(1)#2062L AS trips#2036L, round(percentile_approx(total_amount#2027, 0.5, 10000, 0, 0)#2063, 2) AS median_total_amount#2037]
+
+(8) Exchange
+Input [3]: [pickup_date#2034, trips#2036L, median_total_amount#2037]
+Arguments: rangepartitioning(pickup_date#2034 ASC NULLS FIRST, 200), ENSURE_REQUIREMENTS, [plan_id=996]
+
+(9) ShuffleQueryStage
+Output [3]: [pickup_date#2034, trips#2036L, median_total_amount#2037]
+Arguments: 1
+
+(10) AQEShuffleRead
+Input [3]: [pickup_date#2034, trips#2036L, median_total_amount#2037]
+Arguments: coalesced
+
+(11) Sort [codegen id : 2]
+Input [3]: [pickup_date#2034, trips#2036L, median_total_amount#2037]
+Arguments: [pickup_date#2034 ASC NULLS FIRST], true, 0
+
+(12) ResultQueryStage
+Output [3]: [pickup_date#2034, trips#2036L, median_total_amount#2037]
+Arguments: 2
+
+(13) ObjectHashAggregate
+Input [2]: [total_amount#2027, pickup_date#2034]
+Keys [1]: [pickup_date#2034]
+Functions [2]: [partial_count(1), partial_percentile_approx(total_amount#2027, 0.5, 10000, 0, 0)]
+Aggregate Attributes [2]: [count#2064L, buf#2065]
+Results [3]: [pickup_date#2034, count#2066L, buf#2067]
+
+(14) Exchange
+Input [3]: [pickup_date#2034, count#2066L, buf#2067]
+Arguments: hashpartitioning(pickup_date#2034, 200), ENSURE_REQUIREMENTS, [plan_id=951]
+
+(15) ObjectHashAggregate
+Input [3]: [pickup_date#2034, count#2066L, buf#2067]
+Keys [1]: [pickup_date#2034]
+Functions [2]: [count(1), percentile_approx(total_amount#2027, 0.5, 10000, 0, 0)]
+Aggregate Attributes [2]: [count(1)#2062L, percentile_approx(total_amount#2027, 0.5, 10000, 0, 0)#2063]
+Results [3]: [pickup_date#2034, count(1)#2062L AS trips#2036L, round(percentile_approx(total_amount#2027, 0.5, 10000, 0, 0)#2063, 2) AS median_total_amount#2037]
+
+(16) Exchange
+Input [3]: [pickup_date#2034, trips#2036L, median_total_amount#2037]
+Arguments: rangepartitioning(pickup_date#2034 ASC NULLS FIRST, 200), ENSURE_REQUIREMENTS, [plan_id=954]
+
+(17) Sort
+Input [3]: [pickup_date#2034, trips#2036L, median_total_amount#2037]
+Arguments: [pickup_date#2034 ASC NULLS FIRST], true, 0
+
+(18) AdaptiveSparkPlan
+Output [3]: [pickup_date#2034, trips#2036L, median_total_amount#2037]
+Arguments: isFinalPlan=true
+
+
