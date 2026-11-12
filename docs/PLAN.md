@@ -42,8 +42,8 @@ Report 1 was submitted on 7 November, so Reports 2 and 3 were moved earlier. Rep
 | R2-10 | W5 (23–29 Nov) | Berke | O2 and O3 before/after measurements on own machine | done |
 | R2-15 | W5 (23–29 Nov) | Alican | Adapt the report build script for Report 2 | done |
 | R2-11 | W6 (30 Nov–6 Dec) | Alican | Report 2 sections: introduction, measuring method, Q1, Q2, O1, own problems and solutions | todo |
-| R2-12 | W6 (30 Nov–6 Dec) | Berke | Report 2 sections: Q3, Q4, O2, O3, own problems and solutions; choose the dashboard tool | todo |
-| R2-14 | W6 (30 Nov–6 Dec) | Berke | Report 2 code excerpts and contribution lines | todo |
+| R2-12 | W6 (30 Nov–6 Dec) | Berke | Report 2 sections: Q3, Q4, O2, O3, own problems and solutions; choose the dashboard tool | done |
+| R2-14 | W6 (30 Nov–6 Dec) | Berke | Report 2 code excerpts and contribution lines | done |
 | R2-16 | W6–W7 (3–8 Dec) | Alican | Report 2 section: what the four queries show together (2025 against 2024, effect of the zone charge) | todo |
 | R2-13 | W7 (7–9 Dec) | Alican | Final edit and submission of Report 2 (after R2-11 to R2-16) | todo |
 | R3-01 | W7–W8 (10–20 Dec) | Alican | Charts for Q1, Q2 and the performance results | todo |
