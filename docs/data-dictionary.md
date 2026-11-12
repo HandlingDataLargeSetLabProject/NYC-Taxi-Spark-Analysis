@@ -85,6 +85,14 @@ Filled in by the cleaning tasks (R1-05, R1-07).
 
 The cleaned table has 19,926,016 rows. Flex fare rows lose more than the others: 13.52% in 2024 and 8.01% in 2025, against 2.56% and 3.56%, mostly because of distances of 0. When a negative total is dropped, the trip it reverses stays; `docs/analysis-plan.md` describes how much this is under "Limitations".
 
+## Copies of the cleaned table (O3)
+Written by `scripts/write_clean_tables.py` to `data/derived/`, which is not committed. Both copies hold the rows of `clean_trips` and one more column, `pickup_date` (the date of `tpep_pickup_datetime`, New York clock time).
+
+| Folder | Layout | Files | Size |
+|---|---|---|---|
+| `data/derived/clean_plain` | plain Parquet | 22 | 450 MB |
+| `data/derived/clean_by_pickup_date` | Parquet partitioned by `pickup_date`, one folder and one file per day | 181 | 446 MB |
+
 ## Query results
 Small grouped tables in `results/`, written by the query scripts for the charts of Report 3. Pickup hour and date are New York clock times; `weekday` is 0 for Monday to 6 for Sunday.
 

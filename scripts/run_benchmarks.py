@@ -19,6 +19,7 @@ from hlds.joins import automatic_broadcast_off, zone_pair_counts
 from hlds.loading import load_trips, load_zones
 from hlds.paths import RESULTS_DIR
 from hlds.session import DRIVER_MEMORY, get_spark
+from hlds.storage import PARTITIONED_TABLE, PLAIN_TABLE, daily_summary, read_table
 
 
 def clean_and_count(spark):
@@ -45,6 +46,15 @@ def zone_joins_broadcast(spark):
         return zone_pair_counts(clean_trips(load_trips(spark)), load_zones(spark), broadcast_zones=True)
 
 
+def march_from_plain_parquet(spark):
+    # Both copies are written beforehand by scripts/write_clean_tables.py; only the read is timed.
+    return daily_summary(read_table(spark, PLAIN_TABLE))
+
+
+def march_from_partitioned_parquet(spark):
+    return daily_summary(read_table(spark, PARTITIONED_TABLE))
+
+
 def clear_cache(spark):
     spark.catalog.clearCache()
 
@@ -56,6 +66,8 @@ CASES = [
     BenchmarkCase("O1", "after", q1_q2_with_cache, reset=clear_cache),
     BenchmarkCase("O2", "before", zone_joins_shuffle, reset=clear_cache),
     BenchmarkCase("O2", "after", zone_joins_broadcast, reset=clear_cache),
+    BenchmarkCase("O3", "before", march_from_plain_parquet, reset=clear_cache),
+    BenchmarkCase("O3", "after", march_from_partitioned_parquet, reset=clear_cache),
 ]
 
 
