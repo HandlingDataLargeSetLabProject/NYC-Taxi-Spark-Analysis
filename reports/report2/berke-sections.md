@@ -87,6 +87,7 @@ Airport trips are the one group that did not grow: all six numbers are flat or s
 Q4 answers objective O4: what share of trips pays the congestion relief zone charge, where and when these trips happen, and how demand and prices compare with the same season before the charge. The charge, `cbd_congestion_fee`, is the per-trip charge for the MTA Congestion Relief Zone and started on 5 January 2025 [2]. The code is in `src/hlds/congestion.py` (Appendix A.3).
 
 Three decisions shape this query:
+
 - **The same calendar days in both years.** We compare 5 January to 31 March in both years: 87 days in 2024 and 86 in 2025. With the whole quarter, 1 to 4 January 2025 would count as charged although no charge applied yet. Q1 to Q3 keep the whole quarter, so the trips per day here differ slightly from theirs.
 - **A missing charge is not a charge of 0.** The column does not exist in the 2024 files, so it is null there. We treat a missing value as "does not pay" and mark the period by date, never by reading null as 0 dollars.
 - **Prices without `has_negative_part` and by medians.** As in Q2, we leave out the rows with a negative amount, because their amounts do not show what the trip cost, and we compare medians, because a few very expensive trips pull the means up.
@@ -202,6 +203,7 @@ Yes, but with a limit we should be honest about. Spark's default `spark.sql.auto
 ### 9.1 What we changed
 
 Until now every query started from the six raw files and cleaned them again. For O3 we store the cleaned table on disk in two ways and read it back with the same query (`src/hlds/storage.py`, Appendix A.5):
+
 - **before:** plain Parquet. Each file holds trips from all days, in the order the cleaning step leaves them.
 - **after:** Parquet partitioned by `pickup_date`, the date of the pickup. Every day gets its own folder, such as `pickup_date=2025-03-01`, and we repartition by the date before writing, so each folder has one file.
 
@@ -263,7 +265,7 @@ For queries that filter on dates, yes. The cost is small here: 181 files instead
 
 *Problem.* The eight tests of Q3 use nine hand-made trips, but they took seven minutes. Every result read the rows again from Python, and Spark split them over 20 tasks, one per thread, each with its own start-up cost.
 
-*Solution.* In the test setup we keep the rows in memory as one partition with `coalesce(1).cache()`. The same tests then took about a minute, and we used this in the Q4, O2 and O3 tests too. Alican's tests are also slow, so the same change may help there.
+*Solution.* In the test setup we keep the rows in memory as one partition with `coalesce(1).cache()`. The same tests then took about a minute, and we used this in the Q4, O2 and O3 tests too. Alican tried the same change in the O1 tests, but there it did not help (460 s before, 476 s after), so it is not a fix for every slow test.
 
 ### 12.6 Our own folders in the saved plans
 
@@ -288,6 +290,7 @@ For queries that filter on dates, yes. The cost is small here: 181 files instead
 *Written by Berke Arda Türk*
 
 We will build the charts and the dashboard of Report 3 in Python with **Plotly** for the charts and **Streamlit** for the dashboard. The course allows Tableau, Power BI, Apache Superset or Python libraries, and we chose Python for these reasons:
+
 - **It reads our results directly.** Every query already writes small CSV files to `results/`, and the dashboard only needs to read them; Spark does not have to run again.
 - **It stays in the repository.** The dashboard is a Python file that both of us can run with one command, review in a pull request and change in small commits. Power BI and Tableau save binary files whose changes we cannot see in Git.
 - **It is light.** Apache Superset would need Docker and a database on our laptops, which is a lot of setup for a few small tables.
@@ -369,7 +372,7 @@ def charge_window(trips):
 
 ### A.4 The O2 cases
 
-Both cases turn the automatic broadcast off and put the setting back afterwards; only the `broadcast()` hint differs.
+Both cases turn the automatic broadcast off and put the setting back afterwards; only the `broadcast()` hint differs. `automatic_broadcast_off` is in `src/hlds/joins.py`, and the two case functions are in `scripts/run_benchmarks.py`.
 
 ```python
 @contextmanager
