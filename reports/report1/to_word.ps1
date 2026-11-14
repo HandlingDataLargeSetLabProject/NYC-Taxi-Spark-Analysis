@@ -14,6 +14,9 @@ $WdExportFormatPdf = 17
 $WdExportCreateHeadingBookmarks = 1
 $WdPrintView = 3
 $WdAlignPageNumberCenter = 1
+$WdStyleHtmlPre = -102
+$ConsolasWidthPerPoint = 0.55  # every Consolas character is 0.55 times the font size wide
+$CodeWrapExtraCharacters = 4
 
 function Set-DocumentProperty($Document, [string] $Name, [string] $Value) {
     $properties = $Document.BuiltInDocumentProperties
@@ -36,9 +39,24 @@ try {
     }
 
     # Word gives table cells the spacing of HTML paragraphs, which makes every row twice as tall.
+    # A table that runs onto the next page repeats its header row there.
     foreach ($table in @($document.Tables)) {
         $table.Range.ParagraphFormat.SpaceBefore = 0
         $table.Range.ParagraphFormat.SpaceAfter = 0
+        $table.Rows.Item(1).HeadingFormat = $true
+    }
+
+    # Every code line is its own paragraph. A hanging indent puts the rest of a line that is too long
+    # for the page a few characters to the right of where the line starts, so the code stays readable.
+    $codeStyle = $document.Styles.Item($WdStyleHtmlPre).NameLocal
+    foreach ($paragraph in @($document.Paragraphs)) {
+        if ($paragraph.Style.NameLocal -eq $codeStyle) {
+            $leadingSpaces = ([regex]::Match($paragraph.Range.Text, "^ *")).Length
+            $characterWidth = $paragraph.Range.Font.Size * $ConsolasWidthPerPoint
+            $indent = ($leadingSpaces + $CodeWrapExtraCharacters) * $characterWidth
+            $paragraph.LeftIndent = $indent
+            $paragraph.FirstLineIndent = -$indent
+        }
     }
 
     $marker = $document.Content
