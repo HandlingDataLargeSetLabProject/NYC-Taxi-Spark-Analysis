@@ -204,7 +204,7 @@ Table 4.3. Trips per day in Q2 by pickup hour, and the flex fare part
 
 Source: `results/q2_by_hour_payment.csv`; our grouping (trips divided by 91 and 90 days).
 
-This table links Q1 and Q2. The hours that grew most in Q1, the late evening and the night, are the hours where flex fare grew most. At night the card trips even fell slightly, so all of the growth in these hours, and more, comes from flex fare. In the afternoon card trips also grew by about 7%, and there flex fare makes up between a half and two thirds of the growth. The share of flex fare among the Q2 trips of one hour ranges from 3.3% (10:00) to 22.3% (4:00) in 2024, and from 7.7% (16:00) to 41.0% (4:00) in 2025.
+This table links Q1 and Q2. The hours that grew most in Q1, the late evening and the night, are the hours where flex fare grew most. Between 23:00 and 3:00 the card trips even fell slightly, so all of the growth in these hours, and more, comes from flex fare. From 20:00 to 22:00 card trips grew by 3% to 8%, but flex fare still makes up 78% to 96% of the growth. In the afternoon card trips also grew by about 7%, and there flex fare makes up between a half and two thirds of the growth. The share of flex fare among the Q2 trips of one hour ranges from 3.3% (10:00) to 22.3% (4:00) in 2024, and from 7.7% (16:00) to 41.0% (4:00) in 2025.
 
 Because the mix of payment types changed so much, an average over all trips would change even if no single group changed. This is why we keep the groups apart and why Report 3 should show flex fare as its own line.
 
@@ -279,6 +279,76 @@ A rough check with the reference job of Section 2.2: reading and cleaning the si
 ### 7.4 Does it help in practice?
 
 Yes, when the same cleaned table is used several times in one Spark session, as in Q1 and Q2. With one result there is nothing to reuse, and the cache only costs time and memory. It also needs memory: 2.4 GiB of the 6 GB driver memory is a large part, and with more data or less memory Spark would have to keep parts of it on disk. A cache also disappears when the session ends. For Report 3, where the dashboard reads results again on another day, storing the cleaned table as Parquet, as in O3, is the better choice; the cache is for repeated work inside one session.
+
+## 10. Before and after the optimizations
+
+*Written by Alican Kaya*
+
+Table 10.1. The three optimizations, each measured before and after on its owner's laptop
+
+| Optimization | Laptop | Before, median (s) | After, median (s) | Saved (s) | Change | Spread before / after (s) |
+|---|---|---|---|---|---|---|
+| O1 caching (Q1 and Q2) | Alican | 281.52 | 187.67 | 93.85 | -33.3% | 119.78 / 16.05 |
+| O2 broadcast join (zone joins) | Berke | 24.45 | 18.67 | 5.78 | -23.6% | 0.43 / 0.48 |
+| O3 partitioned storage (March 2025) | Berke | 1.98 | 1.15 | 0.83 | -42.0% | 0.63 / 0.10 |
+
+Source: `results/timings_alican.csv` and `results/timings_berke.csv`, written by `scripts/run_benchmarks.py`; one warm-up and five measured runs per case. The spread is the slowest minus the fastest of the five runs. The changes are ours, computed from the medians.
+
+All three optimizations made their query faster, and in all three the difference between before and after is larger than the spread of the runs. O1 is the only case with a large spread, and Section 7.2 explains why we still trust its direction but give its size as a range.
+
+The rows of the table should not be compared with each other. Each optimization was measured on a different query, and O1 on a different laptop than O2 and O3. What we can compare is what each optimization removes from its query:
+
+- **O1** removes the reading and cleaning of the six files for four of the five results. This is the largest saving in seconds, because reading and cleaning is the most expensive step we have (about 30 seconds each time on both laptops).
+- **O2** removes the shuffle and the sort of 20 million rows for each of the two zone joins. The reading, cleaning and duplicate removal stay, so we save about a quarter of the time and no more.
+- **O3** lets Spark skip five sixths of the stored files. In percentage terms this is the largest saving, but the query is so short that we save less than a second, and much of what is left is fixed work for every query.
+
+We learned two things from putting them together. First, the most expensive step in our project is reading and cleaning the raw files again and again, not a join or a grouping. O1 avoids it inside one session and O3 avoids it for good by reading a cleaned copy, so for Report 3 we will clean once, store the result as Parquet and read only that. Second, local mode hides some costs. A shuffle on one laptop moves data through the local disk, not through a network, so on a real cluster O2 would probably save more. We did not measure combinations either, for example caching a partitioned copy.
+
+## 11. What the queries show together
+
+*Written by Alican Kaya*
+
+Each query answered its own objective. Here we put their results side by side to answer the question of the project: what changed between the first quarters of 2024 and 2025, and how the zone charge fits into it. To link Q2 with the places of Q3 and Q4, we added one more grouping, `pickup_borough_by_payment` in `src/hlds/prices.py`: it joins the zone table and counts the trips by year, pickup borough and payment group. Like Q1 and Q3 it counts all rows of the cleaned table.
+
+### 11.1 More trips, and most of the new ones are flex fare
+
+There are 17.2% more taxi trips per day in 2025 (Q1). Section 4.3 showed that most of the extra trips are flex fare trips, and Table 11.1 shows that this is true in every borough.
+
+Table 11.1. Pickups per day by borough, with the flex fare part
+
+| Pickup borough | All 2024 | All 2025 | Change | Flex fare share 2024 | Flex fare share 2025 | Flex fare part of the growth | Credit card change |
+|---|---|---|---|---|---|---|---|
+| Manhattan | 91,176.6 | 104,801.6 | +14.9% | 7.2% | 17.8% | 88.9% | +4.3% |
+| Queens | 8,683.4 | 9,916.9 | +14.2% | 2.3% | 16.2% | 114.3% | -0.5% |
+| Brooklyn | 959.2 | 3,152.6 | +228.7% | 33.2% | 73.9% | 91.8% | +31.8% |
+| Bronx | 232.6 | 729.2 | +213.5% | 26.6% | 71.4% | 92.4% | +22.8% |
+| outside Manhattan | 9,879.2 | 13,811.1 | +39.8% | 5.8% | 32.3% | 98.9% | +2.4% |
+| all trips | 101,401.2 | 118,872.5 | +17.2% | 7.0% | 19.5% | 91.5% | +4.0% |
+
+Source: `results/q2_borough_payment.csv`, written by `scripts/query_borough_payment.py`; the shares, changes and the "outside Manhattan" row (Queens, Brooklyn, Bronx, Staten Island and Newark Airport) are our grouping. The pickups in zones 264 and 265 count only in "all trips".
+
+Of all extra trips per day, 91.5% are flex fare trips. Their share of all trips grew from 7.0% to 19.5%, the same numbers as in Report 1. Credit card trips grew by only 4%. Outside Manhattan the change is even clearer: almost all of the growth (98.9%) comes from flex fare, and in Brooklyn and the Bronx about three out of four pickups are now flex fare trips. The data only tells us that these trips have `payment_type` 0. It does not tell us how they were booked, so we describe the change and do not explain it.
+
+### 11.2 When and where the growth happens
+
+The queries agree on where the new trips are:
+
+- **Time (Q1, Q2).** The growth is largest in the late evening, at night and at weekends, and these are the hours where flex fare grew most (Section 4.3). Around noon on working days, when most trips are paid by card, demand grew by less than 10%.
+- **Places outside Manhattan (Q3, Q4, Table 11.1).** Trips inside Brooklyn almost quadrupled and trips inside Queens grew by 49% (Table 5.2). The 117 zones where almost no trip pays the zone charge, 116 of them outside Manhattan, have three times as many pickups (Table 6.3). Table 11.1 shows that the pickups outside Manhattan grew almost only through flex fare, so these findings describe the same change.
+- **Places in Manhattan (Q3).** Several busy zones of lower Manhattan grew by 21% to 30% (Section 5.1), more than Manhattan as a whole. We grouped payment types by borough and not by zone, so we cannot say how much of this is flex fare.
+- **Airports (Q3).** Trips from and to JFK, LaGuardia and Newark stayed flat or fell slightly, while the city grew by 17%.
+
+### 11.3 Prices and the zone charge
+
+Three out of four trips in 2025 pay the zone charge (Q4). The prices moved only a little: the median total price rose by 45 cents (Table 6.1), and card trips cost 0.49 dollars or 4.1% more per mile (Table 4.1). For a rough idea of the size, a charge of 0.75 dollars on the median trip of 1.76 miles (Table 6.1) is about 0.43 dollars per mile. So the rise per mile is about the same size as the charge. This is only a rough comparison, because medians cannot be added or divided like this, and other parts of the price could have changed too. Tipping did not change in a way we can see: the median card tip is 20% in both years.
+
+We see no sign that the charge lowered taxi demand. Pickups in the zones where at least 90% of the trips pay grew by 13.5%, about as much as all zones (+14.5%, Table 6.3). At the same time, the change in flex fare is much larger than any change we can link to the charge, and both happened between the same two winters. Because this is not an experiment, we cannot separate the effect of the charge from the growth of flex fare or from other changes such as prices, apps or travel habits.
+
+### 11.4 What this means for Report 3
+
+- Flex fare should be its own line or color in every chart that compares the years. A chart of all trips together would show growth without showing where it comes from.
+- The heat map of hour by weekday (Q1) and a bar chart of pickups by borough and payment group (Table 11.1) together show when and where the new trips happen.
+- The charts can read the CSV files in `results/` directly. If we need a new grouping, we will read the stored cleaned table instead of cleaning the raw files again (Section 10).
 
 ## 12. Problems and solutions
 
