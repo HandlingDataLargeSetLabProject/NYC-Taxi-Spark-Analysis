@@ -1,0 +1,63 @@
+year,pickup_borough,payment,trips,trips_per_day,share_in_borough
+2024,Bronx,cash,1245,13.7,0.0588
+2024,Bronx,credit card,14143,155.4,0.668
+2024,Bronx,flex fare,5627,61.8,0.2658
+2024,Bronx,other,157,1.7,0.0074
+2024,Brooklyn,cash,6225,68.4,0.0713
+2024,Brooklyn,credit card,51179,562.4,0.5863
+2024,Brooklyn,flex fare,28981,318.5,0.332
+2024,Brooklyn,other,903,9.9,0.0103
+2024,EWR,cash,18,0.2,0.0984
+2024,EWR,credit card,153,1.7,0.8361
+2024,EWR,other,12,0.1,0.0656
+2024,Manhattan,cash,1117763,12283.1,0.1347
+2024,Manhattan,credit card,6491402,71334.1,0.7824
+2024,Manhattan,flex fare,596574,6555.8,0.0719
+2024,Manhattan,other,91332,1003.6,0.011
+2024,N/A,cash,375,4.1,0.1743
+2024,N/A,credit card,970,10.7,0.4507
+2024,N/A,flex fare,617,6.8,0.2867
+2024,N/A,other,190,2.1,0.0883
+2024,Queens,cash,145399,1597.8,0.184
+2024,Queens,credit card,610919,6713.4,0.7731
+2024,Queens,flex fare,17899,196.7,0.0227
+2024,Queens,other,15966,175.5,0.0202
+2024,Staten Island,cash,61,0.7,0.3408
+2024,Staten Island,credit card,32,0.4,0.1788
+2024,Staten Island,flex fare,75,0.8,0.419
+2024,Staten Island,other,11,0.1,0.0615
+2024,Unknown,cash,4866,53.5,0.1663
+2024,Unknown,credit card,23530,258.6,0.8039
+2024,Unknown,flex fare,498,5.5,0.017
+2024,Unknown,other,374,4.1,0.0128
+2025,Bronx,cash,1333,14.8,0.0203
+2025,Bronx,credit card,17183,190.9,0.2618
+2025,Bronx,flex fare,46876,520.8,0.7142
+2025,Bronx,other,245,2.7,0.0037
+2025,Brooklyn,cash,6010,66.8,0.0212
+2025,Brooklyn,credit card,66724,741.4,0.2352
+2025,Brooklyn,flex fare,209788,2331.0,0.7394
+2025,Brooklyn,other,1208,13.4,0.0043
+2025,EWR,cash,11,0.1,0.0514
+2025,EWR,credit card,198,2.2,0.9252
+2025,EWR,other,5,0.1,0.0234
+2025,Manhattan,cash,934187,10379.9,0.099
+2025,Manhattan,credit card,6694248,74380.5,0.7097
+2025,Manhattan,flex fare,1679953,18666.1,0.1781
+2025,Manhattan,other,123762,1375.1,0.0131
+2025,N/A,cash,266,3.0,0.1602
+2025,N/A,credit card,1140,12.7,0.6867
+2025,N/A,flex fare,87,1.0,0.0524
+2025,N/A,other,167,1.9,0.1006
+2025,Queens,cash,118596,1317.7,0.1329
+2025,Queens,credit card,601018,6678.0,0.6734
+2025,Queens,flex fare,144561,1606.2,0.162
+2025,Queens,other,28354,315.0,0.0318
+2025,Staten Island,cash,159,1.8,0.1779
+2025,Staten Island,credit card,27,0.3,0.0302
+2025,Staten Island,flex fare,702,7.8,0.7852
+2025,Staten Island,other,6,0.1,0.0067
+2025,Unknown,cash,3114,34.6,0.1435
+2025,Unknown,credit card,17755,197.3,0.818
+2025,Unknown,flex fare,560,6.2,0.0258
+2025,Unknown,other,277,3.1,0.0128
