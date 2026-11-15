@@ -4,7 +4,10 @@ Trips with `has_negative_part` are left out, because their amounts do not show w
 Flex fare trips stay a group of their own: their share grows strongly in 2025 and their tips are much lower.
 """
 
+from pyspark.sql import Window
 from pyspark.sql import functions as F
+
+from hlds.places import add_zone_names, per_day, quarter_days
 
 NEW_YORK = "America/New_York"
 CREDIT_CARD = 1
@@ -41,6 +44,21 @@ def add_price_measures(trips):
             .withColumn("speed_mph", F.try_divide(F.col("trip_distance"), seconds / 3600))
             .withColumn("price_per_mile", F.try_divide(total, F.col("trip_distance")))
             .withColumn("tip_pct", F.when(F.col("payment_type") == CREDIT_CARD, tip_pct)))
+
+
+def pickup_borough_by_payment(trips, zones):
+    """Trips per day by year, pickup borough and payment group, and each group's share of its borough.
+
+    This is a demand count like Q1 and Q3, so the rows with `has_negative_part` stay in.
+    """
+    counts = (add_zone_names(trips, zones)
+              .withColumn("payment", payment_group())
+              .groupBy("year", "pickup_borough", "payment")
+              .agg(F.count("*").alias("trips")))
+    share = F.col("trips") / F.sum("trips").over(Window.partitionBy("year", "pickup_borough"))
+    return (per_day(counts, quarter_days(trips))
+            .withColumn("share_in_borough", F.round(share, 4))
+            .orderBy("year", "pickup_borough", "payment"))
 
 
 def price_summary(measures, group_columns):
