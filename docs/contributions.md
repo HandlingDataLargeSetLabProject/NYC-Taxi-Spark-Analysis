@@ -39,6 +39,7 @@ One line per finished task. Each report's contribution section is built from thi
 | Berke Arda Türk | Wrote optimization O3, the cleaned table written as plain Parquet and as Parquet partitioned by pickup date and read with the same date filter (March 2025), and measured it before and after on my laptop (median 1.98 s from the plain copy, 1.15 s from the partitioned copy), with tests | `src/hlds/storage.py`, `scripts/write_clean_tables.py`, `scripts/run_benchmarks.py`, `tests/test_storage.py`, `results/timings_berke.csv`, `results/plans/berke/O3_*.txt`, `docs/data-dictionary.md` |
 | Alican Kaya | Adapted the report build script for Report 2: the agreed section order, placeholders that name the owner, and one shared section (problems and solutions) joined from both our files, with tests | `reports/report2/build_report.py`, `tests/test_report2_build.py`, `.gitignore` |
 | Berke Arda Türk | Wrote the Report 2 sections on Q3, Q4, O2 and O3, my part of the problems and solutions (12.5 to 12.8), the choice of the dashboard tool for Report 3 (Streamlit with Plotly) and the code excerpts of Appendix A | `reports/report2/berke-sections.md`, `docs/PLAN.md`, `docs/contributions.md` |
+| Alican Kaya | Wrote the Report 2 sections on the introduction, the environment and measuring method, Q1, Q2 and O1, and my part of the problems and solutions (12.1 to 12.4) | `reports/report2/alican-sections.md`, `docs/PLAN.md`, `docs/contributions.md` |
 
 ## Report 3
 | Member | Work | Files |
