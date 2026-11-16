@@ -1,7 +1,7 @@
 import unittest
 from datetime import datetime
 
-from hlds.prices import add_price_measures, price_summary
+from hlds.prices import add_price_measures, pickup_borough_by_payment, price_summary
 from hlds.session import get_spark
 
 COLUMNS = (
@@ -73,6 +73,41 @@ class PricesTest(unittest.TestCase):
     def test_summary_by_hour_uses_the_new_york_pickup_hour(self):
         self.assertEqual(set(self.by_hour), {(2024, 1, "cash"), (2024, 8, "credit card"), (2024, 9, "flex fare"),
                                              (2025, 8, "other")})
+
+
+BOROUGH_COLUMNS = "tpep_pickup_datetime timestamp_ntz, PULocationID int, DOLocationID int, payment_type int, " \
+                  "has_negative_part boolean"
+BOROUGH_ROWS = [
+    (datetime(2024, 1, 1, 8, 0), 1, 2, 1, False),
+    (datetime(2024, 1, 1, 9, 0), 1, 1, 0, False),
+    (datetime(2024, 1, 2, 9, 0), 1, 2, 0, True),
+    (datetime(2024, 1, 2, 10, 0), 2, 1, 1, False),
+    (datetime(2025, 1, 1, 8, 0), 2, 2, 0, False),
+]
+ZONE_COLUMNS = "LocationID int, Borough string, Zone string"
+ZONES = [(1, "Manhattan", "Midtown Center"), (2, "Brooklyn", "Park Slope")]
+
+
+class PickupBoroughByPaymentTest(unittest.TestCase):
+
+    @classmethod
+    def setUpClass(cls):
+        spark = get_spark("hlds-test")
+        trips = spark.createDataFrame(BOROUGH_ROWS, BOROUGH_COLUMNS)
+        zones = spark.createDataFrame(ZONES, ZONE_COLUMNS)
+        cls.rows = {(row["year"], row["pickup_borough"], row["payment"]): row
+                    for row in pickup_borough_by_payment(trips, zones).collect()}
+
+    def test_counts_rows_with_a_negative_part_as_trips(self):
+        self.assertEqual(self.rows[(2024, "Manhattan", "flex fare")]["trips"], 2)
+
+    def test_trips_per_day_divide_by_the_days_of_the_year(self):
+        self.assertEqual(self.rows[(2024, "Manhattan", "flex fare")]["trips_per_day"], 1.0)
+        self.assertEqual(self.rows[(2025, "Brooklyn", "flex fare")]["trips_per_day"], 1.0)
+
+    def test_share_is_within_the_pickup_borough_of_the_year(self):
+        self.assertAlmostEqual(self.rows[(2024, "Manhattan", "credit card")]["share_in_borough"], 1 / 3, places=3)
+        self.assertEqual(self.rows[(2024, "Brooklyn", "credit card")]["share_in_borough"], 1.0)
 
 
 if __name__ == "__main__":

@@ -103,6 +103,7 @@ Small grouped tables in `results/`, written by the query scripts for the charts 
 | `q1_hour_weekday.csv` | `scripts/query_demand.py` (Q1) | `year`, `weekday`, `hour`, `trips`, `days` (days of that weekday in the quarter), `trips_per_day` |
 | `q2_by_payment.csv` | `scripts/query_prices.py` (Q2) | `year`, `payment` (flex fare, credit card, cash, other), `trips`, `median_duration_minutes`, mean and median of `speed_mph`, `price_per_mile` and `tip_pct` (credit card only). Rows with `has_negative_part` are left out |
 | `q2_by_hour_payment.csv` | `scripts/query_prices.py` (Q2) | the same columns, also grouped by pickup `hour` |
+| `q2_borough_payment.csv` | `scripts/query_borough_payment.py` (Q2 with the zone table) | `year`, `pickup_borough`, `payment`, `trips`, `trips_per_day`, `share_in_borough` (share of the payment group among the pickups of that borough and year). All rows of the cleaned table count, including `has_negative_part` |
 | `q3_pickup_zones.csv` | `scripts/query_places.py` (Q3) | `year`, `zone_id`, `borough`, `zone`, `trips`, `trips_per_day`, `rank_in_year` (1 is the zone with the most pickups). Zones 264 and 265 are left out, because they are placeholders, not places |
 | `q3_dropoff_zones.csv` | `scripts/query_places.py` (Q3) | the same columns for the drop-off zone |
 | `q3_borough_flows.csv` | `scripts/query_places.py` (Q3) | `year`, `pickup_borough`, `dropoff_borough`, `trips`, `trips_per_day`, `share` (of all trips of the year). `Unknown` and `N/A` are the boroughs of zones 264 and 265 |
