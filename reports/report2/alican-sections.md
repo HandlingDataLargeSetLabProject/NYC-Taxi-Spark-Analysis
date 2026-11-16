@@ -318,14 +318,14 @@ Table 11.1. Pickups per day by borough, with the flex fare part
 
 | Pickup borough | All 2024 | All 2025 | Change | Flex fare share 2024 | Flex fare share 2025 | Flex fare part of the growth | Credit card change |
 |---|---|---|---|---|---|---|---|
-| Manhattan | 91,176.6 | 104,801.6 | +14.9% | 7.2% | 17.8% | 88.9% | +4.3% |
-| Queens | 8,683.4 | 9,916.9 | +14.2% | 2.3% | 16.2% | 114.3% | -0.5% |
+| Manhattan | 91,176.6 | 104,801.7 | +14.9% | 7.2% | 17.8% | 88.9% | +4.3% |
+| Queens | 8,683.3 | 9,917.0 | +14.2% | 2.3% | 16.2% | 114.3% | -0.5% |
 | Brooklyn | 959.2 | 3,152.6 | +228.7% | 33.2% | 73.9% | 91.8% | +31.8% |
-| Bronx | 232.6 | 729.2 | +213.5% | 26.6% | 71.4% | 92.4% | +22.8% |
-| outside Manhattan | 9,879.2 | 13,811.1 | +39.8% | 5.8% | 32.3% | 98.9% | +2.4% |
-| all trips | 101,401.2 | 118,872.5 | +17.2% | 7.0% | 19.5% | 91.5% | +4.0% |
+| Bronx | 232.7 | 729.3 | +213.5% | 26.6% | 71.4% | 92.4% | +22.8% |
+| outside Manhattan | 9,879.2 | 13,811.2 | +39.8% | 5.8% | 32.3% | 98.9% | +2.4% |
+| all trips | 101,401.1 | 118,872.4 | +17.2% | 7.0% | 19.5% | 91.5% | +4.0% |
 
-Source: `results/q2_borough_payment.csv`, written by `scripts/query_borough_payment.py`; the shares, changes and the "outside Manhattan" row (Queens, Brooklyn, Bronx, Staten Island and Newark Airport) are our grouping. The pickups in zones 264 and 265 count only in "all trips".
+Source: `results/q2_borough_payment.csv`, written by `scripts/query_borough_payment.py`; the trips per day are the sums of its `trips` column divided by 91 and 90 days, and the shares, changes and the "outside Manhattan" row (Queens, Brooklyn, Bronx, Staten Island and Newark Airport) are our grouping. The pickups in zones 264 and 265 count only in "all trips".
 
 Of all extra trips per day, 91.5% are flex fare trips. Their share of all trips grew from 7.0% to 19.5%, the same numbers as in Report 1. Credit card trips grew by only 4%. Outside Manhattan the change is even clearer: almost all of the growth (98.9%) comes from flex fare, and in Brooklyn and the Bronx about three out of four pickups are now flex fare trips. The data only tells us that these trips have `payment_type` 0. It does not tell us how they were booked, so we describe the change and do not explain it.
 
