@@ -1,7 +1,8 @@
-"""Save the Q3 and Q4 charts of the dashboard as PNG files for Report 3.
+"""Save the charts of the dashboard as PNG files for Report 3.
 
 Run: python scripts/export_charts.py
-Writes reports/report3/figures/q3_*.png and q4_*.png. Kaleido draws the
+Writes reports/report3/figures/*.png: the Q3 and Q4 charts below and the Q1, Q2 and
+performance charts of dashboard/figures_q1_q2.py. Kaleido draws the
 pictures with the Chrome or Edge browser installed on the computer.
 """
 
@@ -13,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 sys.path.insert(0, str(ROOT))
 
-from dashboard import charts, data  # noqa: E402
+from dashboard import charts, data, figures_q1_q2  # noqa: E402
 from dashboard.colors import BACKGROUND_COLOR  # noqa: E402
 
 FIGURES_DIR = ROOT / "reports" / "report3" / "figures"
@@ -41,7 +42,7 @@ def build_figures():
 
 def main():
     FIGURES_DIR.mkdir(parents=True, exist_ok=True)
-    for name, fig in build_figures().items():
+    for name, fig in {**build_figures(), **figures_q1_q2.build_figures()}.items():
         # The dashboard uses a transparent background; a report page needs white.
         fig.update_layout(paper_bgcolor=BACKGROUND_COLOR, plot_bgcolor=BACKGROUND_COLOR)
         path = FIGURES_DIR / f"{name}.png"
