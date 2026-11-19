@@ -47,3 +47,4 @@ One line per finished task. Each report's contribution section is built from thi
 ## Report 3
 | Member | Work | Files |
 |---|---|---|
+| Berke Arda Türk | Added Plotly and Streamlit with fixed versions, a shared colour file for the payment groups and the years, the Q3 and Q4 charts (busiest zones, pickups by borough and payment group with flex fare on its own, borough flows, the share of trips that pay the zone charge by hour and by zone), a first draft of the dashboard and a script that saves the charts as PNG, with tests | `requirements.txt`, `dashboard/`, `scripts/export_charts.py`, `tests/test_dashboard.py`, `reports/report3/figures/`, `docs/PLAN.md`, `docs/contributions.md` |

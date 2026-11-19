@@ -47,7 +47,7 @@ Report 1 was submitted on 7 November, so Reports 2 and 3 were moved earlier. Rep
 | R2-16 | W6–W7 (3–8 Dec) | Alican | Report 2 section: what the four queries show together (2025 against 2024, effect of the zone charge) | done |
 | R2-13 | W7 (7–9 Dec) | Alican | Final edit and submission of Report 2 (after R2-11 to R2-16) | done |
 | R3-01 | W7–W8 (10–20 Dec) | Alican | Charts for Q1, Q2 and the performance results | todo |
-| R3-02 | W7–W8 (10–20 Dec) | Berke | Charts for Q3, Q4; dashboard draft | todo |
+| R3-02 | W7–W8 (10–20 Dec) | Berke | Charts for Q3, Q4; dashboard draft | done |
 | R3-03 | W9–W10 (21 Dec–3 Jan) | Alican | Chart interpretation; limitations and possible improvements | todo |
 | R3-04 | W9–W10 (21 Dec–3 Jan) | Berke | Dashboard; key findings and their practical meaning | todo |
 | R3-06 | W11 (4–5 Jan) | Berke | Dashboard screenshots and contribution lines | todo |
