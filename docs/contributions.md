@@ -42,6 +42,7 @@ One line per finished task. Each report's contribution section is built from thi
 | Alican Kaya | Wrote the Report 2 sections on the introduction, the environment and measuring method, Q1, Q2 and O1, and my part of the problems and solutions (12.1 to 12.4) | `reports/report2/alican-sections.md`, `docs/PLAN.md`, `docs/contributions.md` |
 | Alican Kaya | Added a grouping of trips by year, pickup borough and payment group, with tests, and wrote the Report 2 sections on the before and after table of the three optimizations and on what the four queries show together | `src/hlds/prices.py`, `tests/test_prices.py`, `scripts/query_borough_payment.py`, `results/q2_borough_payment.csv`, `docs/data-dictionary.md`, `reports/report2/alican-sections.md`, `docs/PLAN.md`, `docs/contributions.md` |
 | Alican Kaya | Did the final edit of my Report 2 sections, checked every number again against the result files and built the Word and PDF report | `reports/report2/alican-sections.md`, `docs/PLAN.md`, `docs/contributions.md` |
+| Alican Kaya | Built the source code package and uploaded Report 2 and the package to Teams | — |
 
 ## Report 3
 | Member | Work | Files |
