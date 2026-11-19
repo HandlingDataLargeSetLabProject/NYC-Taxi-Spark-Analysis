@@ -162,9 +162,9 @@ Table 4.1. Trips and medians by payment type (means of price per mile and tip in
 
 Source: `results/q2_by_payment.csv`, written by `scripts/query_prices.py`; trips per day and shares are ours (trips divided by 91 and 90 days).
 
-The largest change in this table is not a price. Trips per day in Q2 grew by 14.0%, but almost all of this growth comes from flex fare: flex fare trips almost tripled (+183.9%), credit card trips grew by only 4.0%, and cash trips fell by 15.7%. Of the extra trips per day, 89.6% are flex fare trips. The data only tells us that these trips have `payment_type` 0; it does not tell us how they were booked or paid.
+The largest change in this table is in the trip counts. Trips per day in Q2 grew by 14.0%, but almost all of this growth comes from flex fare: flex fare trips almost tripled (+183.9%), credit card trips grew by only 4.0%, and cash trips fell by 15.7%. Of the extra trips per day, 89.6% are flex fare trips. The data only tells us that these trips have `payment_type` 0; it does not tell us how they were booked or paid.
 
-The typical trip changed little. The median duration is about 11 to 12 minutes for card and cash and about 14 minutes for flex fare, and the median speed stays between 9 and 10.5 miles per hour in all groups, which shows how slow city traffic is. Card trips cost 4.1% more per mile than in 2024 (12.37 against 11.88 dollars), cash trips 4.1% more, and flex fare trips are the cheapest per mile in both years.
+The typical trip changed little. The median duration is about 11 to 12 minutes for card and cash and about 14 minutes for flex fare, and the median speed stays between 9 and 10.5 miles per hour in all groups, which fits slow city traffic. Card trips cost 4.1% more per mile than in 2024 (12.37 against 11.88 dollars), cash trips 4.1% more, and flex fare trips are the cheapest per mile in both years.
 
 For card payments the median tip is exactly 20% in both years, while the mean fell slightly from 17.79% to 17.53%. A median of exactly 20.0, both overall and in almost every hour (Section 4.2), means that many card payments tip exactly 20%. We think these payments use one of the fixed tip choices on the payment screen in the taxi, but the data cannot show it, so we treat it as an assumption.
 
@@ -188,7 +188,7 @@ Source: `results/q2_by_hour_payment.csv`, written by `scripts/query_prices.py`, 
 
 We show credit card trips here because they are the largest group and the only one with tips. Speed and price per mile move against each other. Early in the morning taxis are fastest (about 16 miles per hour at 5:00) and cheapest per mile, and in the afternoon they are slowest (about 8.4 miles per hour at 15:00). The price per mile is highest at 17:00, when traffic is still slow. This fits a meter that also charges for time in slow traffic, but we did not split the price into its parts, because the parts do not add up to the total in the same way for every vendor (Report 1). The median tip is 20% in every hour except 5:00 and 6:00, where it is just below. The mean tip is lowest at 5:00 and highest in the afternoon and the evening.
 
-The two years have almost the same shape. In 2025 the price per mile is higher and the mean tip slightly lower in each of the hours of Table 4.2.
+The two years have almost the same shape. In 2025 the price per mile is higher and the mean tip slightly lower in every hour of Table 4.2.
 
 ### 4.3 Where the growth of Q1 comes from
 
@@ -294,7 +294,7 @@ Table 10.1. The three optimizations, each measured before and after on its owner
 
 Source: `results/timings_alican.csv` and `results/timings_berke.csv`, written by `scripts/run_benchmarks.py`; one warm-up and five measured runs per case. The spread is the slowest minus the fastest of the five runs. The changes are ours, computed from the medians.
 
-All three optimizations made their query faster, and in all three the difference between before and after is larger than the spread of the runs. O1 is the only case with a large spread, and Section 7.2 explains why we still trust its direction but give its size as a range.
+All three optimizations made their query faster. For O2 and O3 the difference between before and after is larger than the spread of the runs. O1 is the only case with a large spread, and Section 7.2 explains why we still trust its direction but give its size as a range.
 
 The rows of the table should not be compared with each other. Each optimization was measured on a different query, and O1 on a different laptop than O2 and O3. What we can compare is what each optimization removes from its query:
 
@@ -318,14 +318,14 @@ Table 11.1. Pickups per day by borough, with the flex fare part
 
 | Pickup borough | All 2024 | All 2025 | Change | Flex fare share 2024 | Flex fare share 2025 | Flex fare part of the growth | Credit card change |
 |---|---|---|---|---|---|---|---|
-| Manhattan | 91,176.6 | 104,801.6 | +14.9% | 7.2% | 17.8% | 88.9% | +4.3% |
-| Queens | 8,683.4 | 9,916.9 | +14.2% | 2.3% | 16.2% | 114.3% | -0.5% |
+| Manhattan | 91,176.6 | 104,801.7 | +14.9% | 7.2% | 17.8% | 88.9% | +4.3% |
+| Queens | 8,683.3 | 9,917.0 | +14.2% | 2.3% | 16.2% | 114.3% | -0.5% |
 | Brooklyn | 959.2 | 3,152.6 | +228.7% | 33.2% | 73.9% | 91.8% | +31.8% |
-| Bronx | 232.6 | 729.2 | +213.5% | 26.6% | 71.4% | 92.4% | +22.8% |
-| outside Manhattan | 9,879.2 | 13,811.1 | +39.8% | 5.8% | 32.3% | 98.9% | +2.4% |
-| all trips | 101,401.2 | 118,872.5 | +17.2% | 7.0% | 19.5% | 91.5% | +4.0% |
+| Bronx | 232.7 | 729.3 | +213.5% | 26.6% | 71.4% | 92.4% | +22.8% |
+| outside Manhattan | 9,879.2 | 13,811.2 | +39.8% | 5.8% | 32.3% | 98.9% | +2.4% |
+| all trips | 101,401.1 | 118,872.4 | +17.2% | 7.0% | 19.5% | 91.5% | +4.0% |
 
-Source: `results/q2_borough_payment.csv`, written by `scripts/query_borough_payment.py`; the shares, changes and the "outside Manhattan" row (Queens, Brooklyn, Bronx, Staten Island and Newark Airport) are our grouping. The pickups in zones 264 and 265 count only in "all trips".
+Source: `results/q2_borough_payment.csv`, written by `scripts/query_borough_payment.py`; the trips per day are the sums of its `trips` column divided by 91 and 90 days, and the shares, changes and the "outside Manhattan" row (Queens, Brooklyn, Bronx, Staten Island and Newark Airport) are our grouping. The pickups in zones 264 and 265 count only in "all trips".
 
 Of all extra trips per day, 91.5% are flex fare trips. Their share of all trips grew from 7.0% to 19.5%, the same numbers as in Report 1. Credit card trips grew by only 4%. Outside Manhattan the change is even clearer: almost all of the growth (98.9%) comes from flex fare, and in Brooklyn and the Bronx about three out of four pickups are now flex fare trips. The data only tells us that these trips have `payment_type` 0. It does not tell us how they were booked, so we describe the change and do not explain it.
 
