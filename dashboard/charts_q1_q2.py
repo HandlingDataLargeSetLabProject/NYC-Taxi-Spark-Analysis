@@ -14,10 +14,13 @@ from dashboard.colors import PAYMENT_ORDER, payment_colors, year_colors
 from dashboard.data_q1_q2 import NEW_YEAR_CELLS, WEEKDAY_NAMES
 
 CHARGE_START = "2025-01-05"
+CHARGE_LINE_COLOR = "#898781"  # grey that reads on the light and on the dark page
 CHANGE_LIMIT = 60  # percent; the colour scale stops here, the hover still shows the real change
 
 # Sequential blue ramp (steps 100 to 700) and a blue-grey-red diverging scale of the same palette.
 SEQUENTIAL_BLUE = ["#cde2fb", "#86b6ef", "#3987e5", "#256abf", "#184f95", "#0d366b"]
+# On a dark page few trips must be dark too, so the same ramp runs the other way.
+SEQUENTIAL_BLUE_DARK = SEQUENTIAL_BLUE[::-1]
 DIVERGING = [[0.0, "#2a78d6"], [0.5, "#f0efec"], [1.0, "#e34948"]]
 DIVERGING_DARK = [[0.0, "#3987e5"], [0.5, "#383835"], [1.0, "#e66767"]]
 MARK_COLOR, MARK_COLOR_DARK = "#0b0b0b", "#f0efec"
@@ -49,8 +52,11 @@ def daily_trips_chart(aligned, dark=False):
             customdata=aligned[f"date_{year}"],
             hovertemplate="7 days around %{customdata}: %{y:,.0f} trips per day<extra></extra>",
         ))
-    fig.add_vline(x=pd.Timestamp(CHARGE_START).timestamp() * 1000, line={"dash": "dot", "width": 1},
-                  annotation_text="zone charge starts (2025)", annotation_position="top right")
+    # The date is given as text: a number of milliseconds is drawn in the computer's time zone.
+    fig.add_shape(type="line", x0=CHARGE_START, x1=CHARGE_START, y0=0, y1=1, yref="paper",
+                  line={"color": CHARGE_LINE_COLOR, "dash": "dot", "width": 1})
+    fig.add_annotation(x=CHARGE_START, y=1, yref="paper", xanchor="left", yanchor="top", showarrow=False,
+                       text="zone charge starts (2025)", font={"color": CHARGE_LINE_COLOR})
     fig.update_xaxes(title="Date in 2025; each 2024 day is the one with the same weekday", tickformat="%d %b",
                      showgrid=False)
     fig.update_yaxes(title="Trips per day", tickformat=",", rangemode="tozero")
@@ -71,7 +77,8 @@ def hour_weekday_heatmaps(cells_2024, cells_2025, dark=False):
                         horizontal_spacing=0.04)
     for column, grid in enumerate((cells_2024, cells_2025), start=1):
         fig.add_trace(_weekday_heatmap(
-            grid, zmin=0, zmax=top, colorscale=SEQUENTIAL_BLUE, showscale=column == 2,
+            grid, zmin=0, zmax=top, colorscale=SEQUENTIAL_BLUE_DARK if dark else SEQUENTIAL_BLUE,
+            showscale=column == 2,
             colorbar={"title": "Trips per day"},
             hovertemplate="%{x} %{y}:00<br>%{z:,.0f} trips per day<extra></extra>",
         ), row=1, col=column)
