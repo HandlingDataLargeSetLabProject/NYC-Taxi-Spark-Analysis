@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 sys.path.insert(0, str(ROOT))
 
-from dashboard import charts, data  # noqa: E402
+from dashboard import charts, data, tabs_q1_q2  # noqa: E402
 
 st.set_page_config(page_title="NYC taxi Q1 2024 vs Q1 2025", layout="wide")
 
@@ -86,9 +86,15 @@ st.title("NYC yellow taxi trips, Q1 2024 and Q1 2025")
 st.caption("Draft dashboard for Report 3. Every chart reads the CSV files in `results/`; Spark does not run here.")
 
 dark = is_dark()
-# Q1, Q2 and the performance results get their own tabs here (R3-01).
-places, charge = st.tabs(["Q3 · Places", "Q4 · Zone charge"])
+demand, prices, places, charge, speed = st.tabs(
+    ["Q1 · Demand", "Q2 · Prices and tips", "Q3 · Places", "Q4 · Zone charge", "Performance"])
+with demand:
+    tabs_q1_q2.demand_tab(load, show, dark)
+with prices:
+    tabs_q1_q2.prices_tab(load, show, dark)
 with places:
     places_tab(dark)
 with charge:
     charge_tab(dark)
+with speed:
+    tabs_q1_q2.performance_tab(load, show, dark)

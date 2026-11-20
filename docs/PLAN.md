@@ -7,9 +7,9 @@ Week 1 (W1) starts on Monday, 26 October 2026. Statuses: `todo`, `doing`, `revie
 |---|---|---|
 | Report 1 | 18 Nov 2026, 23:59 | 17 Nov |
 | Report 2 | 23 Dec 2026, 23:59 | 9 Dec |
-| Report 3 | 14 Jan 2027, 23:59 | 6 Jan |
+| Report 3 | 14 Jan 2027, 23:59 | 18 Dec |
 
-Report 1 was submitted on 7 November, so Reports 2 and 3 were moved earlier. Report 3 falls in the holidays, so every query saves its aggregated output in `results/` during Report 2 and the charts can start right after.
+Report 1 was submitted on 7 November, so Reports 2 and 3 were moved earlier. Report 3 falls in the holidays, so every query saves its aggregated output in `results/` during Report 2 and the charts can start right after. Report 2 was submitted on 19 November, so we moved Report 3 to 18 December, before the holidays.
 
 ## Tasks
 | ID | Week | Owner | Task | Status |
@@ -45,13 +45,13 @@ Report 1 was submitted on 7 November, so Reports 2 and 3 were moved earlier. Rep
 | R2-12 | W6 (30 Nov–6 Dec) | Berke | Report 2 sections: Q3, Q4, O2, O3, own problems and solutions; choose the dashboard tool | done |
 | R2-14 | W6 (30 Nov–6 Dec) | Berke | Report 2 code excerpts and contribution lines | done |
 | R2-16 | W6–W7 (3–8 Dec) | Alican | Report 2 section: what the four queries show together (2025 against 2024, effect of the zone charge) | done |
-| R2-13 | W7 (7–9 Dec) | Alican | Final edit and submission of Report 2 (after R2-11 to R2-16) | review |
-| R3-01 | W7–W8 (10–20 Dec) | Alican | Charts for Q1, Q2 and the performance results | todo |
-| R3-02 | W7–W8 (10–20 Dec) | Berke | Charts for Q3, Q4; dashboard draft | done |
-| R3-03 | W9–W10 (21 Dec–3 Jan) | Alican | Chart interpretation; limitations and possible improvements | todo |
-| R3-04 | W9–W10 (21 Dec–3 Jan) | Berke | Dashboard; key findings and their practical meaning | todo |
-| R3-06 | W11 (4–5 Jan) | Berke | Dashboard screenshots and contribution lines | todo |
-| R3-05 | W11 (4–6 Jan) | Alican | Final edit and submission of Report 3 | todo |
+| R2-13 | W7 (7–9 Dec) | Alican | Final edit and submission of Report 2 (after R2-11 to R2-16) | done |
+| R3-01 | W4–W5 (19–29 Nov) | Alican | Charts for Q1, Q2 and the performance results | done |
+| R3-02 | W4–W5 (19–29 Nov) | Berke | Charts for Q3, Q4; dashboard draft | done |
+| R3-03 | W6–W7 (30 Nov–13 Dec) | Alican | Chart interpretation; limitations and possible improvements | todo |
+| R3-04 | W6–W7 (30 Nov–13 Dec) | Berke | Dashboard; key findings and their practical meaning | todo |
+| R3-06 | W8 (14–17 Dec) | Berke | Dashboard screenshots and contribution lines | todo |
+| R3-05 | W8 (14–18 Dec) | Alican | Final edit and submission of Report 3 | todo |
 
 ## Notes
 - Each member commits on at least three different days per week.
