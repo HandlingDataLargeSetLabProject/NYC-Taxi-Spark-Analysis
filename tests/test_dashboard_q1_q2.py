@@ -122,6 +122,26 @@ class PerformanceTest(unittest.TestCase):
 
 
 class ChartsTest(unittest.TestCase):
+    def daily_chart(self, dark=False):
+        daily = daily_rows(date(2024, 1, 1), 21, date(2025, 1, 1), 19)
+        return charts_q1_q2.daily_trips_chart(data_q1_q2.aligned_daily_trips(daily), dark)
+
+    def test_charge_line_is_placed_by_date_text(self):
+        # A number of milliseconds is drawn in the computer's time zone, so the line moved between laptops.
+        line = self.daily_chart().layout.shapes[0]
+        self.assertEqual((line.x0, line.x1), ("2025-01-05", "2025-01-05"))
+
+    def test_charge_line_is_grey_in_both_themes(self):
+        for dark in (False, True):
+            self.assertEqual(self.daily_chart(dark).layout.shapes[0].line.color, "#898781")
+
+    def test_dark_heat_map_puts_few_trips_on_the_dark_end(self):
+        cells = hour_weekday_rows()
+        grids = (data_q1_q2.hour_weekday_grid(cells, 2024), data_q1_q2.hour_weekday_grid(cells, 2025))
+        light = charts_q1_q2.hour_weekday_heatmaps(*grids).data[0].colorscale
+        dark = charts_q1_q2.hour_weekday_heatmaps(*grids, dark=True).data[0].colorscale
+        self.assertEqual([color for _, color in dark], [color for _, color in reversed(light)])
+
     def test_payment_chart_gives_flex_fare_its_own_line(self):
         rows = data_q1_q2.trips_per_day_by_hour(hour_payment_rows(), {2024: 91, 2025: 90})
         fig = charts_q1_q2.trips_by_hour_payment_chart(rows)
