@@ -1,6 +1,6 @@
 # Report 3: sections by Berke
 
-Section numbers follow the outline of the final report (R3-05). Screenshots of the dashboard are added in R3-06.
+Section numbers follow the outline of the final report (R3-05).
 
 ## Dashboard
 
@@ -36,6 +36,22 @@ The first tab is new in this report. A reader who opens the dashboard sees the a
 - **The numbers behind every chart.** Under each chart the dashboard names its source file and has a *Show the numbers* table. The summary numbers and the sentences of the key findings tab are computed from the same files (`dashboard/findings.py`), so they change with the results and cannot drift away from the charts.
 - **Light and dark theme.** The charts take the colours of the Streamlit theme, and the dark theme has its own payment and year colours with enough contrast on a dark background.
 - **A few controls, not many.** The Q3 tab can switch between pickup and drop-off zones and show 5 to 20 zones, and the Q4 tab can show 5 to 25 zones. We left out filters by date or borough, because each result file is already grouped for one question and a filter would only hide rows of it.
+
+### Screenshots
+
+The screenshots show each tab in the light theme at a width of 1440 pixels, from the top of the page to the last chart. The sidebar is open in all of them; the *Show the numbers* tables are closed. They were taken with Playwright (Chromium) from the final dashboard, including the key findings tab.
+
+![The key findings tab: five summary numbers and one chart for each finding](screenshots/dashboard-key-findings.png)
+
+![The Q1 tab: trips per day and the hour by weekday heat maps](screenshots/dashboard-q1-demand.png)
+
+![The Q2 tab: trips by hour for each payment group and card trips by hour](screenshots/dashboard-q2-prices.png)
+
+![The Q3 tab: busiest zones, pickups by borough and payment group, and borough flows](screenshots/dashboard-q3-places.png)
+
+![The Q4 tab: summary numbers and the share of paying trips by hour and zone](screenshots/dashboard-q4-zone-charge.png)
+
+![The performance tab: before and after times of O1 to O3](screenshots/dashboard-performance.png)
 
 The dashboard has its own tests (`tests/test_dashboard.py`, `tests/test_dashboard_q1_q2.py`, `tests/test_findings.py`). One of them runs the whole app on the real result files with Streamlit's test tool. It found an error that the single chart tests did not: the same chart on two tabs got the same internal ID, and Streamlit stopped drawing the tabs after it. Each chart of the key findings tab now has its own key.
 
