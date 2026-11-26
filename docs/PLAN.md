@@ -50,7 +50,7 @@ Report 1 was submitted on 7 November, so Reports 2 and 3 were moved earlier. Rep
 | R3-02 | W4–W5 (19–29 Nov) | Berke | Charts for Q3, Q4; dashboard draft | done |
 | R3-03 | W5–W6 (26 Nov–2 Dec) | Alican | Chart interpretation; limitations and possible improvements | todo |
 | R3-04 | W5–W6 (26 Nov–2 Dec) | Berke | Dashboard; key findings and their practical meaning | done |
-| R3-06 | W6 (3–4 Dec) | Berke | Dashboard screenshots and contribution lines | todo |
+| R3-06 | W6 (3–4 Dec) | Berke | Dashboard screenshots and contribution lines | done |
 | R3-05 | W6 (3–6 Dec) | Alican | Final edit and submission of Report 3 | todo |
 
 ## Notes
