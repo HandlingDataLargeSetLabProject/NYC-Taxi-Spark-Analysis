@@ -131,7 +131,7 @@ with demand:
              "at night and at weekends.")
     tabs_q1_q2.demand_tab(load, show, dark)
 with prices:
-    in_short("Flex fare trips more than tripled, most of all in the late evening and at night. Card trips cost "
+    in_short("Flex fare trips almost tripled, most of all in the late evening and at night. Card trips cost "
              "a little more per mile in 2025, and the mean card tip stayed about the same.")
     tabs_q1_q2.prices_tab(load, show, dark)
 with places:
