@@ -1,7 +1,7 @@
 """Save the charts of the dashboard as PNG files for Report 3.
 
 Run: python scripts/export_charts.py
-Writes reports/report3/figures/*.png: the Q3 and Q4 charts below and the Q1, Q2 and
+Writes reports/report3/figures/*.png: the Q3, Q4 and key findings charts below and the Q1, Q2 and
 performance charts of dashboard/figures_q1_q2.py. Kaleido draws the
 pictures with the Chrome or Edge browser installed on the computer.
 """
@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 sys.path.insert(0, str(ROOT))
 
-from dashboard import charts, data, figures_q1_q2  # noqa: E402
+from dashboard import charts, data, figures_q1_q2, findings  # noqa: E402
 from dashboard.colors import BACKGROUND_COLOR  # noqa: E402
 
 FIGURES_DIR = ROOT / "reports" / "report3" / "figures"
@@ -37,6 +37,11 @@ def build_figures():
             data.hourly_charge_share(data.read_result("q4_by_hour.csv"))),
         "q4_charge_share_by_zone": charts.zone_charge_share_chart(
             data.busiest_zone_charge_shares(data.read_result("q4_by_pickup_zone.csv"), 15)),
+        "findings_growth_by_payment": charts.growth_by_payment_chart(
+            findings.growth_by_payment(data.read_result("q2_borough_payment.csv"),
+                                       data.read_result("q1_daily_average.csv"))),
+        "findings_zone_groups": charts.zone_group_change_chart(
+            findings.zone_groups_by_charge_share(data.read_result("q4_by_pickup_zone.csv"))),
     }
 
 

@@ -137,3 +137,58 @@ def zone_charge_share_chart(zone_shares, dark=False):
     fig.update_layout(showlegend=False)
     title = f"Share of paying trips in the {len(zone_shares)} busiest pickup zones, 2025"
     return _style(fig, title, dark, height=120 + 32 * len(zone_shares))
+
+
+def growth_by_payment_chart(growth, dark=False):
+    """Horizontal bars of the extra trips per day in 2025 for each payment group (Q2, whole quarter)."""
+    colors = payment_colors(dark)
+    labels = [f"{extra:+,.0f} ({change:+.0%})" for extra, change in zip(growth["extra_per_day"], growth["change"])]
+    fig = go.Figure(go.Bar(
+        y=growth["payment"].astype(str),
+        x=growth["extra_per_day"],
+        orientation="h",
+        marker={"color": [colors[payment] for payment in growth["payment"].astype(str)]},
+        text=labels,
+        textposition="outside",
+        cliponaxis=False,
+        customdata=growth[["per_day_2024", "per_day_2025", "part_of_growth"]],
+        hovertemplate="%{y}<br>%{customdata[0]:,.0f} → %{customdata[1]:,.0f} trips per day"
+                      "<br>%{customdata[2]:.1%} of the extra trips<extra></extra>",
+    ))
+    low, high = growth["extra_per_day"].min(), growth["extra_per_day"].max()
+    # Room on both sides for the labels outside the bars.
+    fig.update_xaxes(title="Extra trips per day, Q1 2025 against Q1 2024", tickformat=",",
+                     range=[min(low, 0) - 0.3 * (high - low), high * 1.35], zeroline=True,
+                     zerolinecolor=DARK_MUTED_COLOR if dark else MUTED_COLOR)
+    fig.update_yaxes(categoryorder="array", categoryarray=PAYMENT_ORDER, autorange="reversed", showgrid=False)
+    fig.update_layout(showlegend=False)
+    return _style(fig, "Where the extra trips come from, by payment group", dark, height=330)
+
+
+def zone_group_change_chart(groups, dark=False):
+    """Horizontal bars of the change in pickups per day for zone groups by their share of paying trips (Q4)."""
+    accent = year_colors(dark)[2025]
+    reference = year_colors(dark)[2024]
+    groups = groups.copy()
+    groups["label"] = [name if name == "all zones" else f"{name} pay" for name in groups["share paying in 2025"]]
+    names = groups["label"]
+    labels = [f"{change:+.1%}  ({zones} zones)" for change, zones in zip(groups["change"], groups["zones"])]
+    fig = go.Figure(go.Bar(
+        y=names,
+        x=groups["change"] * 100,
+        orientation="h",
+        # All zones together is the reference row, so it gets the neutral grey.
+        marker={"color": [reference if name == "all zones" else accent for name in names]},
+        text=labels,
+        textposition="outside",
+        cliponaxis=False,
+        customdata=groups[["per_day_2024", "per_day_2025"]],
+        hovertemplate="%{y}<br>%{customdata[0]:,.0f} → %{customdata[1]:,.0f} pickups per day<br>"
+                      "%{x:+.1f}%<extra></extra>",
+    ))
+    fig.update_yaxes(autorange="reversed", showgrid=False)
+    fig.update_xaxes(title="Change in pickups per day, 5 Jan to 31 Mar (%)", ticksuffix="%",
+                     range=[0, groups["change"].max() * 100 * 1.45])
+    fig.update_layout(showlegend=False)
+    title = "Change in pickups, zones grouped by how many trips pay"
+    return _style(fig, title, dark, height=360)
