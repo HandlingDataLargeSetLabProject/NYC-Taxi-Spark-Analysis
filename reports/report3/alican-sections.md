@@ -1,12 +1,68 @@
 # Report 3: sections by Alican
 
-<!-- Sections 1, 2 and 7 are added in R3-05. -->
+## 1. Introduction
+
+*Written by Alican Kaya*
+
+This is the third report of laboratory project 2 of Handling Large Data Sets, the Apache Spark project. We work on the yellow taxi trip records of the NYC Taxi and Limousine Commission (TLC) for January to March 2024 and January to March 2025. In all three reports we ask the same question: how do demand, prices and tipping of NYC yellow taxi trips change by time and place in the first quarter of 2025 compared with the first quarter of 2024, and how much of this traffic is affected by the new Manhattan congestion relief zone charge, which started on 5 January 2025? The first quarter of 2024 is the same season one year earlier, and it has no charge.
+
+We use one Parquet file for each month and the zone lookup table with 265 zones. The six files hold 20,752,804 raw trips (9,554,778 in 2024 and 11,198,026 in 2025). After cleaning, 19,926,016 trips (96.0%) stay in the cleaned table.
+
+This report builds on the first two:
+
+- **Report 1.** The environment, loading the data, cleaning and descriptive statistics.
+- **Report 2.** Four queries (Q1 demand over time, Q2 prices, speed and tips, Q3 places and routes, Q4 the zone charge) and three optimizations (O1 caching, O2 broadcast join, O3 partitioned storage), measured before and after. Every query saved its grouped result as a small CSV file in `results/`.
+
+This report turns these result files into charts and a dashboard, explains what they show, sums up the whole project and adds the optional Spark MLlib extension. Section 2 follows the workflow from the raw files to the charts, with a short summary of Reports 1 and 2. Section 3 goes through every chart: what it shows, why we chose this chart type and what we learn from it. Section 4 describes the dashboard, and Section 5 gives the key findings and what they mean in practice. Section 6 lists the limitations and possible improvements. Section 7 is the optional extension, which groups the pickup zones by their demand over the week with KMeans in Spark MLlib. Section 8 has the conclusions and Section 9 the team contributions. Sections 1, 2, 3, 6 and 8 are by Alican Kaya, and Sections 4, 5 and 7 by Berke Arda Türk.
+
+In short, taxi trips per day grew by 17.2% from Q1 2024 to Q1 2025, and 91.5% of the extra trips are flex fare trips. In the zones where almost every trip pays the zone charge, pickups grew about as much as in the whole city.
+
+Two notes on reading the numbers. We compare trips per day, because the first quarter has 91 days in 2024 (a leap year) and 90 days in 2025. All times of day are the New York clock times of the trip files.
+
+## 2. Workflow of the project
+
+*Written by Alican Kaya*
+
+The project follows one idea: Spark does the heavy work once, on about 20 million rows, and everything after that reads small files. Table 2.1 lists the steps from the raw files to the charts, with the code of each step and what it leaves behind. The charts are explained in Section 3 and the findings in Section 5, so we keep them out of this section.
+
+Table 2.1. The steps of the project
+
+| Step | What happens | Code | Output |
+|---|---|---|---|
+| 1. Download | The six monthly Parquet files and the zone lookup table from the TLC page | `scripts/download_data.py` | `data/raw/` (not in the repository) |
+| 2. Load | Read the six files into one Spark DataFrame, check the columns, read the zone table | `src/hlds/loading.py` | DataFrame in memory |
+| 3. Clean | Handle types and missing values, then drop invalid and duplicate rows; 96.0% stay | `src/hlds/cleaning.py` | Cleaned DataFrame, 19,926,016 rows |
+| 4. Describe | Descriptive statistics and summary tables | `src/hlds/statistics.py`, `scripts/describe_trips.py` | `results/descriptive_statistics.md` |
+| 5. Query | Q1 to Q4 with the DataFrame API and, where it reads better, Spark SQL | `src/hlds/demand.py`, `prices.py`, `places.py`, `congestion.py`; `scripts/query_*.py` | 15 CSV files in `results/` |
+| 6. Optimize and measure | O1 to O3, one warm-up and five measured runs each, final plan saved | `src/hlds/caching.py`, `joins.py`, `storage.py`, `timing.py`, `benchmarks.py`; `scripts/run_benchmarks.py` | `results/timings_alican.csv`, `results/timings_berke.csv`, 8 plan files in `results/plans/` |
+| 7. Chart and dashboard | pandas reads the CSV files, Plotly draws the charts, Streamlit shows them; Kaleido saves the same charts as PNG for this report | `dashboard/`, `scripts/export_charts.py` | The dashboard, 13 charts in `reports/report3/figures/` |
+| 8. Report | The Markdown sections of both of us are joined into Word and PDF | `reports/report*/build_report.py` | The three reports |
+
+Section 7 adds one more step to this list, the MLlib extension.
+
+### 2.1 Setup, cleaning and Report 2 in short
+
+We ran Spark 4.2.0 in local mode on two Windows 11 laptops, one for each of us, with driver memory 6g (details in Report 2, Table 2.1). Each optimization was measured on the laptop of the team member who wrote it, and we never compare times between the two laptops. At the start of Report 1 we wrote three shared helpers that every script uses: `src/hlds/session.py` creates the Spark session and sets its time zone to UTC, `paths.py` holds all file paths and `timing.py` does the measuring.
+
+The cleaning rules of Report 1 keep the pickups between 1 January and 31 March. They drop trips with a drop-off at or before the pickup, durations over 5 hours, distances of 0 or less, or over 100 miles, negative totals, totals over 2,000 dollars and exact duplicates. Two kinds of unusual trips stay, and we mark them. Trips with a negative price part but a total that is not negative get `has_negative_part`. Flex fare trips (`payment_type` 0) get `details_missing` for their five missing fields. For the trip durations of Q2 we read the times as New York time and convert them to UTC, so trips across the summer time change are not one hour too long.
+
+In Report 2 we ran the four queries and the three optimizations. Each optimization made its query faster: O1 caching from 281.5 to 187.7 seconds (-33%), O2 broadcast join from 24.5 to 18.7 seconds (-24%) and O3 partitioned storage from 1.98 to 1.15 seconds (-42%) (Report 2, Table 10.1). The three were measured on different queries and laptops, so their savings cannot be added up. The queries showed that trips per day grew from 101,401 to 118,872 (+17.2%) and that 91.5% of the extra trips are flex fare trips.
+
+### 2.2 Why the charts read small files
+
+The queries group about 20 million rows into small tables. The 15 result files have between 2 and 1,031 rows each. For example, the heat map of Q1 has 336 rows (2 years × 7 weekdays × 24 hours), and Q4 by pickup zone has 1,031 rows. The dashboard only reads these files, so it does not need Spark, and Spark is needed only when we want a new grouping. This is why step 7 does not use Spark.
+
+### 2.3 Tests and teamwork
+
+We have 163 tests in 20 test files in `tests/`, and we run them with `python -m unittest discover -s tests -t .`. The Spark tests use a few hand-made rows.
+
+Each of us worked on our own Git branch (`alican` and `berke`). The finished tasks went to `main` through pull requests, 33 of them by 27 November. `docs/PLAN.md` lists the tasks with their owner, and `docs/contributions.md` lists the finished work. Section 9 is built from that file.
 
 ## 3. Charts and what they show
 
 *Written by Alican Kaya*
 
-This section explains 13 charts: three for Q1, two for Q2, three for Q3, two for Q4, one for the performance of the optimizations and the two charts that only the key findings tab has (Section 3.6). Their pictures are in Section 5, so we do not repeat them here. All pictures come from the same chart functions as the dashboard (`scripts/export_charts.py`, Section 4). Section 4.2 explains the colours. For every chart we write what it shows, why we chose this chart type and what we learn from it. Times of day are New York time, and hours are pickup hours.
+This section explains 13 charts: three for Q1, two for Q2, three for Q3, two for Q4, one for the performance of the optimizations and the two charts that only the key findings tab has (Section 3.6). The pictures of those two charts are in Section 5 (Figures 5.1 and 5.2), so we do not repeat them here. All pictures come from the same chart functions as the dashboard (`scripts/export_charts.py`, Section 4). Section 4.2 explains the colours. For every chart we write what it shows, why we chose this chart type and what we learn from it. Times of day are New York time, and hours are pickup hours.
 
 ### 3.1 Q1 Demand over time
 
@@ -152,7 +208,7 @@ Alican's laptop has an Intel Core i7-14650HX with 24 threads and 32 GB RAM, and 
 
 ### 3.6 The two charts of the key findings tab
 
-Berke made these two charts for the key findings tab, and their pictures are in Section 5.2 and Section 5.4.
+Berke made these two charts for the key findings tab. Their pictures are Figure 5.1 (Section 5.2) and Figure 5.2 (Section 5.4).
 
 **Where the extra trips come from, by payment group** (`results/q2_borough_payment.csv`, `results/q1_daily_average.csv`).
 
