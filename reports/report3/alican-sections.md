@@ -258,3 +258,33 @@ Berke made these two charts for the key findings tab. Their pictures are Figure 
 - **Clean once.** Clean the raw files once and start every query from the partitioned cleaned table (O3).
 - **Prices without the charge.** Repeat price per mile and the tip percentage with `fare_amount`, so that the two years are compared on the same base.
 - **Forecast (optional).** Forecast trips per hour and zone with Spark MLlib.
+
+## 8. Conclusions
+
+*Written by Alican Kaya*
+
+We started with one question: how do demand, prices and tipping of NYC yellow taxi trips change by time and place from the first quarter of 2024 to the first quarter of 2025, and how much of this is linked to the Manhattan congestion relief zone charge? Below we answer it part by part, and then we say what we learned about working with Spark. The details are in the sections we point to.
+
+### 8.1 What we found
+
+**Demand.** There were more taxi trips in 2025. Trips per day grew from 101,401 to 118,872 (+17.2%), and the 7-day mean of 2025 is above 2024 on 82 of its 83 days (Section 3.1). The gap was small in the first days of January and opened during the month; we did not check why. The growth is larger outside working hours. From Monday to Friday, 07:00 to 18:59, trips grew by 11.1%, and in all other hours by 22.7%.
+
+**Who.** Almost all of the growth is flex fare (`payment_type` 0). These trips make up 91.5% of the extra trips and went from 7,146 to 23,139 per day, which is 3.24 times as many. Card trips grew by 4% and cash trips fell by 16% (Sections 3.2 and 5.2). Cleaning removes more flex fare rows in 2024 than in 2025, so this growth may be a little overstated (Section 6.1). The data does not tell us how flex fare trips are booked, so we can describe this growth but not explain it.
+
+**Where.** Manhattan still has most of the trips, about 104,800 pickups per day in 2025 (+14.9%). Most of the extra trips are also in Manhattan, about 13,600 of the 17,500 per day. The fastest growth is in Brooklyn (+228.7%) and the Bronx (+213.5%), but both start from small bases, about 3,150 and 730 pickups per day. The airports did not grow (Sections 3.3 and 5.3). The zone groups of Section 7 add the time of day to the place. The zones with a weekday-morning rhythm, almost all outside Manhattan, doubled (+101.5%), from a small base. The weekend-night zones grew by 32.4%, and the all-day zones of Manhattan's core and the airports by 12.7%. The borders between these groups are soft (Section 7.2).
+
+**Prices and tips.** From 5 January to 31 March the median total price rose from 20.50 to 20.95 dollars. Card trips cost 0.35 to 0.65 dollars more per mile in every hour, which is about the size of the zone charge spread over a median trip. Part of this rise is likely the charge itself, because `total_amount` includes it in 2025. The median card tip is 20% in both years. The mean card tip is a little lower in every hour. Part of this can also come from the charge, because the tip percentage is computed on the total without the tip, which now includes the charge (Section 3.2).
+
+**Zone charge.** Of the 2025 trips from 5 January, 74% pay the charge, from 61% at 05:00 to 88% at 02:00. From 5 January to 31 March, pickups grew by 13.5% in the 39 zones where at least 90% of the trips pay, about as much as in all zones (+14.5%). So we see no sign that the charge lowered taxi demand in its first winter (Sections 3.4, 3.6 and 5.4). Two winters without a comparison group cannot show what the charge caused, though (Section 6.1).
+
+### 8.2 What we learned about working with Spark
+
+The most expensive part of the work is reading and cleaning the six raw files. Caching removes this step for the queries that follow, and it saved about 94 seconds per run of Q1 and Q2 (-33%). The broadcast join saved about 6 seconds (-24%), and partitioned storage 0.83 seconds (-42%) on a query of one month (Sections 2 and 3.5). Partitioned storage has the largest percentage but the smallest saving in seconds, so we look at both numbers. Each was measured on one laptop in local mode, so the size of the savings may differ on a cluster (Section 6.1). Our advice for the next analysis of these data is to clean once, store the cleaned table partitioned by date and read only what a query needs.
+
+Spark grouped about 20 million rows into small result files of 2 to 1,031 rows, and the charts and the dashboard read only these files with pandas. Spark is needed again only for a new grouping, as in the MLlib extension, which read the partitioned table.
+
+Three places needed a close look. One is a saved plan that was not the final plan of the query (Report 2, Section 12.1). Another is the time zone of the trip times, which first gave negative durations and is the reason the Spark session runs in UTC (Report 1, Section 8.3). The third is the medians, which are approximate (Report 2, Section 2.3).
+
+### 8.3 The answer in short
+
+There were more yellow taxi trips in 2025 than in 2024. The growth came mostly from flex fare trips and was larger at night and at weekends. It was fastest outside Manhattan, although most of the extra trips are still in Manhattan. Demand in the zones under the zone charge did not fall in its first winter, but two winters cannot show what the charge caused. The next step would be to add data from other services and more months (Section 6.2), to see where the flex fare trips come from and whether the growth continues.
