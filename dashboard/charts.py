@@ -6,6 +6,7 @@ report (scripts/export_charts.py).
 """
 
 import plotly.graph_objects as go
+from plotly.subplots import make_subplots
 
 from dashboard.colors import (
     BACKGROUND_COLOR,
@@ -192,3 +193,36 @@ def zone_group_change_chart(groups, dark=False):
     fig.update_layout(showlegend=False)
     title = "Change in pickups, zones grouped by how many trips pay"
     return _style(fig, title, dark, height=360)
+
+
+WEEKDAY_SHORT = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+
+
+def zone_group_profiles_chart(profiles, names, dark=False):
+    """One panel per zone group: its mean share of the week's trips in each of the 168 hours (MLlib extension).
+
+    The panels share one y range, so a higher line means a more concentrated group in every panel. No shared axes,
+    because kaleido saves linked subplots with empty panels.
+    """
+    groups = sorted(profiles["group"].unique())
+    color = year_colors(dark)[2025]
+    grid = DARK_GRID_COLOR if dark else GRID_COLOR
+    titles = [f"Group {group}: {names.get(group, '')}" for group in groups]
+    fig = make_subplots(rows=len(groups), cols=1, subplot_titles=titles, vertical_spacing=0.09)
+    top = profiles["share"].max() * 100 * 1.1
+    for row, group in enumerate(groups, start=1):
+        rows = profiles[profiles["group"] == group].sort_values(["weekday", "hour"])
+        hour_of_week = rows["weekday"] * 24 + rows["hour"]
+        fig.add_trace(go.Scatter(
+            x=hour_of_week, y=rows["share"] * 100, mode="lines", line={"color": color, "width": 2},
+            customdata=list(zip([WEEKDAY_SHORT[day] for day in rows["weekday"]], rows["hour"])),
+            hovertemplate="%{customdata[0]} %{customdata[1]}:00<br>%{y:.2f}% of the week's trips<extra></extra>",
+            showlegend=False), row=row, col=1)
+        fig.update_yaxes(range=[0, top], ticksuffix="%", row=row, col=1)
+        fig.update_xaxes(range=[0, 167], tickvals=[day * 24 + 12 for day in range(7)], ticktext=WEEKDAY_SHORT,
+                         showgrid=False, row=row, col=1)
+        for day in range(1, 7):
+            fig.add_vline(x=day * 24, line={"color": grid, "width": 1}, row=row, col=1)
+    fig.update_yaxes(title="Share of the week (%)", row=(len(groups) + 1) // 2, col=1)
+    title = "Weekly demand profile of the zone groups (KMeans), 2025, mean share of the week's trips per hour"
+    return _style(fig, title, dark, height=240 * len(groups) + 80)

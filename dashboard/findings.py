@@ -93,3 +93,12 @@ def extra_trips_outside_working_hours(hour_weekday, first_hour=7, last_hour=18):
     extra = (cells[2025] - cells[2024]).reset_index(name="extra")
     working = (extra["weekday"] < 5) & extra["hour"].between(first_hour, last_hour)
     return extra.loc[~working, "extra"].sum() / extra["extra"].sum()
+
+
+# Names of the KMeans zone groups of results/ml_zone_groups.csv (scripts/query_zone_groups.py). The groups are
+# numbered by their trips, busiest first, and named after their weekly profile; rename them if the run changes.
+ZONE_GROUP_NAMES = {
+    1: "all day, Manhattan core and airports",
+    2: "weekend nights",
+    3: "weekday mornings, residential zones",
+}
