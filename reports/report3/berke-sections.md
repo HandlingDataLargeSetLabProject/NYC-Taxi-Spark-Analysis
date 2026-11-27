@@ -113,3 +113,62 @@ Each of the three optimizations made its query faster: caching by 33%, the broad
 ### 5.6 What the findings do not show
 
 All findings compare two winters, January to March of 2024 and 2025. They describe what changed together with the zone charge and do not show what the charge caused. We do not know how flex fare trips are booked, so we describe their growth and do not explain it. The limitations and the improvements we would make are in Section 6.
+
+## 7. Optional extension: zone groups with Spark MLlib
+
+*Written by Berke Arda Türk*
+
+The queries of Report 2 compare places and hours one at a time. Here we ask a question that needs both at once: which pickup zones are busy at the same hours of the week? We group the zones by their weekly demand profile with KMeans from Spark MLlib. The code is in `src/hlds/zone_groups.py` and `scripts/query_zone_groups.py`, and the results are in `results/ml_zone_silhouette.csv`, `results/ml_zone_groups.csv` and `results/ml_group_profiles.csv`.
+
+### 7.1 Method
+
+- **Data.** The script reads the cleaned table partitioned by pickup date (O3, Report 2, Section 9), so the six raw files are not cleaned again. This follows our own advice from Section 5.5.
+- **Profile of a zone.** For every pickup zone we count the trips of 2025 in each of the 168 hours of the week (Monday 00:00 to Sunday 23:00) and divide by the number of days of that weekday, as in Q1. Then we divide each of the 168 numbers by the zone's whole week. The profile therefore says *when* a zone is busy and not *how* busy it is. Without this step KMeans would group the zones by size, and Midtown would end up in a group of its own.
+- **Which zones.** We keep the 192 zones with at least 10 trips per day in 2025. At fewer trips most of the 168 hours hold less than one trip, and the profile is mostly noise. Zones 264 and 265 are not places and are left out. The 192 zones still hold 99.6% of all trips of 2025 (118,390 of 118,872 per day).
+- **Model.** Spark's `VectorAssembler` turns the 168 shares into one feature vector, and `KMeans` with a fixed seed groups the vectors. We number the groups by their trips, busiest first, so the numbers stay the same between runs.
+
+### 7.2 Choosing the number of groups
+
+We fitted KMeans for k = 2 to 8 and scored each result with the silhouette of `ClusteringEvaluator`. The silhouette is between -1 and 1 and is higher when the zones are close to their own group and far from the others.
+
+Table 7.1. Silhouette for each number of groups
+
+| k | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+|---|---|---|---|---|---|---|---|
+| Silhouette | 0.362 | **0.396** | 0.345 | 0.250 | 0.357 | 0.296 | 0.258 |
+
+Source: `results/ml_zone_silhouette.csv`.
+
+Three groups have the highest score, so we use k = 3. A silhouette of 0.40 means that the groups are real but overlap. Many zones lie between two groups, and the groups should be read as typical rhythms, not as sharp classes.
+
+### 7.3 The three groups
+
+![Weekly demand profile of the three zone groups found by KMeans: the mean share of the week's trips in each hour of 2025, one panel per group](figures/ml_zone_group_profiles.png)
+
+Table 7.2. The three zone groups
+
+| Group | Zones | Where | 2024 per day | 2025 per day | Change | Weekend share | Share 22:00 to 04:59 | Share Mon–Fri 07:00 to 09:59 |
+|---|---|---|---|---|---|---|---|---|
+| 1 All day, Manhattan core and airports | 73 | 50 Manhattan, 11 Brooklyn, 11 Queens, 1 Bronx | 88,225 | 99,440 | +12.7% | 32.7% | 18.9% | 10.0% |
+| 2 Weekend nights | 16 | 7 Manhattan, 7 Brooklyn, 2 Queens | 9,763 | 12,926 | +32.4% | 55.2% | 45.8% | 6.6% |
+| 3 Weekday mornings, residential zones | 103 | 36 Brooklyn, 32 Queens, 31 Bronx, 4 Manhattan | 2,991 | 6,025 | +101.5% | 32.9% | 17.0% | 19.6% |
+
+Source: `results/ml_zone_groups.csv` and `results/ml_group_profiles.csv`; the shares are the group means of the 168-hour profiles. If trips were spread evenly over the week, the weekend would have 28.6%, the night hours 29.2% and the weekday mornings 8.9%.
+
+- **Group 1, all day.** Midtown, the Upper East and Upper West Side, the business districts and both big airports. Demand rises during the morning, stays high all day and peaks on Saturday evening (19:00). JFK and LaGuardia are not a group of their own, as we first expected: their trips are spread over the day and the week in the same way as in the busy Manhattan zones.
+- **Group 2, weekend nights.** East Village, West Village, Lower East Side, Williamsburg, Greenpoint and Bushwick. More than half of their trips start at the weekend and almost half between 22:00 and 04:59. The busiest hour is Sunday 01:00, the end of Saturday night, with 3.3% of the week's trips in one hour.
+- **Group 3, weekday mornings.** 99 of the 103 zones are outside Manhattan, for example Central Harlem North, Astoria, Bay Ridge and the residential parts of Brooklyn and the Bronx. The busiest hours are 07:00 on working days. These are trips from home in the morning.
+
+### 7.4 What the groups add
+
+The groups grew at very different rates. Group 1, which holds 84% of the trips, grew by 12.7%. The weekend night zones grew by 32.4%, and the residential zones of group 3 doubled. This connects two findings that we had seen separately: most of the growth is outside Manhattan (Section 5.3) and at night and at weekends (Section 5.1). The fastest growth is in zones with a commuter rhythm on working-day mornings and in zones with a night-life rhythm at weekends. Both rhythms are outside the hours when Manhattan's core is busiest.
+
+- **For the city.** The three groups need different service at different hours. Pickup rules or taxi stands planned for group 1 do not fit the morning peak of group 3 or the Saturday night of group 2.
+- **For taxi operators.** The groups tell where to be at which hour: group 3 zones on working-day mornings and group 2 zones on Friday and Saturday nights, both of them parts of the city that grew fastest.
+
+### 7.5 Limits of this extension
+
+- The profiles come from 2025 only. A zone can have a different rhythm in 2024, so the growth of a group compares the same zones, not the same rhythm.
+- KMeans with squared Euclidean distance looks for round groups of similar size and gives every zone to exactly one group. The silhouette of 0.40 shows that the borders between the groups are soft.
+- The groups do not use payment type. We cannot say from them how much of the growth of group 3 is flex fare, although Section 5.3 shows that most new pickups outside Manhattan are.
+- We did not check other distance measures or methods, such as cosine distance or a Gaussian mixture.
