@@ -7,9 +7,9 @@ Week 1 (W1) starts on Monday, 26 October 2026. Statuses: `todo`, `doing`, `revie
 |---|---|---|
 | Report 1 | 18 Nov 2026, 23:59 | 17 Nov |
 | Report 2 | 23 Dec 2026, 23:59 | 9 Dec |
-| Report 3 | 14 Jan 2027, 23:59 | 18 Dec |
+| Report 3 | 14 Jan 2027, 23:59 | 6 Dec |
 
-Report 1 was submitted on 7 November, so Reports 2 and 3 were moved earlier. Report 3 falls in the holidays, so every query saves its aggregated output in `results/` during Report 2 and the charts can start right after. Report 2 was submitted on 19 November, so we moved Report 3 to 18 December, before the holidays.
+Report 1 was submitted on 7 November, so Reports 2 and 3 were moved earlier. Report 3 falls in the holidays, so every query saves its aggregated output in `results/` during Report 2 and the charts can start right after. Report 2 was submitted on 19 November, so we moved Report 3 to 18 December, before the holidays. On 26 November we moved it again, to 6 December, because both of us wanted to finish the project early.
 
 ## Tasks
 | ID | Week | Owner | Task | Status |
@@ -48,10 +48,10 @@ Report 1 was submitted on 7 November, so Reports 2 and 3 were moved earlier. Rep
 | R2-13 | W7 (7–9 Dec) | Alican | Final edit and submission of Report 2 (after R2-11 to R2-16) | done |
 | R3-01 | W4–W5 (19–29 Nov) | Alican | Charts for Q1, Q2 and the performance results | done |
 | R3-02 | W4–W5 (19–29 Nov) | Berke | Charts for Q3, Q4; dashboard draft | done |
-| R3-03 | W6–W7 (30 Nov–13 Dec) | Alican | Chart interpretation; limitations and possible improvements | todo |
-| R3-04 | W6–W7 (30 Nov–13 Dec) | Berke | Dashboard; key findings and their practical meaning | done |
-| R3-06 | W8 (14–17 Dec) | Berke | Dashboard screenshots and contribution lines | done |
-| R3-05 | W8 (14–18 Dec) | Alican | Final edit and submission of Report 3 | todo |
+| R3-03 | W5–W6 (26 Nov–2 Dec) | Alican | Chart interpretation; limitations and possible improvements | done |
+| R3-04 | W5–W6 (26 Nov–2 Dec) | Berke | Dashboard; key findings and their practical meaning | done |
+| R3-06 | W6 (3–4 Dec) | Berke | Dashboard screenshots and contribution lines | done |
+| R3-05 | W6 (3–6 Dec) | Alican | Final edit and submission of Report 3 | todo |
 
 ## Notes
 - Each member commits on at least three different days per week.
