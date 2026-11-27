@@ -1,7 +1,7 @@
 """Save the charts of the dashboard as PNG files for Report 3.
 
 Run: python scripts/export_charts.py
-Writes reports/report3/figures/*.png: the Q3, Q4 and key findings charts below and the Q1, Q2 and
+Writes reports/report3/figures/*.png: the Q3, Q4, key findings and MLlib zone group charts below and the Q1, Q2 and
 performance charts of dashboard/figures_q1_q2.py. Kaleido draws the
 pictures with the Chrome or Edge browser installed on the computer.
 """
@@ -42,6 +42,8 @@ def build_figures():
                                        data.read_result("q1_daily_average.csv"))),
         "findings_zone_groups": charts.zone_group_change_chart(
             findings.zone_groups_by_charge_share(data.read_result("q4_by_pickup_zone.csv"))),
+        "ml_zone_group_profiles": charts.zone_group_profiles_chart(
+            data.read_result("ml_group_profiles.csv"), findings.ZONE_GROUP_NAMES),
     }
 
 
