@@ -83,7 +83,9 @@ def contributions_html():
 
 
 def references_html():
-    return "<h1>References</h1>\n" + report1.list_html(report1.REFERENCES + TOOLS, "ol")
+    # The references follow the contribution table on the same page instead of leaving most of a page empty.
+    return ('<h1 style="page-break-before:auto">References</h1>\n'
+            + report1.list_html(report1.REFERENCES + TOOLS, "ol"))
 
 
 def cover_html():
