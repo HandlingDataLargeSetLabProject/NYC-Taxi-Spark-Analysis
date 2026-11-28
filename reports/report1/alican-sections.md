@@ -68,7 +68,7 @@ For the optimizations in Report 2 we plan to test caching of the cleaned table (
 
 ## 6. Data cleaning
 
-*Sections 6.1 to 6.4 and 6.6 written by Alican Kaya (49429), Section 6.5 by Berke Arda Türk (58169).*
+*Sections 6.1 to 6.4 and 6.6 written by Alican Kaya, Section 6.5 by Berke Arda Türk.*
 
 ### 6.1 Approach
 

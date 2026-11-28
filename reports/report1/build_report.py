@@ -6,6 +6,7 @@ Run: python reports/report1/build_report.py
 """
 
 import html
+import json
 import re
 import struct
 import subprocess
@@ -22,7 +23,23 @@ TITLE = "Report 1: Data preparation and environment"
 SUBTITLE = "NYC yellow taxi trips, January to March 2024 and 2025"
 COURSE = "Handling Large Data Sets, laboratory project 2 (Apache Spark)"
 DATE = "November 2026"
-STUDENTS = {"Alican Kaya": "49429", "Berke Arda Türk": "58169"}
+STUDENT_NAMES = ["Alican Kaya", "Berke Arda Türk"]
+# The repository is public, so the student numbers stay in a local file that git ignores:
+# {"Alican Kaya": "...", "Berke Arda Türk": "..."}. Without it the reports show the names only.
+STUDENT_NUMBERS_FILE = PROJECT_ROOT / "reports" / "student_numbers.json"
+
+
+def load_students(path=STUDENT_NUMBERS_FILE):
+    numbers = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+    return {name: numbers.get(name, "") for name in STUDENT_NAMES}
+
+
+def name_with_number(name, students=None):
+    number = (students if students is not None else STUDENTS)[name]
+    return f"{name} ({number})" if number else name
+
+
+STUDENTS = load_students()
 
 # Sections that Berke writes; until berke-sections.md has them, the report shows a placeholder.
 EXPECTED_SECTIONS = {
@@ -75,8 +92,8 @@ def inline(text):
     text = re.sub(r"\*\*([^*]+)\*\*", r"<b>\1</b>", text)
     text = re.sub(r"\*([^*]+)\*", r"<i>\1</i>", text)
     text = re.sub(r"(https?://[^\s<)]+[^\s<).,])", r'<a href="\1">\1</a>', text)
-    for name, number in STUDENTS.items():
-        text = text.replace(f"Written by {name}", f"Written by {name} ({number})")
+    for name in STUDENTS:
+        text = text.replace(f"Written by {name}", f"Written by {name_with_number(name)}")
     return text
 
 
@@ -183,7 +200,7 @@ def references_html():
 
 
 def cover_html():
-    students = "".join(f"<p class=\"cover-name\">{name} ({number})</p>" for name, number in STUDENTS.items())
+    students = "".join(f"<p class=\"cover-name\">{name_with_number(name)}</p>" for name in STUDENTS)
     return (f'<p class="cover-course">{html.escape(COURSE)}</p>'
             f'<p class="cover-title">{html.escape(TITLE)}</p>'
             f'<p class="cover-subtitle">{html.escape(SUBTITLE)}</p>'

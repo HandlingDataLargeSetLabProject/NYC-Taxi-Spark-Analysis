@@ -87,7 +87,7 @@ def references_html():
 
 
 def cover_html():
-    students = "".join(f"<p class=\"cover-name\">{name} ({number})</p>" for name, number in report1.STUDENTS.items())
+    students = "".join(f"<p class=\"cover-name\">{report1.name_with_number(name)}</p>" for name in report1.STUDENTS)
     return (f'<p class="cover-course">{html.escape(COURSE)}</p>'
             f'<p class="cover-title">{html.escape(TITLE)}</p>'
             f'<p class="cover-subtitle">{html.escape(SUBTITLE)}</p>'
