@@ -1,12 +1,68 @@
 # Report 3: sections by Alican
 
-<!-- Sections 1, 2 and 7 are added in R3-05. -->
+## 1. Introduction
+
+*Written by Alican Kaya*
+
+This is the third report of laboratory project 2 of Handling Large Data Sets, the Apache Spark project. We work on the yellow taxi trip records of the NYC Taxi and Limousine Commission (TLC) for January to March 2024 and January to March 2025. In all three reports we ask the same question: how do demand, prices and tipping of NYC yellow taxi trips change by time and place in the first quarter of 2025 compared with the first quarter of 2024, and how much of this traffic is affected by the new Manhattan congestion relief zone charge, which started on 5 January 2025? The first quarter of 2024 is the same season one year earlier, and it has no charge.
+
+We use one Parquet file for each month and the zone lookup table with 265 zones. The six files hold 20,752,804 raw trips (9,554,778 in 2024 and 11,198,026 in 2025). After cleaning, 19,926,016 trips (96.0%) stay in the cleaned table.
+
+This report builds on the first two:
+
+- **Report 1.** The environment, loading the data, cleaning and descriptive statistics.
+- **Report 2.** Four queries (Q1 demand over time, Q2 prices, speed and tips, Q3 places and routes, Q4 the zone charge) and three optimizations (O1 caching, O2 broadcast join, O3 partitioned storage), measured before and after. Every query saved its grouped result as a small CSV file in `results/`.
+
+This report turns these result files into charts and a dashboard, explains what they show, sums up the whole project and adds the optional Spark MLlib extension. Section 2 follows the workflow from the raw files to the charts, with a short summary of Reports 1 and 2. Section 3 goes through every chart: what it shows, why we chose this chart type and what we learn from it. Section 4 describes the dashboard, and Section 5 gives the key findings and what they mean in practice. Section 6 lists the limitations and possible improvements. Section 7 is the optional extension, which groups the pickup zones by their demand over the week with KMeans in Spark MLlib. Section 8 has the conclusions and Section 9 the team contributions. Sections 1, 2, 3, 6 and 8 are by Alican Kaya, and Sections 4, 5 and 7 by Berke Arda Türk.
+
+In short, taxi trips per day grew by 17.2% from Q1 2024 to Q1 2025, and 91.5% of the extra trips are flex fare trips. In the zones where almost every trip pays the zone charge, pickups grew about as much as in the whole city.
+
+Two notes on reading the numbers. We compare trips per day, because the first quarter has 91 days in 2024 (a leap year) and 90 days in 2025. All times of day are the New York clock times of the trip files.
+
+## 2. Workflow of the project
+
+*Written by Alican Kaya*
+
+The project follows one idea: Spark does the heavy work once, on about 20 million rows, and everything after that reads small files. Table 2.1 lists the steps from the raw files to the charts, with the code of each step and what it leaves behind. The charts are explained in Section 3 and the findings in Section 5, so we keep them out of this section.
+
+Table 2.1. The steps of the project
+
+| Step | What happens | Code | Output |
+|---|---|---|---|
+| 1. Download | The six monthly Parquet files and the zone lookup table from the TLC page | `scripts/download_data.py` | `data/raw/` (not in the repository) |
+| 2. Load | Read the six files into one Spark DataFrame, check the columns, read the zone table | `src/hlds/loading.py` | DataFrame in memory |
+| 3. Clean | Handle types and missing values, then drop invalid and duplicate rows; 96.0% stay | `src/hlds/cleaning.py` | Cleaned DataFrame, 19,926,016 rows |
+| 4. Describe | Descriptive statistics and summary tables | `src/hlds/statistics.py`, `scripts/describe_trips.py` | `results/descriptive_statistics.md` |
+| 5. Query | Q1 to Q4 with the DataFrame API and, where it reads better, Spark SQL | `src/hlds/demand.py`, `prices.py`, `places.py`, `congestion.py`; `scripts/query_*.py` | 15 CSV files in `results/` |
+| 6. Optimize and measure | O1 to O3, one warm-up and five measured runs each, final plan saved | `src/hlds/caching.py`, `joins.py`, `storage.py`, `timing.py`, `benchmarks.py`; `scripts/run_benchmarks.py` | `results/timings_alican.csv`, `results/timings_berke.csv`, 8 plan files in `results/plans/` |
+| 7. Chart and dashboard | pandas reads the CSV files, Plotly draws the charts, Streamlit shows them; Kaleido saves the same charts as PNG for this report | `dashboard/`, `scripts/export_charts.py` | The dashboard, 13 charts in `reports/report3/figures/` |
+| 8. Report | The Markdown sections of both of us are joined into Word and PDF | `reports/report*/build_report.py` | The three reports |
+
+Section 7 adds one more step to this list, the MLlib extension.
+
+### 2.1 Setup, cleaning and Report 2 in short
+
+We ran Spark 4.2.0 in local mode on two Windows 11 laptops, one for each of us, with driver memory 6g (details in Report 2, Table 2.1). Each optimization was measured on the laptop of the team member who wrote it, and we never compare times between the two laptops. At the start of Report 1 we wrote three shared helpers that every script uses: `src/hlds/session.py` creates the Spark session and sets its time zone to UTC, `paths.py` holds all file paths and `timing.py` does the measuring.
+
+The cleaning rules of Report 1 keep the pickups between 1 January and 31 March. They drop trips with a drop-off at or before the pickup, durations over 5 hours, distances of 0 or less, or over 100 miles, negative totals, totals over 2,000 dollars and exact duplicates. Two kinds of unusual trips stay, and we mark them. Trips with a negative price part but a total that is not negative get `has_negative_part`. Flex fare trips (`payment_type` 0) get `details_missing` for their five missing fields. For the trip durations of Q2 we read the times as New York time and convert them to UTC, so trips across the summer time change are not one hour too long.
+
+In Report 2 we ran the four queries and the three optimizations. Each optimization made its query faster: O1 caching from 281.5 to 187.7 seconds (-33%), O2 broadcast join from 24.5 to 18.7 seconds (-24%) and O3 partitioned storage from 1.98 to 1.15 seconds (-42%) (Report 2, Table 10.1). The three were measured on different queries and laptops, so their savings cannot be added up. The queries showed that trips per day grew from 101,401 to 118,872 (+17.2%) and that 91.5% of the extra trips are flex fare trips.
+
+### 2.2 Why the charts read small files
+
+The queries group about 20 million rows into small tables. The 15 result files have between 2 and 1,031 rows each. For example, the heat map of Q1 has 336 rows (2 years × 7 weekdays × 24 hours), and Q4 by pickup zone has 1,031 rows. The dashboard only reads these files, so it does not need Spark, and Spark is needed only when we want a new grouping. This is why step 7 does not use Spark.
+
+### 2.3 Tests and teamwork
+
+We have 163 tests in 20 test files in `tests/`, and we run them with `python -m unittest discover -s tests -t .`. The Spark tests use a few hand-made rows.
+
+Each of us worked on our own Git branch (`alican` and `berke`). The finished tasks went to `main` through pull requests, 33 of them by 27 November. `docs/PLAN.md` lists the tasks with their owner, and `docs/contributions.md` lists the finished work. Section 9 is built from that file.
 
 ## 3. Charts and what they show
 
 *Written by Alican Kaya*
 
-This section explains 13 charts: three for Q1, two for Q2, three for Q3, two for Q4, one for the performance of the optimizations and the two charts that only the key findings tab has (Section 3.6). Their pictures are in Section 5, so we do not repeat them here. All pictures come from the same chart functions as the dashboard (`scripts/export_charts.py`, Section 4). Section 4.2 explains the colours. For every chart we write what it shows, why we chose this chart type and what we learn from it. Times of day are New York time, and hours are pickup hours.
+This section explains 13 charts: three for Q1, two for Q2, three for Q3, two for Q4, one for the performance of the optimizations and the two charts that only the key findings tab has (Section 3.6). The pictures of those two charts are in Section 5 (Figures 5.1 and 5.2), so we do not repeat them here. All pictures come from the same chart functions as the dashboard (`scripts/export_charts.py`, Section 4). Section 4.2 explains the colours. For every chart we write what it shows, why we chose this chart type and what we learn from it. Times of day are New York time, and hours are pickup hours.
 
 ### 3.1 Q1 Demand over time
 
@@ -152,7 +208,7 @@ Alican's laptop has an Intel Core i7-14650HX with 24 threads and 32 GB RAM, and 
 
 ### 3.6 The two charts of the key findings tab
 
-Berke made these two charts for the key findings tab, and their pictures are in Section 5.2 and Section 5.4.
+Berke made these two charts for the key findings tab. Their pictures are Figure 5.1 (Section 5.2) and Figure 5.2 (Section 5.4).
 
 **Where the extra trips come from, by payment group** (`results/q2_borough_payment.csv`, `results/q1_daily_average.csv`).
 
@@ -202,3 +258,33 @@ Berke made these two charts for the key findings tab, and their pictures are in 
 - **Clean once.** Clean the raw files once and start every query from the partitioned cleaned table (O3).
 - **Prices without the charge.** Repeat price per mile and the tip percentage with `fare_amount`, so that the two years are compared on the same base.
 - **Forecast (optional).** Forecast trips per hour and zone with Spark MLlib.
+
+## 8. Conclusions
+
+*Written by Alican Kaya*
+
+We started with one question: how do demand, prices and tipping of NYC yellow taxi trips change by time and place from the first quarter of 2024 to the first quarter of 2025, and how much of this is linked to the Manhattan congestion relief zone charge? Below we answer it part by part, and then we say what we learned about working with Spark. The details are in the sections we point to.
+
+### 8.1 What we found
+
+**Demand.** There were more taxi trips in 2025. Trips per day grew from 101,401 to 118,872 (+17.2%), and the 7-day mean of 2025 is above 2024 on 82 of its 83 days (Section 3.1). The gap was small in the first days of January and opened during the month; we did not check why. The growth is larger outside working hours. From Monday to Friday, 07:00 to 18:59, trips grew by 11.1%, and in all other hours by 22.7%.
+
+**Who.** Almost all of the growth is flex fare (`payment_type` 0). These trips make up 91.5% of the extra trips and went from 7,146 to 23,139 per day, which is 3.24 times as many. Card trips grew by 4% and cash trips fell by 16% (Sections 3.2 and 5.2). Cleaning removes more flex fare rows in 2024 than in 2025, so this growth may be a little overstated (Section 6.1). The data does not tell us how flex fare trips are booked, so we can describe this growth but not explain it.
+
+**Where.** Manhattan still has most of the trips, about 104,800 pickups per day in 2025 (+14.9%). Most of the extra trips are also in Manhattan, about 13,600 of the 17,500 per day. The fastest growth is in Brooklyn (+228.7%) and the Bronx (+213.5%), but both start from small bases, about 3,150 and 730 pickups per day. The airports did not grow (Sections 3.3 and 5.3). The zone groups of Section 7 add the time of day to the place. The zones with a weekday-morning rhythm, almost all outside Manhattan, doubled (+101.5%), from a small base. The weekend-night zones grew by 32.4%, and the all-day zones of Manhattan's core and the airports by 12.7%. The borders between these groups are soft (Section 7.2).
+
+**Prices and tips.** From 5 January to 31 March the median total price rose from 20.50 to 20.95 dollars. Card trips cost 0.35 to 0.65 dollars more per mile in every hour, which is about the size of the zone charge spread over a median trip. Part of this rise is likely the charge itself, because `total_amount` includes it in 2025. The median card tip is 20% in both years. The mean card tip is a little lower in every hour. Part of this can also come from the charge, because the tip percentage is computed on the total without the tip, which now includes the charge (Section 3.2).
+
+**Zone charge.** Of the 2025 trips from 5 January, 74% pay the charge, from 61% at 05:00 to 88% at 02:00. From 5 January to 31 March, pickups grew by 13.5% in the 39 zones where at least 90% of the trips pay, about as much as in all zones (+14.5%). So we see no sign that the charge lowered taxi demand in its first winter (Sections 3.4, 3.6 and 5.4). Two winters without a comparison group cannot show what the charge caused, though (Section 6.1).
+
+### 8.2 What we learned about working with Spark
+
+The most expensive part of the work is reading and cleaning the six raw files. Caching removes this step for the queries that follow, and it saved about 94 seconds per run of Q1 and Q2 (-33%). The broadcast join saved about 6 seconds (-24%), and partitioned storage 0.83 seconds (-42%) on a query of one month (Sections 2 and 3.5). Partitioned storage has the largest percentage but the smallest saving in seconds, so we look at both numbers. Each was measured on one laptop in local mode, so the size of the savings may differ on a cluster (Section 6.1). Our advice for the next analysis of these data is to clean once, store the cleaned table partitioned by date and read only what a query needs.
+
+Spark grouped about 20 million rows into small result files of 2 to 1,031 rows, and the charts and the dashboard read only these files with pandas. Spark is needed again only for a new grouping, as in the MLlib extension, which read the partitioned table.
+
+Three places needed a close look. One is a saved plan that was not the final plan of the query (Report 2, Section 12.1). Another is the time zone of the trip times, which first gave negative durations and is the reason the Spark session runs in UTC (Report 1, Section 8.3). The third is the medians, which are approximate (Report 2, Section 2.3).
+
+### 8.3 The answer in short
+
+There were more yellow taxi trips in 2025 than in 2024. The growth came mostly from flex fare trips and was larger at night and at weekends. It was fastest outside Manhattan, although most of the extra trips are still in Manhattan. Demand in the zones under the zone charge did not fall in its first winter, but two winters cannot show what the charge caused. The next step would be to add data from other services and more months (Section 6.2), to see where the flex fare trips come from and whether the growth continues.

@@ -8,9 +8,10 @@ __pycache__/
 venv/
 .ipynb_checkpoints/
 
-# Report output built by reports/report1/build_report.py and reports/report2/build_report.py
+# Report output built by the build_report.py script of each report
 reports/report1/build/
 reports/report2/build/
+reports/report3/build/
 
 # Spark
 spark-warehouse/
