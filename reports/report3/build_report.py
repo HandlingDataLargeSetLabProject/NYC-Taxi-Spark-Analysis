@@ -83,11 +83,13 @@ def contributions_html():
 
 
 def references_html():
-    return "<h1>References</h1>\n" + report1.list_html(report1.REFERENCES + TOOLS, "ol")
+    # The references follow the contribution table on the same page instead of leaving most of a page empty.
+    return ('<h1 style="page-break-before:auto">References</h1>\n'
+            + report1.list_html(report1.REFERENCES + TOOLS, "ol"))
 
 
 def cover_html():
-    students = "".join(f"<p class=\"cover-name\">{name} ({number})</p>" for name, number in report1.STUDENTS.items())
+    students = "".join(f"<p class=\"cover-name\">{report1.name_with_number(name)}</p>" for name in report1.STUDENTS)
     return (f'<p class="cover-course">{html.escape(COURSE)}</p>'
             f'<p class="cover-title">{html.escape(TITLE)}</p>'
             f'<p class="cover-subtitle">{html.escape(SUBTITLE)}</p>'

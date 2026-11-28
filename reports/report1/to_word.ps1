@@ -15,6 +15,8 @@ $WdExportCreateHeadingBookmarks = 1
 $WdPrintView = 3
 $WdAlignPageNumberCenter = 1
 $WdStyleHtmlPre = -102
+$WdStyleToc1 = -20
+$WdStyleToc2 = -21
 $ConsolasWidthPerPoint = 0.55  # every Consolas character is 0.55 times the font size wide
 $CodeWrapExtraCharacters = 4
 
@@ -63,6 +65,11 @@ try {
     if ($marker.Find.Execute("[[TOC]]")) {
         $marker.Text = ""
         $document.TablesOfContents.Add($marker, $true, 1, 2) | Out-Null
+    }
+    # Without this, the space under every line pushes a long table of contents onto a second, almost empty page.
+    foreach ($tocStyle in @($WdStyleToc1, $WdStyleToc2)) {
+        $document.Styles.Item($tocStyle).ParagraphFormat.SpaceBefore = 0
+        $document.Styles.Item($tocStyle).ParagraphFormat.SpaceAfter = 0
     }
 
     $footer = $document.Sections.Item(1).Footers.Item(1)

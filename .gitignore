@@ -12,6 +12,8 @@ venv/
 reports/report1/build/
 reports/report2/build/
 reports/report3/build/
+# Student numbers for the report covers, kept out of the public repository
+reports/student_numbers.json
 
 # Spark
 spark-warehouse/
