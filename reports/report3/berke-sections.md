@@ -37,7 +37,7 @@ The first tab is new in this report. A reader who opens the dashboard sees the a
 
 ### 4.3 Screenshots
 
-The screenshots show each tab in the light theme at a width of 1440 pixels, from the top of the page to the last chart. The sidebar is open in all of them; the *Show the numbers* tables are closed. They were taken with Playwright (Chromium) from the final dashboard, including the key findings tab.
+The screenshots show the first screen of each tab in the light theme, 1440 by 1060 pixels: the title, the "In short" line and the first chart. The larger versions of all charts are in Section 3. The sidebar is open in all of them; the *Show the numbers* tables are closed. They were taken with Playwright (Chromium) from the final dashboard, including the key findings tab.
 
 ![The key findings tab: five summary numbers and one chart for each finding](screenshots/dashboard-key-findings.png)
 
@@ -80,7 +80,7 @@ There were 101,401 trips per day in Q1 2024 and 118,872 in Q1 2025, 17.2% more. 
 
 ![Where the extra trips come from, by payment group](figures/findings_growth_by_payment.png)
 
-Flex fare trips grew from 7,146 to 23,139 per day and are 91.5% of the extra trips. Card trips grew by 4% and cash trips fell by 16% (Figure, `results/q2_borough_payment.csv`). These counts keep the trips with a negative price part, so they are higher than the Q2 numbers in Section 3.2. In 2025 the median recorded price per mile of a flex fare trip is 8.78 dollars, against 12.37 dollars for a card trip, and flex fare trips record no tip (`results/q2_by_payment.csv`). These prices come from Q2, which leaves out the trips with a negative price part, and they are computed from `total_amount`, which includes the zone charge for the trips that pay it, so they are a rough comparison (Section 6.1). The data only tells us that these trips have `payment_type` 0, not how they were booked or paid.
+Flex fare trips grew from 7,146 to 23,139 per day and are 91.5% of the extra trips. Card trips grew by 4% and cash trips fell by 16% (Figure 5.1, `results/q2_borough_payment.csv`). These counts keep the trips with a negative price part, so they are higher than the Q2 numbers in Section 3.2. In 2025 the median recorded price per mile of a flex fare trip is 8.78 dollars, against 12.37 dollars for a card trip, and flex fare trips record no tip (`results/q2_by_payment.csv`). These prices come from Q2, which leaves out the trips with a negative price part, and they are computed from `total_amount`, which includes the zone charge for the trips that pay it, so they are a rough comparison (Section 6.1). The data only tells us that these trips have `payment_type` 0, not how they were booked or paid.
 
 - **For the city.** A count of all trips hides this change. Any report on taxi demand, and any study of the zone charge, should show flex fare on its own, because one group of trips grew while the others stayed almost flat.
 - **For taxi operators.** The growth is in trips with a lower recorded price per mile and no recorded tip. More trips therefore do not mean the same growth in income, and an operator who looks only at the number of trips would overestimate it.
@@ -157,7 +157,7 @@ Source: `results/ml_zone_groups.csv` and `results/ml_group_profiles.csv`; the sh
 
 - **Group 1, all day.** Midtown, the Upper East and Upper West Side, the business districts and both big airports. Demand rises during the morning, stays high all day and peaks on Saturday evening (19:00). JFK and LaGuardia are not a group of their own, as we first expected: their trips are spread over the day and the week in the same way as in the busy Manhattan zones.
 - **Group 2, weekend nights.** East Village, West Village, Lower East Side, Williamsburg, Greenpoint and Bushwick. More than half of their trips start at the weekend and almost half between 22:00 and 04:59. The busiest hour is Sunday 01:00, the end of Saturday night, with 3.3% of the week's trips in one hour.
-- **Group 3, weekday mornings.** 99 of the 103 zones are outside Manhattan, for example Central Harlem North, Astoria, Bay Ridge and the residential parts of Brooklyn and the Bronx. The busiest hours are 07:00 on working days. These are trips from home in the morning.
+- **Group 3, weekday mornings.** 99 of the 103 zones are outside Manhattan, for example Central Harlem North, Astoria, Bay Ridge and the residential parts of Brooklyn and the Bronx. The busiest hours are 07:00 on working days, so these are probably trips from home in the morning; the data does not say where the riders live.
 
 ### 7.4 What the groups add
 
