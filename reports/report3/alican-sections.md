@@ -54,9 +54,9 @@ The queries group about 20 million rows into small tables. The 15 result files h
 
 ### 2.3 Tests and teamwork
 
-We have 163 tests in 20 test files in `tests/`, and we run them with `python -m unittest discover -s tests -t .`. The Spark tests use a few hand-made rows.
+We have 171 tests in 21 test files in `tests/`, and we run them with `python -m unittest discover -s tests -t .`. The Spark tests use a few hand-made rows.
 
-Each of us worked on our own Git branch (`alican` and `berke`). The finished tasks went to `main` through pull requests, 33 of them by 27 November. `docs/PLAN.md` lists the tasks with their owner, and `docs/contributions.md` lists the finished work. Section 9 is built from that file.
+Each of us worked on our own Git branch (`alican` and `berke`). The finished tasks went to `main` through pull requests, 34 of them by 27 November. `docs/PLAN.md` lists the tasks with their owner, and `docs/contributions.md` lists the finished work. Section 9 is built from that file.
 
 ## 3. Charts and what they show
 
